@@ -50,7 +50,7 @@ const AboutSection = () => {
 
             <div className="overflow-hidden rounded border border-[#E5E7EB] bg-[#F5F6F8]">
               {/* Image */}
-              <div className="h-[320px] overflow-hidden sm:h-[440px] lg:h-[620px]">
+              <div className="">
                 <img
                   src={ABOUT_IMAGE}
                   alt="Steel manufacturing and industrial production"

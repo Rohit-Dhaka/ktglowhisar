@@ -78,7 +78,7 @@ const legalLinks = [
 
 const FooterLinkList = ({ title, links }) => (
   <div>
-    <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+    <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#B8C7D9]">
       {title}
     </h3>
 
@@ -133,9 +133,8 @@ const Footer = () => {
             </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
-              <span className="font-semibold text-white">{COMPANY.brand}</span>{" "}
-              is a brand of {COMPANY.firm}, delivering steel polishing and
-              abrasive products from Hisar, Haryana.
+              KT Glow is a brand of Thalor Manufacturer, delivering steel polishing
+  and abrasive products for professional industrial surface finishing.
             </p>
 
             <Link
@@ -148,7 +147,7 @@ const Footer = () => {
 
             <div className="mt-7 flex items-center gap-3">
               <span className="h-px w-8 bg-[#A5E8F4]" />
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#B8C7D9]">
                 Built for Better Finishes
               </span>
             </div>
@@ -172,7 +171,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#B8C7D9]">
               Get In Touch
             </h3>
 
@@ -184,7 +183,7 @@ const Footer = () => {
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40">
+                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#B8C7D9]">
                       {label}
                     </p>
 
@@ -209,7 +208,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col gap-5 border-t border-white/10 py-6 sm:py-7 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs leading-5 text-white/45">
+          <p className="text-xs leading-5 text-[#B8C7D9]">
             © {currentYear}{" "}
             <span className="font-semibold text-white/70">{COMPANY.brand}</span>{" "}
             · {COMPANY.firm}. All rights reserved.
