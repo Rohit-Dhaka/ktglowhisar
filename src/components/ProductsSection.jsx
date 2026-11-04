@@ -1,74 +1,125 @@
-
-import  { useRef } from "react";
-import {  ChevronLeft, ChevronRight } from "lucide-react";
-
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import One from "../assets/images/1.png"
+import Two from "../assets/images/2.png"
+import Three from "../assets/images/3.png"
+import Four from "../assets/images/4.png"
+import Five from "../assets/images/5.png"
+import Six from "../assets/images/6.png"
 
+
+// Replace the image URLs with your own product photos.
 const products = [
   {
     id: "01",
-    name: "Steel Pipes & Tubes",
-    description:
-      "High-quality steel pipes and tubes designed for industrial applications.",
-    image:
-      "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1000&q=85",
+    name: "Cutting & Grinding Wheels",
+    description: "Wheels for cutting and grinding work on steel.",
+    path: "/products/cutting-grinding-wheels",
+    image:One
+      
   },
   {
     id: "02",
-    name: "Stainless Steel",
-    description:
-      "Durable stainless steel products with excellent strength and corrosion resistance.",
-    image:
-      "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1000&q=85",
+    name: "Flap Discs",
+    description: "Discs for blending, grinding and surface finishing.",
+    path: "/products/flap-discs",
+    image: Two
+      
   },
   {
     id: "03",
-    name: "Structural Steel",
-    description:
-      "Reliable structural steel solutions for construction and infrastructure.",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85",
+    name: "Fiber Discs",
+    description: "Abrasive fiber discs for steel surface preparation.",
+    path: "/products/fiber-discs",
+    image:Three
+      
   },
   {
     id: "04",
-    name: "Industrial Solutions",
-    description:
-      "Dependable steel materials for diverse industrial requirements.",
-    image:
-      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1000&q=85",
+    name: "Non-Woven Polishing Wheels",
+    description: "Polishing wheels for a clean, consistent finish.",
+    path: "/products/non-woven-polishing-wheels",
+    image: Four 
+      
   },
+  {
+    id: "05",
+    name: "Polishing & Buffing Wheels",
+    description: "Buffing wheels to bring out a bright steel shine.",
+    path: "/products/polishing-buffing-wheels",
+    image: Five
+      
+  },
+ {
+  id: "06",
+  name: "Polishing Wax",
+  description:
+    "Specialized polishing wax for buffing wheels to enhance shine and achieve a smooth, bright finish on steel and metal surfaces.",
+  path: "/products/polishing-wax",
+  image: Six
+    
+},
 ];
 
 const ProductsSection = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="overflow-hidden bg-[#F5F7FA] py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">        
+    <section className="overflow-hidden bg-[#F5F6F8] py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Heading + arrows */}
         <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-[#123E74]">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-black">
               Our Products
             </p>
-
-            <h2 className="text-2xl font-bold leading-tight text-[#06182e] sm:text-3xl lg:text-4xl">
-              Quality Steel Products
+            <h2 className="text-2xl font-bold leading-tight text-[#06182E] sm:text-3xl lg:text-4xl">
+              Abrasive &amp; Polishing Range
             </h2>
-
-            <p className="mt-3 max-w-xl text-sm leading-6 text-gray-500 sm:text-base">
-              Explore our range of steel products engineered for strength,
-              durability, and industrial performance.
+            <p className="mt-3 max-w-xl text-sm leading-6 text-black sm:text-base">
+              Cutting, grinding and polishing products by KT Glow, made for a
+              clean and consistent steel finish.
             </p>
-          </div>     
-        </div>        
+          </div>
+
+          <div className="flex gap-2">
+            <button
+              type="button"
+              aria-label="Previous product"
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#06182E] transition-colors hover:bg-[#06182E] hover:text-white"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              type="button"
+              aria-label="Next product"
+              onClick={() => swiperRef.current?.slideNext()}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#06182E] transition-colors hover:bg-[#06182E] hover:text-white"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Auto-playing slider */}
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Autoplay, Pagination]}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
+          }}
+          loop
+          speed={800}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           slidesPerView={1.15}
           spaceBetween={16}
@@ -77,54 +128,55 @@ const ProductsSection = () => {
             el: ".products-pagination",
           }}
           breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 24,
-            },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
           }}
           className="products-swiper"
         >
           {products.map((product) => (
-            <SwiperSlide key={product.id}>
-              <div className="group overflow-hidden rounded-xl border border-gray-200 bg-white">                
-                <div className="relative h-56 overflow-hidden sm:h-64 lg:h-72">
+            <SwiperSlide key={product.id} className="!h-auto">
+              <Link
+                to={product.path}
+                className="group flex h-full flex-col overflow-hidden rounded border border-[#E5E7EB] bg-white"
+              >
+                <div className="relative h-56 shrink-0 overflow-hidden bg-[#F5F6F8] sm:h-64 lg:h-70">
                   <img
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-4 top-4 rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-[#123E74]">
-                    {product.id}
-                  </span>
-                </div>                
-                <div className="p-5 sm:p-6">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-lg font-semibold text-[#06182e] sm:text-xl">
-                      {product.name}
-                    </h3>
-                
-                  </div>
+          
+                </div>
 
-                  <p className="mt-3 text-sm leading-6 text-gray-500">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h3 className="text-lg font-semibold text-[#06182E] sm:text-xl">
+                    {product.name}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-black">
                     {product.description}
                   </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#06182E]">
+                    View Details
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </span>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
-        </Swiper>        
+        </Swiper>
+
         <div className="products-pagination mt-8 flex justify-center" />
-      </div>      
+      </div>
+
       <style>{`
         .products-pagination .swiper-pagination-bullet {
           width: 8px;
           height: 8px;
-          background: #cbd5e1;
+          background: #E5E7EB;
           opacity: 1;
           border-radius: 999px;
           transition: all 0.3s ease;
@@ -132,7 +184,7 @@ const ProductsSection = () => {
 
         .products-pagination .swiper-pagination-bullet-active {
           width: 24px;
-          background: #123E74;
+          background: #06182E;
         }
       `}</style>
     </section>

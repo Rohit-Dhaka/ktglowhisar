@@ -1,29 +1,35 @@
-
-import './App.css'
-import AboutSection from './components/AboutSection'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import IndustriesSection from './components/IndustriesSection'
-import Navbar from './components/Navbar'
-import ProductsSection from './components/ProductsSection'
-import StatsSection from './components/StatsSection'
-
-import WhyChooseUs from './components/WhyChooseUs'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import PrivacyPolicy from "./components/Privacypolicy";
+import TermsAndConditions from "./components/Termsandconditions";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Products from "./pages/Products";
+import ScrollToTop from "./components/ScrollToTop";
+import Resources from "./pages/Resources";
+import ContactSection from "./components/ContactSection";
 function App() {
-  
-
   return (
     <>
-      <Navbar/>
-      <Hero/>
-      <StatsSection/>
-      <AboutSection/>
-      <ProductsSection/>
-      <WhyChooseUs/>
-      <IndustriesSection/>      
-      <Footer/>
+    <ScrollToTop/>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/request-quote" element={<ContactSection />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,51 +1,62 @@
-
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import Logo from "../assets/images/Logo.png";
 import {
   Menu,
   X,
-  Factory,
   ChevronDown,
   ChevronRight,
+  ArrowRight,
+  Phone,
+  Mail,
+  MapPin,
+  Cog,
+  Fan,
+  Disc,
+  Layers,
+  Sparkles,
 } from "lucide-react";
+
+/* ------------------------------------------------------------------ */
+/*  Data                                                               */
+/* ------------------------------------------------------------------ */
+const CONTACT = {
+  phone: "+919728303738",
+  phoneDisplay: "+91 97283 03738",
+  email: "vikash61289@gmail.com",
+  location: "Industrial Area, Hisar, Haryana",
+  firm: "Thalor Manufacturer",
+};
+
+const productLinks = [
+  { name: "Cutting & Grinding Wheels", path: "/products", icon: Cog,},
+  { name: "Flap Discs", path: "/products", icon: Fan },
+  { name: "Fiber Discs", path: "/products", icon: Disc },
+  { name: "Non-Woven Polishing Wheels", path: "/products", icon: Layers,},
+  {
+    name: "Polishing & Buffing Wheels",
+    path: "/products",
+    icon: Sparkles,
+  },
+];
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  {
-    name: "Products",
-    path: "/products",
-    dropdown: [
-      { name: "All Products", path: "/products" },
-      { name: "Steel Sheets", path: "/products/steel-sheets" },
-      { name: "Steel Pipes", path: "/products/steel-pipes" },
-      { name: "Steel Plates", path: "/products/steel-plates" },
-      { name: "Steel Bars", path: "/products/steel-bars" },
-      { name: "Structural Steel", path: "/products/structural-steel" },
-    ],
-  },
-  {
-    name: "Industries",
-    path: "/industries",
-    dropdown: [
-      { name: "Construction", path: "/industries/construction" },
-      { name: "Automotive", path: "/industries/automotive" },
-      { name: "Infrastructure", path: "/industries/infrastructure" },
-      { name: "Manufacturing", path: "/industries/manufacturing" },
-      { name: "Energy", path: "/industries/energy" },
-    ],
-  },
-  { name: "Infrastructure", path: "/infrastructure" },
-  { name: "Quality", path: "/quality" },
+  { name: "Products", path: "/products", dropdown: productLinks },      
+  { name: "Resources", path: "/resources" },
   { name: "Contact Us", path: "/contact" },
 ];
 
+/* ------------------------------------------------------------------ */
+/*  Component                                                          */
+/* ------------------------------------------------------------------ */
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const isLightNavbar = isScrolled || isOpen;
+  
+  const { pathname } = useLocation();
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -57,162 +68,252 @@ const Navbar = () => {
     setActiveDropdown(null);
   };
 
-  const toggleDropdown = (name) => {
+  const toggleDropdown = (name) =>
     setActiveDropdown((prev) => (prev === name ? null : name));
-  };
 
   
+
+  // Close menu on route change
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
+    closeMenu();
+  }, [pathname]);
 
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  
+  // Lock body scroll while mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
-
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
+  // Escape key + close when resized to desktop
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e) => e.key === "Escape" && closeMenu();
+    const onResize = () => window.innerWidth >= 1280 && closeMenu();
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [isOpen]);
+
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 w-full border-b transition-all duration-300 ${
-        isLightNavbar
-          ? "border-gray-200 bg-white"
-          : "border-transparent bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-3 sm:px-5 lg:px-8">        
+    <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-[#E5E7EB] bg-white">
+      {/* ---------- Top info bar (collapses on scroll) ---------- */}
+      <div
+        className={`overflow-hidden bg-[#06182E] text-white transition-[height] duration-300 ${
+          isScrolled ? "h-0" : "h-9"
+        }`}
+      >
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-3 text-xs sm:px-5 lg:px-8">
+          <div className="flex items-center gap-5 max-sm:justify-between max-sm:w-full">
+            <a
+              href={`tel:${CONTACT.phone}`}
+              className="flex items-center gap-1.5 hover:opacity-80"
+            >
+              <Phone size={13} />
+              {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              className=" items-center gap-1.5 hover:opacity-80 flex"
+            >
+              <Mail size={13} />
+              {CONTACT.email}
+            </a>
+          </div>
+          <div className="hidden items-center gap-5 lg:flex">
+            <span className="flex items-center gap-1.5">
+              <MapPin size={13} />
+              {CONTACT.location}
+            </span>
+            <span className="rounded-full border border-white/30 px-3 py-0.5 font-medium">
+              {CONTACT.firm}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ---------- Main bar ---------- */}
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:h-20 sm:px-5 lg:px-8">
+        {/* Logo */}
         <Link
           to="/"
           onClick={closeMenu}
-          className="flex shrink-0 items-center gap-2.5"
+          className="flex shrink-0 items-center"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded bg-[#123E74] text-white sm:h-11 sm:w-11">
-            <Factory size={22} />
-          </div>
-
-          <div className="flex flex-col">
-            <span
-              className={`text-base font-bold leading-tight transition-colors duration-300 sm:text-lg ${
-                isLightNavbar ? "text-black" : "text-white"
-              }`}
-            >
-              SteelCore
-            </span>
-
-            <span
-              className={`text-[9px] font-semibold tracking-[0.15em] transition-colors duration-300 sm:text-[10px] ${
-                isLightNavbar ? "text-gray-500" : "text-gray-200"
-              }`}
-            >
-              STEEL INDUSTRIES
-            </span>
-          </div>
+          <img
+            src={Logo}
+            alt="KT Glow"
+            className="h-10 w-auto rounded sm:h-18"
+          />
         </Link>
 
-        
-        <div className="hidden items-center gap-5 xl:flex">
+        {/* Desktop navigation */}
+        <div className="hidden items-center gap-6 xl:flex">
           {navLinks.map((link) => (
             <div key={link.path} className="group relative">
               <NavLink
                 to={link.path}
-                className={({ isActive }) =>
-                  `relative flex items-center gap-1.5 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? isLightNavbar
-                        ? "text-[#123E74]"
-                        : "text-white"
-                      : isLightNavbar
-                        ? "text-gray-700 hover:text-[#123E74]"
-                        : "text-white/90 hover:text-white"
-                  }`
-                }
+                end={link.path === "/"}
+                className="relative flex items-center gap-1 py-2 text-[13px] font-medium"
               >
-                {link.name}
-
-                {link.dropdown && (
-                  <ChevronDown
-                    size={15}
-                    className="transition-transform duration-200 group-hover:rotate-180"
-                  />
-                )}                
-                <span className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-[#123E74] transition-transform duration-300 group-hover:scale-x-100" />
-              </NavLink>              
-              {link.dropdown && (
-                <div className="invisible absolute left-0 top-full z-50 w-56 translate-y-2 rounded-xl border border-gray-200 bg-white p-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  {link.dropdown.map((item) => (
-                    <NavLink
-                      key={item.path}
-                      to={item.path}
-                      className={({ isActive }) =>
-                        `block rounded-lg px-3 py-2.5 text-sm transition-colors duration-200 ${
-                          isActive
-                            ? "text-[#123E74]"
-                            : "text-gray-700 hover:text-[#123E74]"
-                        }`
-                      }
+                {({ isActive }) => (
+                  <>
+                    <span
+                      className={`transition-colors duration-200 ${
+                        isActive
+                          ? "font-semibold text-[#06182E]"
+                          : "text-[#30343a] group-hover:text-[#06182E]"
+                      }`}
                     >
-                      {item.name}
-                    </NavLink>
-                  ))}
+                      {link.name}
+                    </span>
+
+                    {link.dropdown && (
+                      <ChevronDown
+                        size={14}
+                        className="text-black transition-transform duration-200 group-hover:rotate-180 group-hover:text-[#06182E]"
+                      />
+                    )}
+
+                    <span
+                      className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left rounded-full bg-[#06182E] transition-transform duration-300 ${
+                        isActive
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </>
+                )}
+              </NavLink>
+
+              {/* Products mega menu */}
+              {link.dropdown && (
+                <div className="invisible absolute left-[50%] translate-x-[-50%] top-full z-50 translate-y-2 pt-6 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="flex w-[800px] overflow-hidden rounded border border-[#E5E7EB] bg-white">
+                    <div className="grid flex-1 grid-cols-2 gap-1 p-4">
+                      {link.dropdown.map(({ name, path, icon: Icon }) => (
+                        <NavLink
+                          key={path}
+                          to={path}
+                          end
+                          className={({ isActive }) =>
+                            `flex items-center gap-3 rounded p-3 text-sm transition-colors duration-200 hover:bg-[#F5F6F8] ${
+                              isActive
+                                ? "bg-[#F5F6F8] font-semibold text-[#06182E]"
+                                : "text-[#06182E]"
+                            }`
+                          }
+                        >
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#E5E7EB] bg-white">
+                            <Icon size={16} />
+                          </span>
+                          <span className="leading-snug text-nowrap">{name}</span>
+                        </NavLink>
+                      ))}
+
+                      <Link
+                        to="/products"
+                        className="flex items-center justify-between gap-3 rounded bg-[#06182E] p-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                      >
+                        View All Products
+                        <ArrowRight size={16} />
+                      </Link>
+                    </div>
+
+                    <div className="hidden w-56 shrink-0 flex-col justify-between border-l border-[#E5E7EB] bg-[#F8FAFC] p-5 lg:flex">
+                      <div>
+                        <p className="text-sm font-semibold text-[#06182E]">
+                          Need help choosing?
+                        </p>
+                        <p className="mt-2 text-xs leading-relaxed text-black">
+                          Talk to us directly about the right product for your
+                          work.
+                        </p>
+                      </div>
+                      <a
+                        href={`tel:${CONTACT.phone}`}
+                        className="mt-4 flex items-center gap-2 text-sm font-semibold text-[#06182E]"
+                      >
+                        <Phone size={15} />
+                        {CONTACT.phoneDisplay}
+                      </a>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
           ))}
-        </div>        
+        </div>
+
+        {/* Desktop quote button */}
         <div className="hidden xl:flex">
           <Link
             to="/request-quote"
-            className="flex items-center gap-2 rounded bg-[#123E74] px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0E315C]"
+            className="flex items-center gap-2 rounded bg-[#06182E] px-4 py-3 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-90"
           >
             Request a Quote
             <ChevronRight size={17} />
           </Link>
-        </div>        
+        </div>
+
+        {/* Mobile menu button */}
         <button
           type="button"
           onClick={toggleMenu}
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
-          className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors duration-300 hover:text-[#123E74] xl:hidden ${
-            isLightNavbar ? "text-black" : "text-white"
-          }`}
+          className="flex h-10 w-10 items-center justify-center rounded border border-[#E5E7EB] text-[#06182E] transition-colors hover:bg-[#F5F6F8] xl:hidden"
         >
-          {isOpen ? <X size={23} /> : <Menu size={23} />}
+          <Menu size={20} />
         </button>
-      </nav>      
+      </nav>
+
+
+
+      {/* ---------- Mobile drawer ---------- */}
       <div
-        className={`fixed inset-x-0 top-20 z-40 h-[calc(100dvh-5rem)] overflow-y-auto border-t border-gray-200 bg-white transition-all duration-300 xl:hidden ${
+        className={`fixed inset-0 z-[60] flex flex-col bg-white transition-all duration-300 xl:hidden ${
           isOpen
             ? "visible translate-x-0 opacity-100"
             : "invisible translate-x-full opacity-0"
         }`}
       >
-        <div className="flex min-h-full flex-col p-3 sm:p-5">          
+        <div className="flex h-16 shrink-0 items-center justify-between border-b border-[#E5E7EB] px-3 sm:h-20 sm:px-5">
+          <Link to="/" onClick={closeMenu} className="flex items-center">
+            <img
+              src={Logo}
+              alt="KT Glow"
+              className="h-10 w-auto rounded sm:h-12"
+            />
+          </Link>
+          <button
+            type="button"
+            onClick={closeMenu}
+            aria-label="Close navigation menu"
+            className="flex h-10 w-10 items-center justify-center rounded border border-[#E5E7EB] text-[#06182E] hover:bg-[#F5F6F8]"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-3 sm:p-5">
           <div className="space-y-1">
             {navLinks.map((link) => (
               <div key={link.path}>
                 <div className="flex items-center justify-between">
                   <NavLink
                     to={link.path}
+                    end={link.path === "/"}
                     onClick={closeMenu}
                     className={({ isActive }) =>
-                      `relative flex flex-1 items-center rounded-lg px-3 py-3.5 text-sm font-semibold transition-colors duration-200 ${
+                      `flex flex-1 items-center rounded px-3 py-3 text-sm font-semibold transition-colors ${
                         isActive
-                          ? "text-[#123E74]"
-                          : "text-gray-700 hover:text-[#123E74]"
+                          ? "bg-[#F5F6F8] text-[#06182E]"
+                          : "text-black hover:text-[#06182E]"
                       }`
                     }
                   >
@@ -225,7 +326,7 @@ const Navbar = () => {
                       onClick={() => toggleDropdown(link.name)}
                       aria-label={`Toggle ${link.name} dropdown`}
                       aria-expanded={activeDropdown === link.name}
-                      className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-600 transition-colors hover:text-[#123E74]"
+                      className="flex h-10 w-10 items-center justify-center rounded text-black transition-colors hover:bg-[#F5F6F8] hover:text-[#06182E]"
                     >
                       <ChevronDown
                         size={18}
@@ -235,7 +336,8 @@ const Navbar = () => {
                       />
                     </button>
                   )}
-                </div>                
+                </div>
+
                 {link.dropdown && (
                   <div
                     className={`grid transition-all duration-300 ${
@@ -245,22 +347,22 @@ const Navbar = () => {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="ml-3 space-y-1 border-l border-gray-200 py-2 pl-3">
-                        {link.dropdown.map((item) => (
+                      <div className="ml-3 space-y-1 border-l border-[#E5E7EB] py-2 pl-3">
+                        {link.dropdown.map(({ name, path, icon: Icon }) => (
                           <NavLink
-                            key={item.path}
-                            to={item.path}
+                            key={path}
+                            to={path}
                             onClick={closeMenu}
                             className={({ isActive }) =>
-                              `flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition-colors duration-200 ${
+                              `flex items-center gap-3 rounded px-3 py-3 text-sm transition-colors ${
                                 isActive
-                                  ? "text-[#123E74]"
-                                  : "text-gray-600 hover:text-[#123E74]"
+                                  ? "bg-[#F5F6F8] font-semibold text-[#06182E]"
+                                  : "text-black hover:text-[#06182E]"
                               }`
                             }
                           >
-                            <ChevronRight size={14} />
-                            {item.name}
+                            <Icon size={16} />
+                            <span>{name}</span>
                           </NavLink>
                         ))}
                       </div>
@@ -269,17 +371,35 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-          </div>          
-          <div className="mt-5 border-t border-gray-200 pt-4">
-            <Link
-              to="/request-quote"
-              onClick={closeMenu}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#123E74] px-4 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#0E315C]"
-            >
-              Request a Quote
-              <ChevronRight size={18} />
-            </Link>         
           </div>
+        </div>
+
+        {/* Drawer footer: quick contact + CTA */}
+        <div className="shrink-0 space-y-3 border-t border-[#E5E7EB] bg-[#F8FAFC] p-3 sm:p-5">
+          <div className="grid grid-cols-2 gap-3">
+            <a
+              href={`tel:${CONTACT.phone}`}
+              className="flex items-center justify-center gap-2 rounded border border-[#E5E7EB] bg-white px-3 py-3 text-sm font-semibold text-[#06182E]"
+            >
+              <Phone size={16} />
+              Call
+            </a>
+            <a
+              href={`mailto:${CONTACT.email}`}
+              className="flex items-center justify-center gap-2 rounded border border-[#E5E7EB] bg-white px-3 py-3 text-sm font-semibold text-[#06182E]"
+            >
+              <Mail size={16} />
+              Email
+            </a>
+          </div>
+          <Link
+            to="/request-quote"
+            onClick={closeMenu}
+            className="flex w-full items-center justify-center gap-2 rounded bg-[#06182E] px-4 py-3.5 text-sm font-semibold text-white"
+          >
+            Request a Quote
+            <ChevronRight size={18} />
+          </Link>
         </div>
       </div>
     </header>

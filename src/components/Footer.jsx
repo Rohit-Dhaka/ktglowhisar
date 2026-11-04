@@ -1,223 +1,232 @@
 import { Link } from "react-router-dom";
+import Logo from "../assets/images/Logo.png";
 import {
-  Factory,
   MapPin,
   Phone,
   Mail,
-  ArrowUpRight,
-  ChevronRight,
-  ArrowUp,
+  User,
+  MoveUpRight,
 } from "lucide-react";
 
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
+const COMPANY = {
+  brand: "KT Glow",
+  firm: "Thalor Manufacturer",
+  tagline: "Steel Polishing & Abrasive Products",
+  contactPerson: "Vikas Thalor",
+  phone: "+919728303738",
+  phoneDisplay: "+91 97283 03738",
+  email: "Vikash61289@gmail.com",
+  address: "Plot No. 10, Fees Market, Industrial Area, Hisar, Haryana",
+};
 
-const quickLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Infrastructure", path: "/infrastructure" },
-  { name: "Quality", path: "/quality" },
-  { name: "Contact Us", path: "/contact" },
+const footerLinks = {
+  quickLinks: [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Applications", path: "/applications" },
+    { name: "Infrastructure", path: "/infrastructure" },
+    { name: "Quality", path: "/quality" },
+    { name: "Contact Us", path: "/contact" },
+  ],
+  products: [
+    {
+      name: "Cutting & Grinding Wheels",
+      path: "/products/cutting-grinding-wheels",
+    },
+    { name: "Flap Discs", path: "/products/flap-discs" },
+    { name: "Fiber Discs", path: "/products/fiber-discs" },
+    {
+      name: "Non-Woven Polishing Wheels",
+      path: "/products/non-woven-polishing-wheels",
+    },
+    {
+      name: "Polishing & Buffing Wheels",
+      path: "/products/polishing-buffing-wheels",
+    },
+  ],
+};
+
+const contactItems = [
+  {
+    icon: User,
+    label: "Contact Person",
+    value: COMPANY.contactPerson,
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: COMPANY.phoneDisplay,
+    href: `tel:${COMPANY.phone}`,
+  },
+  {
+    icon: Mail,
+    label: "Email Address",
+    value: COMPANY.email,
+    href: `mailto:${COMPANY.email}`,
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: COMPANY.address,
+  },
 ];
 
-const productLinks = [
-  { name: "Steel Sheets", path: "/products/steel-sheets" },
-  { name: "Steel Pipes", path: "/products/steel-pipes" },
-  { name: "Steel Plates", path: "/products/steel-plates" },
-  { name: "Steel Bars", path: "/products/steel-bars" },
-  { name: "Structural Steel", path: "/products/structural-steel" },
+const legalLinks = [
+  { name: "Privacy Policy", path: "/privacy-policy" },
+  { name: "Terms & Conditions", path: "/terms-and-conditions" },
 ];
 
-const socialLinks = [
-  {
-    name: "Facebook",
-    icon: FaFacebookF,
-    url: "https://facebook.com/",
-  },
-  {
-    name: "Instagram",
-    icon: FaInstagram,
-    url: "https://instagram.com/",
-  },
-  {
-    name: "LinkedIn",
-    icon: FaLinkedinIn,
-    url: "https://linkedin.com/",
-  },
-  {
-    name: "YouTube",
-    icon: FaYoutube,
-    url: "https://youtube.com/",
-  },
-];
+const FooterLinkList = ({ title, links }) => (
+  <div>
+    <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+      {title}
+    </h3>
+
+    <ul className="space-y-3">
+      {links.map((link) => (
+        <li key={link.path}>
+          <Link
+            to={link.path}
+            className="group inline-flex items-center gap-2 text-sm leading-6 text-white/70 transition-colors duration-200 hover:text-[#A5E8F4]"
+          >
+            <span className="h-1 w-1 shrink-0 rounded-full bg-white/30 transition-all duration-200 group-hover:w-2 group-hover:bg-[#A5E8F4]" />
+            {link.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-[#06182e] text-white">
-  
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
-          
-          <div className="lg:col-span-4">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#123E74] text-white">
-                <Factory size={24} />
-              </div>
+    <footer className="relative w-full overflow-hidden bg-[#06182E] text-white">
+      {/* Decorative Background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-white/[0.06]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full border border-white/[0.06]"
+      />
 
-              <div>
-                <h2 className="text-xl font-bold leading-tight">SteelCore</h2>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
 
-                <p className="text-[9px] font-semibold tracking-[0.2em] text-white/60 sm:text-[10px]">
-                  STEEL INDUSTRIES
-                </p>
-              </div>
+        {/* Main Footer */}
+        <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-4">
+            <Link
+              to="/"
+              aria-label="KT Glow Home"
+              className=""
+            >
+              <img
+                src={Logo}
+                alt={COMPANY.brand}
+                className="h-11 w-auto rounded-lg object-contain sm:h-18"
+              />
             </Link>
 
-            <p className="mt-5 max-w-sm text-sm leading-6 text-white/65 sm:leading-7">
-              Delivering reliable steel solutions through strength, precision,
-              and innovation. We are committed to quality manufacturing and
-              building a stronger future.
+            <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
+              <span className="font-semibold text-white">{COMPANY.brand}</span>{" "}
+              is a brand of {COMPANY.firm}, delivering steel polishing and
+              abrasive products from Hisar, Haryana.
             </p>
 
-            
-            <div className="mt-6">
-              <h3 className="mb-3 text-sm font-semibold text-white">
-                Follow Us
-              </h3>
+            <Link
+              to="/about"
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#A5E8F4] transition-colors hover:text-white"
+            >
+              Discover Our Company
+              <MoveUpRight size={16} />
+            </Link>
 
-              <div className="flex items-center gap-3">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-
-                  return (
-                    <a
-                      key={social.name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.name}
-                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-white/70 transition-colors duration-200 hover:border-[#123E74] hover:bg-[#123E74] hover:text-white"
-                    >
-                      <Icon size={17} />
-                    </a>
-                  );
-                })}
-              </div>
+            <div className="mt-7 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#A5E8F4]" />
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
+                Built for Better Finishes
+              </span>
             </div>
           </div>
 
-          
-          <div className="lg:col-span-4">
-            <h3 className="text-base font-semibold sm:text-lg">Explore</h3>
-
-            <div className="mt-5 grid grid-cols-2 gap-5">
-              
-              <div>
-                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/45">
-                  Quick Links
-                </h4>
-
-                <div className="space-y-3">
-                  {quickLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className="group flex items-center gap-2 text-sm text-white/65 transition-colors duration-200 hover:text-white"
-                    >
-                      <ChevronRight
-                        size={14}
-                        className="shrink-0 text-white/35 transition-colors group-hover:text-[#6FA8E8]"
-                      />
-
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              
-              <div>
-                <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/45">
-                  Products
-                </h4>
-
-                <div className="space-y-3">
-                  {productLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className="group flex items-center gap-2 text-sm text-white/65 transition-colors duration-200 hover:text-white"
-                    >
-                      <ChevronRight
-                        size={14}
-                        className="shrink-0 text-white/35 transition-colors group-hover:text-[#6FA8E8]"
-                      />
-
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
+          {/* Quick Links */}
+          <div className="lg:col-span-2">
+            <FooterLinkList
+              title="Explore"
+              links={footerLinks.quickLinks}
+            />
           </div>
 
-          
-          <div className="lg:col-span-4">
-            <h3 className="text-base font-semibold sm:text-lg">Get In Touch</h3>
+          {/* Products */}
+          <div className="lg:col-span-3">
+            <FooterLinkList
+              title="Our Products"
+              links={footerLinks.products}
+            />
+          </div>
 
-            <p className="mt-4 text-sm leading-6 text-white/65">
-              Have a project in mind or need reliable steel products? Contact
-              our team for assistance.
-            </p>
+          {/* Contact */}
+          <div className="lg:col-span-3">
+            <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+              Get In Touch
+            </h3>
 
-            <div className="mt-5 space-y-4">
-              
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-[#6FA8E8]">
-                  <MapPin size={17} />
-                </div>
+            <ul className="space-y-5">
+              {contactItems.map(({ icon: Icon, label, value, href }) => (
+                <li key={label} className="flex items-start gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-[#A5E8F4]">
+                    <Icon size={15} />
+                  </span>
 
-                <p className="pt-1 text-sm leading-6 text-white/65">
-                  Industrial Area,
-                  <br />
-                  Hisar, Haryana, India
-                </p>
-              </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40">
+                      {label}
+                    </p>
 
-             
-              <a
-                href="tel:+919876543210"
-                className="flex items-center gap-3 text-sm text-white/65 transition-colors duration-200 hover:text-white"
-              >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-[#6FA8E8]">
-                  <Phone size={17} />
-                </div>
-                +91 98765 43210
-              </a>
-
-              
-              <a
-                href="mailto:info@steelcore.com"
-                className="flex items-center gap-3 text-sm text-white/65 transition-colors duration-200 hover:text-white"
-              >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-[#6FA8E8]">
-                  <Mail size={17} />
-                </div>
-                info@steelcore.com
-              </a>
-            </div>
+                    {href ? (
+                      <a
+                        href={href}
+                        className="break-words text-sm leading-6 text-white/80 transition-colors hover:text-[#A5E8F4]"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="break-words text-sm leading-6 text-white/80">
+                        {value}
+                      </p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>      
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 sm:px-6 md:flex-row lg:px-8">
-          <p className="text-center text-xs leading-6 text-white/50 sm:text-sm md:text-left">
-            © {new Date().getFullYear()} SteelCore Industries. All rights reserved.
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col gap-5 border-t border-white/10 py-6 sm:py-7 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs leading-5 text-white/45">
+            © {currentYear}{" "}
+            <span className="font-semibold text-white/70">{COMPANY.brand}</span>{" "}
+            · {COMPANY.firm}. All rights reserved.
           </p>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-xs text-white/50 transition-colors hover:text-[#A5E8F4]"
+              >
+                {link.name}
+              </Link>
+            ))}
+
+          </div>
         </div>
       </div>
     </footer>
