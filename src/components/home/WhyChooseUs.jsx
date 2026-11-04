@@ -8,7 +8,7 @@ import {
   Factory,
 } from "lucide-react";
 
-import whyImage from "../../assets/images/hero4.png";
+import whyImage from "../../assets/images/Hero4.png";
 
 const features = [
   {

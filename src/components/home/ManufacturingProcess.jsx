@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 
-import processBg from "../../assets/images/hero4.png";
+import processBg from "../../assets/images/Hero4.png";
 
 
 
