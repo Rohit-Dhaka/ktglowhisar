@@ -92,7 +92,7 @@ const sections = [
 const TermsAndConditions = () => {
   return (
     <main className="bg-white text-left">
-      {/* Page Header */}
+      
       <section className="border-b border-[#E5E7EB] bg-[#F8FAFC] pt-24 pb-10 sm:pt-40 sm:pb-14">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-black sm:text-sm">
@@ -122,7 +122,7 @@ const TermsAndConditions = () => {
         </div>
       </section>
 
-      {/* Legal Content */}
+      
       <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         <div className="space-y-9 sm:space-y-11">
           {sections.map((section, index) => (
@@ -149,7 +149,7 @@ const TermsAndConditions = () => {
           ))}
         </div>
 
-        {/* Contact Information */}
+        
         <section className="mt-12 rounded border border-[#E5E7EB] bg-[#F8FAFC] p-5 sm:mt-16 sm:p-8 lg:p-10">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-black sm:text-sm">
@@ -234,7 +234,7 @@ const TermsAndConditions = () => {
           </div>
         </section>
 
-        {/* Bottom Note */}
+        
         <div className="mt-8">
           <p className="text-xs leading-6 text-[#94A3B8] sm:text-sm">
             These Terms & Conditions are intended to provide general information

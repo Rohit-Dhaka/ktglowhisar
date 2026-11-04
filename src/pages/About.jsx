@@ -14,8 +14,8 @@ const About = () => {
       <MissionVisionValues />
       <ManufacturingCapabilities />
       <QualityAssurance />
-      <WhyChooseUs />
-      <AboutCTA />
+      {/* <WhyChooseUs /> */}
+      {/* <AboutCTA /> */}
     </main>
   );
 };

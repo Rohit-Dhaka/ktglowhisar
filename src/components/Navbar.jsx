@@ -17,9 +17,6 @@ import {
   Sparkles,
 } from "lucide-react";
 
-/* ------------------------------------------------------------------ */
-/*  Data                                                               */
-/* ------------------------------------------------------------------ */
 const CONTACT = {
   phone: "+919728303738",
   phoneDisplay: "+91 97283 03738",
@@ -48,13 +45,12 @@ const navLinks = [
   { name: "Contact Us", path: "/contact" },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const [hiddenMenu, setHiddenMenu] = useState(null);
   
   const { pathname } = useLocation();
 
@@ -71,14 +67,17 @@ const Navbar = () => {
   const toggleDropdown = (name) =>
     setActiveDropdown((prev) => (prev === name ? null : name));
 
-  
+  const hideDesktopMenu = (e, name) => {
+    setHiddenMenu(name);
+    e.currentTarget.blur();
+  };
 
-  // Close menu on route change
+  
   useEffect(() => {
     closeMenu();
   }, [pathname]);
 
-  // Lock body scroll while mobile menu is open
+  
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -86,7 +85,7 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  // Escape key + close when resized to desktop
+  
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e) => e.key === "Escape" && closeMenu();
@@ -101,7 +100,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full border-b border-[#E5E7EB] bg-white">
-      {/* ---------- Top info bar (collapses on scroll) ---------- */}
+      
       <div
         className={`overflow-hidden bg-[#06182E] text-white transition-[height] duration-300 ${
           isScrolled ? "h-0" : "h-9"
@@ -136,9 +135,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ---------- Main bar ---------- */}
+      
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-3 sm:h-20 sm:px-5 lg:px-8">
-        {/* Logo */}
+        
         <Link
           to="/"
           onClick={closeMenu}
@@ -151,13 +150,22 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop navigation */}
+        
         <div className="hidden items-center gap-6 xl:flex">
           {navLinks.map((link) => (
-            <div key={link.path} className="group relative">
+            <div
+              key={link.path}
+              className="group relative"
+              onMouseLeave={() => {
+                if (hiddenMenu === link.name) setHiddenMenu(null);
+              }}
+            >
               <NavLink
                 to={link.path}
                 end={link.path === "/"}
+                onClick={(e) => {
+                  if (link.dropdown) hideDesktopMenu(e, link.name);
+                }}
                 className="relative flex items-center gap-1 py-2 text-[13px] font-medium"
               >
                 {({ isActive }) => (
@@ -190,9 +198,15 @@ const Navbar = () => {
                 )}
               </NavLink>
 
-              {/* Products mega menu */}
+              
               {link.dropdown && (
-                <div className="invisible absolute left-[50%] translate-x-[-50%] top-full z-50 translate-y-2 pt-6 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <div
+                  className={`invisible absolute left-[50%] translate-x-[-50%] top-full z-50 translate-y-2 pt-6 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${
+                    hiddenMenu === link.name
+                      ? "!pointer-events-none !invisible !translate-y-2 !opacity-0"
+                      : ""
+                  }`}
+                >
                   <div className="flex w-[800px] overflow-hidden rounded border border-[#E5E7EB] bg-white">
                     <div className="grid flex-1 grid-cols-2 gap-1 p-4">
                       {link.dropdown.map(({ name, path, icon: Icon }) => (
@@ -200,6 +214,7 @@ const Navbar = () => {
                           key={path}
                           to={path}
                           end
+                          onClick={(e) => hideDesktopMenu(e, link.name)}
                           className={({ isActive }) =>
                             `flex items-center gap-3 rounded p-3 text-sm transition-colors duration-200 hover:bg-[#F5F6F8] ${
                               isActive
@@ -217,6 +232,7 @@ const Navbar = () => {
 
                       <Link
                         to="/products"
+                        onClick={(e) => hideDesktopMenu(e, link.name)}
                         className="flex items-center justify-between gap-3 rounded bg-[#06182E] p-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                       >
                         View All Products
@@ -249,7 +265,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop quote button */}
         <div className="hidden xl:flex">
           <Link
             to="/request-quote"
@@ -260,7 +275,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile menu button */}
         <button
           type="button"
           onClick={toggleMenu}
@@ -274,7 +288,7 @@ const Navbar = () => {
 
 
 
-      {/* ---------- Mobile drawer ---------- */}
+      
       <div
         className={`fixed inset-0 z-[60] flex flex-col bg-white transition-all duration-300 xl:hidden ${
           isOpen
@@ -374,7 +388,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Drawer footer: quick contact + CTA */}
+        
         <div className="shrink-0 space-y-3 border-t border-[#E5E7EB] bg-[#F8FAFC] p-3 sm:p-5">
           <div className="grid grid-cols-2 gap-3">
             <a

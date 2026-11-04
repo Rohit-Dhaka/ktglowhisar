@@ -1,5 +1,7 @@
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, MotionConfig, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
   Settings,
@@ -57,170 +59,275 @@ const capabilities = [
 
 const AUTO_DELAY = 4000;
 
+const sectionVariants = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 const ManufacturingCapabilities = () => {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // Auto-advance, pauses while the user hovers or focuses the section
   useEffect(() => {
     if (paused) return;
-    const timer = setInterval(
-      () => setActive((i) => (i + 1) % capabilities.length),
-      AUTO_DELAY
-    );
+
+    const timer = setInterval(() => {
+      setActive((i) => (i + 1) % capabilities.length);
+    }, AUTO_DELAY);
+
     return () => clearInterval(timer);
-  }, [paused, active]);
+  }, [paused]);
 
   const current = capabilities[active];
   const CurrentIcon = current.icon;
 
   return (
-    <section className="w-full overflow-hidden bg-[#F8FAFC] py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-      
-<div className="mb-10 grid gap-6 sm:mb-14 lg:grid-cols-2 lg:items-end lg:gap-16">
-  {/* Left Side - Tag & Heading */}
-  <div>
-    <div className="mb-4 flex items-center gap-3">
-      <span className="h-0.5 w-8 rounded-full bg-[#06182E]" />
-      <p className="text-xs font-semibold uppercase tracking-widest text-black sm:text-sm">
-        Our Capabilities
-      </p>
-    </div>
-
-    <h2 className="text-3xl font-bold leading-tight tracking-tight text-[#06182E] sm:text-4xl lg:text-5xl">
-      Manufacturing Excellence Built on Precision
-    </h2>
-  </div>
-
-  {/* Right Side - Description */}
-  <div className="lg:justify-self-end lg:max-w-xl">
-    <p className="text-sm leading-7 text-black sm:text-base sm:leading-8">
-      Our manufacturing capabilities combine technical expertise,
-      quality-focused processes, and flexible solutions to support
-      diverse industrial requirements. With a strong focus on precision,
-      consistency, and performance, we aim to deliver reliable steel
-      polishing and abrasive solutions that meet the evolving needs
-      of our customers and industrial applications.
-    </p>
-  </div>
-</div>
-
-
-        {/* Selector + detail */}
-        <div
-          className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          onFocus={() => setPaused(true)}
-          onBlur={() => setPaused(false)}
-        >
-          {/* Tabs */}
-          <div
-            role="tablist"
-            aria-label="Manufacturing capabilities"
-            className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6 lg:col-span-5 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-0 lg:pb-0"
+    <MotionConfig reducedMotion="never">
+      <section className="w-full overflow-hidden bg-[#F8FAFC] py-14 sm:py-20 lg:py-24">
+        <div className=" px-4 sm:px-6 lg:px-8">
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="mb-10 grid gap-6 sm:mb-14 lg:grid-cols-2 lg:items-end lg:gap-16"
           >
-            {capabilities.map(({ id, title }, i) => {
-              const isActive = i === active;
-              return (
-                <button
-                  key={id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActive(i)}
-                  className={`flex shrink-0 items-center gap-4 rounded-full border px-5 py-3 text-left text-sm font-semibold transition-colors duration-300 lg:w-full lg:rounded-none lg:border-0 lg:border-b lg:border-[#E5E7EB] lg:bg-transparent lg:px-2 lg:py-5 lg:text-lg ${
-                    isActive
-                      ? "border-[#06182E] bg-[#06182E] text-white lg:text-[#06182E]"
-                      : "border-[#E5E7EB] bg-white text-black hover:text-[#06182E]"
-                  }`}
-                >
-                  <span
-                    className={`text-xs font-bold tracking-wider ${
+            
+            <motion.div variants={itemVariants}>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-0.5 w-8 rounded-full bg-[#06182E]" />
+
+                <p className="text-xs font-semibold uppercase tracking-widest text-black sm:text-sm">
+                  Our Capabilities
+                </p>
+              </div>
+
+              
+              <h2 className=" text-3xl font-bold leading-tight tracking-tight  sm:text-4xl lg:text-5xl">
+                Manufacturing Excellence{" "}
+                <span className="italic text-[#C9972B] font-serif">
+                  Built on Precision
+                </span>
+              </h2>
+            </motion.div>
+
+            
+            <motion.div
+              variants={itemVariants}
+              className="lg:justify-self-end lg:max-w-xl"
+            >
+              <p className="text-sm leading-7 text-black sm:text-base sm:leading-8">
+                Our manufacturing capabilities combine technical expertise,
+                quality-focused processes, and flexible solutions to support
+                diverse industrial requirements. With a strong focus on precision,
+                consistency, and performance, we aim to deliver reliable steel
+                polishing and abrasive solutions that meet the evolving needs
+                of our customers and industrial applications.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setPaused(false);
+              }
+            }}
+          >
+            
+            <motion.div
+              variants={itemVariants}
+              role="tablist"
+              aria-label="Manufacturing capabilities"
+              className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:-mx-6 sm:px-6 lg:col-span-5 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:px-0 lg:pb-0"
+            >
+              {capabilities.map(({ id, title }, i) => {
+                const isActive = i === active;
+
+                return (
+                  <motion.button
+                    key={id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActive(i)}
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`flex shrink-0 items-center gap-4 rounded-full border px-5 py-3 text-left text-sm font-semibold transition-colors duration-300 lg:w-full lg:rounded-none lg:border-0 lg:border-b lg:border-[#E5E7EB] lg:bg-transparent lg:px-2 lg:py-5 lg:text-lg ${
                       isActive
-                        ? "text-white/70 lg:text-[#06182E]"
-                        : "text-black"
+                        ? "border-[#06182E] bg-[#06182E] text-white lg:text-[#06182E]"
+                        : "border-[#E5E7EB] bg-white text-black hover:text-[#06182E]"
                     }`}
                   >
-                    {id}
-                  </span>
-                  <span className="whitespace-nowrap lg:whitespace-normal">
-                    {title}
-                  </span>
-                  <span
-                    className={`ml-auto hidden h-0.5 rounded-full bg-[#06182E] transition-all duration-300 lg:block ${
-                      isActive ? "w-10" : "w-0"
-                    }`}
-                  />
-                </button>
-              );
-            })}
-          </div>
+                    <span
+                      className={`text-xs font-bold tracking-wider ${
+                        isActive
+                          ? "text-white/70 lg:text-[#06182E]"
+                          : "text-black"
+                      }`}
+                    >
+                      {id}
+                    </span>
 
-          {/* Detail */}
-          <div
-            role="tabpanel"
-            className="relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded border border-[#E5E7EB] bg-white p-6 sm:min-h-[360px] sm:p-10 lg:col-span-7"
-          >
-            {/* Big faded number */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-2 -top-4 select-none text-[9rem] font-bold leading-none text-[#F5F6F8] sm:text-[13rem]"
+                    <span className="whitespace-nowrap lg:whitespace-normal">
+                      {title}
+                    </span>
+
+                    <span
+                      className={`ml-auto hidden h-0.5 rounded-full bg-[#06182E] transition-all duration-300 lg:block ${
+                        isActive ? "w-10" : "w-0"
+                      }`}
+                    />
+                  </motion.button>
+                );
+              })}
+            </motion.div>
+
+            
+            <motion.div
+              variants={itemVariants}
+              role="tabpanel"
+              className="relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded border border-[#E5E7EB] bg-white p-6 sm:min-h-[360px] sm:p-10 lg:col-span-7"
             >
-              {current.id}
-            </span>
-
-            <div key={current.id} className="relative">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#06182E] text-white">
-                <CurrentIcon size={24} strokeWidth={1.8} />
+              
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-serif text-[9rem] font-bold leading-none text-[#F5F6F8] sm:text-[13rem]"
+              >
+                {current.id}
               </span>
 
-              <h3 className="mt-8 text-2xl font-bold text-[#06182E] sm:text-3xl">
-                {current.title}
-              </h3>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-black sm:text-base sm:leading-8">
-                {current.description}
-              </p>
-            </div>
+              <motion.div
+                key={current.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.45,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="relative"
+              >
+                <motion.span
+                  whileHover={{ rotate: 5, scale: 1.05 }}
+                  className="flex h-14 w-14 items-center justify-center rounded-full bg-[#06182E] text-white"
+                >
+                  <CurrentIcon size={24} strokeWidth={1.8} />
+                </motion.span>
 
-            {/* Progress line */}
-            <div className="relative mt-8 flex items-center gap-1.5">
-              {capabilities.map(({ id }, i) => (
-                <span
-                  key={id}
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    i === active ? "w-8 bg-[#06182E]" : "w-3 bg-[#E5E7EB]"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+                <h3 className="mt-8 font-serif text-2xl font-bold text-[#06182E] sm:text-3xl">
+                  {current.title}
+                </h3>
 
-        {/* CTA row */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-[#E5E7EB] pt-8 sm:flex-row sm:items-center">
-          <div className="max-w-2xl">
-            <h3 className="text-xl font-bold text-[#06182E] sm:text-2xl">
-              Looking for Custom Manufacturing Solutions?
-            </h3>
-            <p className="mt-2 text-sm leading-7 text-black sm:text-base">
-              Connect with our team to discuss your industrial product
-              requirements and explore suitable solutions.
-            </p>
-          </div>
+                <p className="mt-4 max-w-xl text-sm leading-7 text-black sm:text-base sm:leading-8">
+                  {current.description}
+                </p>
+              </motion.div>
 
-          <Link
-            to="/contact"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              
+              <div className="relative mt-8 flex items-center gap-1.5">
+                {capabilities.map(({ id }, i) => (
+                  <motion.span
+                    key={id}
+                    animate={{
+                      width: i === active ? 32 : 12,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className={`h-1 rounded-full ${
+                      i === active ? "bg-[#06182E]" : "bg-[#E5E7EB]"
+                    }`}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-[#E5E7EB] pt-8 sm:flex-row sm:items-center"
           >
-            Contact Our Team
-            <ArrowUpRight size={18} />
-          </Link>
+            <motion.div variants={itemVariants} className="max-w-2xl">
+              <h3 className="font-serif text-xl font-bold text-[#06182E] sm:text-2xl">
+                Looking for{" "}
+                <span className="italic">
+                  Custom Manufacturing Solutions?
+                </span>
+              </h3>
+
+              <p className="mt-2 text-sm leading-7 text-black sm:text-base">
+                Connect with our team to discuss your industrial product
+                requirements and explore suitable solutions.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Link
+                to="/contact"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Contact Our Team
+                <ArrowUpRight size={18} />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MotionConfig>
   );
 };
 

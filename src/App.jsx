@@ -10,7 +10,8 @@ import Contact from "./pages/Contact";
 import Products from "./pages/Products";
 import ScrollToTop from "./components/ScrollToTop";
 import Resources from "./pages/Resources";
-import ContactSection from "./components/ContactSection";
+import ContactSection from "./components/home/ContactSection";
+import ContactForm from "./components/contact/ContactForm";
 function App() {
   return (
     <>
@@ -23,7 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/request-quote" element={<ContactSection />} />
+        <Route path="/request-quote" element={<ContactForm />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>

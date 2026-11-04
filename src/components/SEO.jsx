@@ -45,7 +45,7 @@ const SEO = ({
 
   return (
     <Helmet>
-      {/* Basic SEO */}
+      
       <title>{title}</title>
 
       <meta name="description" content={description} />
@@ -60,17 +60,17 @@ const SEO = ({
 
       <meta name="language" content="English" />
 
-      {/* Local SEO */}
+      
       <meta name="geo.region" content="IN-HR" />
 
       <meta name="geo.placename" content="Hisar, Haryana, India" />
 
-      {/* Canonical URL */}
+      
       {canonicalUrl && (
         <link rel="canonical" href={canonicalUrl} />
       )}
 
-      {/* Open Graph SEO */}
+      
       <meta property="og:title" content={title} />
 
       <meta property="og:description" content={description} />
@@ -87,7 +87,7 @@ const SEO = ({
         <meta property="og:image" content={ogImage} />
       )}
 
-      {/* Twitter SEO */}
+      
       <meta name="twitter:card" content="summary_large_image" />
 
       <meta name="twitter:title" content={title} />

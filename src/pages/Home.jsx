@@ -1,18 +1,18 @@
-import AboutSection from "../components/AboutSection";
-import ContactSection from "../components/ContactSection";
-import Hero from "../components/Hero";
-import IndustriesWeServe from "../components/IndustriesWeServe";
-import LocationSection from "../components/Locationsection";
-import ManufacturingProcess from "../components/ManufacturingProcess";
-import ProductApplications from "../components/ProductApplications";
+import AboutSection from "../components/home/AboutSection";
+import Hero from "../components/home/Hero";
+import IndustriesWeServe from "../components/home/IndustriesWeServe";
+import ManufacturingProcess from "../components/home/ManufacturingProcess";
+import ProductApplications from "../components/home/ProductApplications";
 
-import ProductsSection from "../components/ProductsSection";
+import ProductsSection from "../components/home/ProductsSection";
 import SEO from "../components/SEO";
-import WhyChooseUs from "../components/WhyChooseUs";
+import WhyChooseUs from "../components/home/WhyChooseUs";
+import ContactSection from "../components/home/ContactSection";
+import LocationSection from "../components/home/Locationsection";
 
 const Home = () => {
   return (
-    <main>
+    <main className="overflow-hidden">
       <SEO
         title="Best Steel Polishing Products in Hisar | KT GLOW"
         description="KT GLOW provides premium steel polishing products, metal finishing solutions, and industrial abrasives in Hisar, Haryana."
@@ -21,13 +21,13 @@ const Home = () => {
 
       <Hero />
       <AboutSection />
-      <ProductsSection />
       <WhyChooseUs />
-      <IndustriesWeServe />
+      <ProductsSection />
+      {/* <IndustriesWeServe /> */}
       <ManufacturingProcess />
       <ProductApplications />
-      <ContactSection />
-      <LocationSection />
+    <ContactSection/>
+    <LocationSection/>
     </main>
   );
 };
