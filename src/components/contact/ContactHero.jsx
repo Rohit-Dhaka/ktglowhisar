@@ -13,7 +13,7 @@ import ContactImg from "../../assets/images/contactHero.png";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-/* NOTE: update these with your real contact details */
+
 const CONTACT = {
   phone: "+919728303738",
   phoneDisplay: "+91 97283 03738",
@@ -67,7 +67,7 @@ const ContactHero = () => {
   return (
     <section className="relative isolate flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[#06182E]">
       
-      {/* Top Breadcrumb Navigation */}
+      
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ const ContactHero = () => {
         </div>
       </motion.div>
 
-      {/* Background decoration */}
+      
       <motion.div
         aria-hidden="true"
         animate={reduce ? undefined : { opacity: [0.3, 0.55, 0.3], scale: [1, 1.1, 1] }}
@@ -91,7 +91,7 @@ const ContactHero = () => {
         className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-[#E0B04A]/20 blur-3xl"
       />
 
-      {/* Giant outline watermark */}
+      
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-4 -bottom-6 select-none whitespace-nowrap text-center font-serif text-[18vw] font-bold leading-none text-transparent lg:inset-x-10 lg:-bottom-12 lg:text-[18vw]"
@@ -100,18 +100,18 @@ const ContactHero = () => {
         CONTACT
       </span>
 
-      {/* Content */}
+      
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           
-          {/* ===== LEFT: TEXT ===== */}
+          
           <motion.div
             variants={container}
             initial="hidden"
             animate="visible"
             className="lg:col-span-7"
           >
-            {/* Circular Icon Badge + Tag */}
+            
             <motion.div
               variants={fadeUp}
               className="mb-5 flex items-center gap-3.5"
@@ -125,7 +125,7 @@ const ContactHero = () => {
               </span>
             </motion.div>
 
-            {/* Heading with ResourcesHero font size */}
+            
             <h1 className="text-3xl font-extrabold leading-[1.14] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-[54px] xl:text-[58px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -142,7 +142,7 @@ const ContactHero = () => {
               </span>
             </h1>
 
-            {/* Description */}
+            
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base sm:leading-7"
@@ -152,7 +152,7 @@ const ContactHero = () => {
               product enquiries and technical support to business opportunities.
             </motion.p>
 
-            {/* CTA Buttons (Full-width on mobile) */}
+            
             <motion.div
               variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
@@ -188,9 +188,9 @@ const ContactHero = () => {
             </motion.div>
           </motion.div>
 
-          {/* ===== RIGHT: ARCH IMAGE ===== */}
+          
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-sm lg:col-span-5 lg:max-w-md">
-            {/* Dashed arch outline */}
+            
             <motion.div
               aria-hidden="true"
               initial={{ opacity: 0, scale: reduce ? 1 : 0.94 }}
@@ -199,7 +199,7 @@ const ContactHero = () => {
               className="absolute -inset-3 rounded-t-[999px] rounded-b-[2rem] border border-dashed border-[#E0B04A]/40"
             />
 
-            {/* Image with reveal */}
+            
             <motion.div
               initial={{ clipPath: reduce ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)" }}
               animate={{ clipPath: "inset(0% 0 0 0)" }}
@@ -217,7 +217,7 @@ const ContactHero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#06182E]/70 via-transparent to-[#06182E]/10" />
             </motion.div>
 
-            {/* Rotating circular text badge */}
+            
             <motion.div
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -253,7 +253,7 @@ const ContactHero = () => {
               </div>
             </motion.div>
 
-            {/* Floating call card */}
+            
             <motion.a
               href={`tel:${CONTACT.phone}`}
               initial={{ opacity: 0, y: reduce ? 0 : 30 }}
@@ -282,7 +282,7 @@ const ContactHero = () => {
           </div>
         </div>
 
-        {/* ===== BOTTOM INFO STRIP ===== */}
+        
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -311,7 +311,7 @@ const ContactHero = () => {
         </motion.div>
       </div>
 
-      {/* Bottom Border */}
+      
       <div className="absolute bottom-0 left-0 h-px w-full bg-white/15" />
     </section>
   );

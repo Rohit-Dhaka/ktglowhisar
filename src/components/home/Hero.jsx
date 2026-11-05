@@ -20,9 +20,7 @@ import {
 
 import heroImage from "../../assets/images/hero1.png";
 
-/* =========================================================
-   SEO — PAGE <head> METADATA
-========================================================= */
+
 
 const SEO_TITLE =
   "KT Glow — Precision Abrasives for a Flawless Steel Finish";
@@ -59,9 +57,7 @@ function useSEO({ title, description, keywords }) {
   }, [title, description, keywords]);
 }
 
-/* =========================================================
-   CONTENT & TAGS
-========================================================= */
+
 
 const content = {
   subtitle: "KT GLOW — THALOR MANUFACTURER",
@@ -72,7 +68,7 @@ const content = {
   link: "/products",
 };
 
-/* Typewriter Words (Aap yahan naye words bhi add kar sakte hain) */
+
 const typewriterWords = [
   "Brighter Steel Finish.",
   "Flawless Mirror Shine.",
@@ -80,7 +76,7 @@ const typewriterWords = [
   "Industrial Perfection.",
 ];
 
-/* 4 Feature Highlights (About Page Style) */
+
 const heroHighlights = [
   {
     icon: Cog,
@@ -104,7 +100,7 @@ const heroHighlights = [
   },
 ];
 
-/* Real numbers for bottom stats bar */
+
 const stats = [
   { icon: BadgeCheck, value: "10+", label: "Years of Experience" },
   { icon: Users, value: "5000+", label: "Happy Customers" },
@@ -112,9 +108,7 @@ const stats = [
   { icon: Truck, value: "Pan India", label: "Delivery Available" },
 ];
 
-/* =========================================================
-   TYPEWRITER HOOK
-========================================================= */
+
 
 function useTypewriter(words, typingSpeed = 90, deletingSpeed = 45, pauseTime = 1800) {
   const [index, setIndex] = useState(0);
@@ -147,9 +141,6 @@ function useTypewriter(words, typingSpeed = 90, deletingSpeed = 45, pauseTime = 
   return words[index % words.length]?.substring(0, subIndex) || "";
 }
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -219,9 +210,7 @@ const statItem = {
   },
 };
 
-/* =========================================================
-   HERO COMPONENT
-========================================================= */
+
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -234,7 +223,7 @@ const Hero = () => {
     keywords: SEO_KEYWORDS,
   });
 
-  /* Scroll parallax */
+  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -254,18 +243,16 @@ const Hero = () => {
   return (
     <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#FBF8F2]">
       
-      {/* Luxury Editorial Font Import */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700;1,800&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
       />
 
-      {/* =====================================================
-          PART 1: HERO VIEWPORT (RESPONSIVE FULL SCREEN)
-      ====================================================== */}
+ 
       <div className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-14 md:px-12 lg:px-20 xl:px-28">
         
-        {/* Background Image (Parallax + Zoom-in) */}
+        
         <motion.div
           style={{
             y: reduce ? 0 : imageY,
@@ -284,7 +271,7 @@ const Hero = () => {
           />
         </motion.div>
 
-        {/* Gradient Overlay for Text Readability */}
+        
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -292,7 +279,7 @@ const Hero = () => {
           className="absolute inset-0 z-[1] bg-gradient-to-b from-[#FBF8F2]/95 via-[#FBF8F2]/90 to-[#FBF8F2]/80 md:bg-gradient-to-r md:from-[#FBF8F2] md:via-[#FBF8F2]/92 md:to-transparent md:w-[70%]"
         />
 
-        {/* Soft Gold Decorative Glow */}
+        
         <motion.div
           aria-hidden="true"
           animate={
@@ -304,7 +291,7 @@ const Hero = () => {
           className="pointer-events-none absolute right-[10%] top-[18%] z-[1] h-40 w-40 rounded-full bg-[#E0B04A]/20 blur-3xl md:h-72 md:w-72"
         />
 
-        {/* Decorative Circle */}
+        
         <motion.div
           aria-hidden="true"
           style={{
@@ -316,7 +303,7 @@ const Hero = () => {
           className="pointer-events-none absolute -right-20 top-16 z-[1] h-60 w-60 rounded-full border border-[#B8862B]/20 sm:-right-24 sm:top-24 sm:h-96 sm:w-96 lg:h-[460px] lg:w-[460px]"
         />
 
-        {/* Main Content Area */}
+        
         <div className="relative z-[2] mx-auto pt-12 w-full max-w-[1600px]">
           <motion.div
             variants={heroContainer}
@@ -324,7 +311,7 @@ const Hero = () => {
             animate="show"
             className="w-full max-w-2xl lg:max-w-3xl"
           >
-            {/* Subtitle / Brand Tag */}
+            
             <motion.div variants={fadeUp} className="mb-2.5 flex items-center gap-2.5 sm:mb-3.5 sm:gap-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -337,16 +324,16 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            {/* Main Heading with Typewriter Effect */}
+            
             <h1 className="text-[30px] font-extrabold leading-[1.12] tracking-tight text-[#06182E] xs:text-4xl sm:text-5xl md:text-6xl lg:text-[68px]">
-              {/* Line 1: Solid & Bold */}
+              
               <span className="block overflow-hidden pb-1 pt-0.5">
                 <motion.span variants={lineReveal} className="block font-['Plus_Jakarta_Sans',sans-serif] tracking-tight">
                   {content.title}
                 </motion.span>
               </span>
 
-              {/* Line 2: Editorial Serif Italic with Typewriter Effect & Blinking Cursor */}
+              
               <span className="block min-h-[1.25em] pb-2 pt-0.5">
                 <span className="inline-block bg-gradient-to-r from-[#9A6B12] via-[#E0B04A] to-[#9A6B12] bg-[length:200%_auto] bg-clip-text pr-1 font-['Playfair_Display',serif] italic font-semibold text-transparent text-[30px] xs:text-[36px] sm:text-[50px] md:text-[60px] lg:text-[68px]">
                   {reduce ? typewriterWords[0] : typedText}
@@ -367,7 +354,7 @@ const Hero = () => {
               </span>
             </h1>
 
-            {/* Description Paragraph */}
+            
             <motion.p
               variants={fadeUp}
               className="mt-3.5 max-w-2xl text-[13.5px] leading-relaxed text-[#06182E]/85 sm:mt-4 sm:text-[15.5px] sm:leading-7"
@@ -375,7 +362,7 @@ const Hero = () => {
               {content.description}
             </motion.p>
 
-            {/* CTA Buttons (Both full width on mobile) */}
+            
             <motion.div
               variants={fadeUp}
               className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center"

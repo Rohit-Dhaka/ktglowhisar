@@ -1,7 +1,3 @@
-
-
-
-
 import { useRef } from "react";
 import {
   motion,
@@ -14,6 +10,7 @@ import {
 import {
   ArrowRight,
   ArrowUpRight,
+  ChevronRight,
   Sparkles,
   Layers,
   ShieldCheck,
@@ -102,6 +99,22 @@ const ProductsHero = () => {
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
         />
 
+        {/* Top Breadcrumb Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="absolute left-0 top-0 z-20 w-full px-4 pt-6 sm:px-6 lg:px-8"
+        >
+          <div className="mx-auto flex max-w-7xl items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/70 sm:text-sm">
+            <Link to="/" className="transition-colors hover:text-[#E0B04A]">
+              Home
+            </Link>
+            <ChevronRight size={15} />
+            <span className="text-[#E0B04A]">Products</span>
+          </div>
+        </motion.div>
+
         {/* =================================================
             1. FULL BACKGROUND IMAGE + BRAND TONED OVERLAY
         ================================================== */}
@@ -113,7 +126,7 @@ const ProductsHero = () => {
             className="h-full w-full object-cover object-center scale-105 filter blur-[2px]"
           />
 
-          {/* Deep Brand Dark Overlay (Reference Jaisa Rich Feel) */}
+          {/* Deep Brand Dark Overlay */}
           <div className="absolute inset-0 bg-[#151C22]/85 backdrop-blur-[2px]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#13191F]/95 via-[#151C22]/85 to-[#171F26]/75" />
 
@@ -129,10 +142,7 @@ const ProductsHero = () => {
         {/* =================================================
             2. MAIN HERO CONTENT
         ================================================== */}
-        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-45">
-          
-          
-
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-36">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
             
             {/* =================================================
@@ -198,14 +208,14 @@ const ProductsHero = () => {
                 ))}
               </motion.div>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons (Full width on mobile) */}
               <motion.div
                 variants={fadeUpVariants}
-                className="mt-8 flex flex-wrap items-center gap-3.5"
+                className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:flex-wrap"
               >
                 <a
                   href="#product-categories"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#E0B04A] px-7 py-3.5 text-sm font-bold text-[#151C22] shadow-md shadow-[#E0B04A]/20 transition-all hover:bg-[#F0CA6A] hover:shadow-lg"
+                  className="group flex w-full items-center justify-center gap-2.5 rounded-full bg-[#E0B04A] px-7 py-3.5 text-sm font-bold text-[#151C22] shadow-md shadow-[#E0B04A]/20 transition-all hover:bg-[#F0CA6A] hover:shadow-lg sm:w-auto sm:inline-flex"
                 >
                   Explore Products
                   <ArrowRight
@@ -216,7 +226,7 @@ const ProductsHero = () => {
 
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-[#E0B04A]/60 hover:bg-white/[0.08]"
+                  className="group flex w-full items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-[#E0B04A]/60 hover:bg-white/[0.08] sm:w-auto sm:inline-flex"
                 >
                   Request a Quote
                   <ArrowUpRight
@@ -236,7 +246,6 @@ const ProductsHero = () => {
               animate="visible"
               className="relative flex justify-center lg:col-span-5"
             >
-              {/* Scaled-down Max Width Frame (max-w-[420px]) */}
               <div className="relative w-full max-w-[420px]">
                 {/* Thin Ambient Accent Frame */}
                 <div className="absolute -inset-2.5 rounded-3xl border border-[#E0B04A]/25 sm:-inset-3.5" />
