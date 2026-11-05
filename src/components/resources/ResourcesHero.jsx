@@ -37,16 +37,6 @@ const fadeUpVariants = {
 
 
 
-/* =========================================================
-   TYPEWRITER
-========================================================= */
-
-
-
-/* =========================================================
-   RESOURCES HERO
-========================================================= */
-
 const ResourcesHero = () => {
   const reduce = useReducedMotion();
 
@@ -153,6 +143,7 @@ const ResourcesHero = () => {
                   </motion.span>
                 ))}
               </span>
+              
             </motion.h1>
 
             {/* Description */}
