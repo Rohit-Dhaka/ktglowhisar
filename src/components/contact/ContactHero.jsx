@@ -86,7 +86,7 @@ const ContactHero = () => {
 </span>
 
       {/* ---------- Content ---------- */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-10 pt-28 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-10 pt-38 sm:px-6 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           {/* ===== LEFT: TEXT ===== */}
           <motion.div
@@ -95,17 +95,7 @@ const ContactHero = () => {
             animate="visible"
             className="lg:col-span-7"
           >
-            {/* Breadcrumb */}
-            <motion.div
-              variants={fadeUp}
-              className="mb-6 flex items-center gap-2 text-xs font-medium text-slate-300 sm:text-sm"
-            >
-              <Link to="/" className="transition-colors hover:text-[#E0B04A]">
-                Home
-              </Link>
-              <ChevronRight size={16} className="text-slate-500" />
-              <span className="text-white">Contact Us</span>
-            </motion.div>
+  
 
             {/* Eyebrow with gold dash */}
             <motion.div variants={fadeUp} className="mb-5 flex items-center gap-3">
@@ -121,7 +111,7 @@ const ContactHero = () => {
             </motion.div>
 
             {/* Heading - line reveal */}
-            <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[84px]">
+            <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[72px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
                   Let&apos;s Start

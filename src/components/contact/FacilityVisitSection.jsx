@@ -276,25 +276,44 @@ const FacilityVisitSection = () => {
           className="mt-12 sm:mt-16"
         >
           {/* Contact Heading */}
-          <motion.div
-            variants={fadeUp}
-            className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
-          >
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#8A6212]">
-                Contact Directory
-              </p>
+       
+{/* Contact Heading */}
+<motion.div
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  className="mb-10 grid grid-cols-1 items-center gap-6 sm:mb-14 lg:grid-cols-2 lg:gap-16"
+>
+  {/* LEFT CONTENT */}
+  <div>
+    <div className="mb-5 flex items-center gap-3">
+      <span className="h-0.5 w-10 rounded-full bg-[#C9972B]" />
 
-              <h3 className="mt-3 text-2xl font-extrabold tracking-tight text-[#06182E] sm:text-3xl">
-                Connect With Our Team
-              </h3>
-            </div>
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#06182E] sm:text-sm">
+        Contact Directory
+      </p>
+    </div>
 
-            <p className="max-w-sm text-xs leading-6 text-[#06182E]/60 sm:text-sm">
-              Reach us directly for product details, technical assistance,
-              and business enquiries.
-            </p>
-          </motion.div>
+    <h3 className="text-3xl font-bold leading-tight tracking-tight text-[#06182E] sm:text-4xl lg:text-5xl">
+      Connect With
+      <span className="mt-1 block font-serif italic text-[#C9972B]">
+        Our Team.
+      </span>
+    </h3>
+  </div>
+
+  {/* RIGHT CONTENT */}
+  <div className="lg:justify-self-end lg:max-w-2xl">
+    <p className="text-sm leading-7 text-[#06182E]/70 sm:text-base sm:leading-8 lg:text-lg">
+      Reach our team for product details, technical assistance, and
+      business enquiries. We are ready to understand your industrial
+      requirements and provide reliable steel polishing and abrasive
+      solutions tailored to your needs.
+    </p>
+  </div>
+</motion.div>
+
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
