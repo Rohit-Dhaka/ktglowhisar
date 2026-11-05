@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -9,7 +9,7 @@ import {
   Layers,
 } from "lucide-react";
 
-import BG_IMAGE from "../../assets/images/hero3.png";
+import BG_IMAGE from "../../assets/images/Hero3.png";
 
 const EASE = [0.22, 1, 0.36, 1];
 
