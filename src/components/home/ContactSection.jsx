@@ -10,6 +10,9 @@ import {
   MapPin,
   Send,
   Sparkles,
+  Loader2,
+  CheckCircle,
+  AlertCircle,
 } from "lucide-react";
 
 /* =========================================================
@@ -79,8 +82,13 @@ const initialForm = {
   message: "",
 };
 
+// Web3Forms Key (from .env or directly embedded)
+const WEB3FORMS_ACCESS_KEY =
+  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
+  "5866f7a4-4088-4ea3-9265-f435d4fabf20";
+
 /* =========================================================
-   CONTACT SECTION COMPONENT
+   CONTACT SECTION COMPONENT (Connected to Web3Forms)
 ========================================================= */
 
 const ContactSection = () => {
@@ -107,30 +115,41 @@ const ContactSection = () => {
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: `[KT Glow Enquiry] ${formData.subject || "Product Requirement"}`,
+          message: formData.message,
+          from_name: "KT Glow Website",
+        }),
       });
 
       const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.message || "Unable to send your message.");
+      if (result.success) {
+        setStatus({
+          type: "success",
+          message:
+            "Thank you! Your enquiry has been sent successfully. Our team will contact you shortly.",
+        });
+        setFormData(initialForm);
+      } else {
+        throw new Error(result.message || "Failed to submit enquiry. Please try again.");
       }
-
-      setStatus({
-        type: "success",
-        message: "Your message has been sent successfully. Our team will contact you shortly.",
-      });
-
-      setFormData(initialForm);
     } catch (error) {
       setStatus({
         type: "error",
-        message: error.message || "Something went wrong. Please try again.",
+        message:
+          error.message ||
+          "Unable to send message. Please reach us directly at +91 97283 03738.",
       });
     } finally {
       setLoading(false);
@@ -141,15 +160,14 @@ const ContactSection = () => {
     "w-full rounded-xl border border-[#E5E7EB] bg-white px-4 py-3 text-sm text-[#06182E] outline-none transition-all duration-300 placeholder:text-slate-400 focus:border-[#B8862B] focus:shadow-[0_0_0_3px_rgba(184,134,43,0.14)]";
 
   return (
-    /* 👇 Background changed to warm luxury #FBF8F2 */
     <section
       id="contact"
       className="relative w-full overflow-hidden bg-[#FBF8F2] py-8 sm:py-10"
     >
-      {/* Google font for cursive typography */}
+      {/* Luxury Editorial Font for Consistency */}
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
       />
 
       {/* Subtle Dot Grid Texture */}
@@ -178,7 +196,8 @@ const ContactSection = () => {
       />
 
       {/* Main Container */}
-      <div className="relative z-10  px-4 sm:px-8 lg:px-12">
+      <div className="relative z-10 px-4 sm:px-8 lg:px-12">
+        
         {/* ===================================================
             SECTION HEADER
         =================================================== */}
@@ -204,7 +223,7 @@ const ContactSection = () => {
               </p>
             </motion.div>
 
-            {/* EXPANDED HEADING WITH CURSIVE ACCENT */}
+            {/* EXPANDED HEADING */}
             <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-[#06182E] sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -225,7 +244,7 @@ const ContactSection = () => {
                       repeat: Infinity,
                       ease: "linear",
                     }}
-                    className="inline-block bg-[linear-gradient(90deg,#9A6B12,#E0B04A,#9A6B12)] bg-[length:200%_auto] bg-clip-text pr-2 font-['Dancing_Script',cursive] font-bold tracking-normal text-transparent"
+                    className="inline-block bg-[linear-gradient(90deg,#9A6B12,#E0B04A,#9A6B12)] bg-[length:200%_auto] bg-clip-text pr-2 font-['Playfair_Display',serif] italic font-semibold text-transparent"
                   >
                     With Our Team
                   </motion.span>
@@ -320,7 +339,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* RIGHT: CONTACT FORM */}
+          {/* RIGHT: CONTACT FORM (Powered by Web3Forms) */}
           <div className="flex flex-col justify-center py-2 lg:pl-3">
             <div className="mb-5">
               <h3 className="text-xl font-bold text-[#06182E] sm:text-2xl">
@@ -416,7 +435,7 @@ const ContactSection = () => {
                     <option value="Product Enquiry">Product Enquiry</option>
                     <option value="Bulk Order">Bulk Order</option>
                     <option value="Request a Quote">Request a Quote</option>
-                    <option value="Business Partnership">Distributor Enquiry</option>
+                    <option value="Distributor Enquiry">Distributor Enquiry</option>
                     <option value="Other">Other Query</option>
                   </select>
                 </div>
@@ -446,13 +465,18 @@ const ContactSection = () => {
               {status.message && (
                 <div
                   role="status"
-                  className={`rounded-xl border px-4 py-3 text-xs font-semibold ${
+                  className={`flex items-start gap-2.5 rounded-xl border p-3.5 text-xs font-semibold ${
                     status.type === "success"
                       ? "border-emerald-200 bg-emerald-50 text-emerald-800"
                       : "border-red-200 bg-red-50 text-red-800"
                   }`}
                 >
-                  {status.message}
+                  {status.type === "success" ? (
+                    <CheckCircle size={16} className="mt-0.5 shrink-0 text-emerald-600" />
+                  ) : (
+                    <AlertCircle size={16} className="mt-0.5 shrink-0 text-red-600" />
+                  )}
+                  <span>{status.message}</span>
                 </div>
               )}
 
@@ -461,14 +485,21 @@ const ContactSection = () => {
                 <motion.button
                   type="submit"
                   disabled={loading}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={loading ? {} : { scale: 1.02, y: -2 }}
+                  whileTap={loading ? {} : { scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#06182E] px-7 py-3.5 text-sm font-bold text-white shadow-[0_10px_25px_rgba(6,24,46,0.22)] transition-colors hover:bg-[#0D2A4A] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  <span>{loading ? "Transmitting..." : "Send Message"}</span>
-                  {!loading && (
-                    <Send size={15} className="text-[#E0B04A]" />
+                  {loading ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin text-[#E0B04A]" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send size={15} className="text-[#E0B04A]" />
+                    </>
                   )}
                 </motion.button>
 

@@ -163,19 +163,9 @@ const FeaturedProductsSection = () => {
         >
           {/* Left Side - Tag & Heading */}
           <div className="w-full lg:max-w-[50%]">
-            <motion.span
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 rounded-full border border-[#B8862B]/40 bg-[#F5F7FA] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#0F2B46] sm:text-sm"
-            >
-              <motion.span
-                animate={reduce ? undefined : { rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="flex text-[#B8862B]"
-              >
-                <Layers3 size={15} />
-              </motion.span>
-              Featured Products
-            </motion.span>
+            
+           
+           
 
             {/* Main heading */}
             <h2 className="mt-5 text-[34px] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#06182E] sm:text-[44px] lg:text-[56px]">
@@ -462,81 +452,7 @@ const FeaturedProductsSection = () => {
           </motion.div>
         </div>
 
-        {/* =====================================================
-            BOTTOM CTA
-        ====================================================== */}
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="relative mt-8 flex flex-col gap-5 overflow-hidden rounded-2xl bg-[#06182E] p-5 sm:p-7 lg:flex-row lg:items-center lg:justify-between"
-        >
-          {/* graphics */}
-          <motion.div
-            aria-hidden="true"
-            animate={reduce ? undefined : { rotate: 360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full border border-dashed border-[#E0B04A]/30"
-          />
-          <motion.div
-            aria-hidden="true"
-            animate={
-              reduce ? undefined : { scale: [1, 1.1, 1], opacity: [0.5, 0.9, 0.5] }
-            }
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute -bottom-16 left-1/3 h-40 w-40 rounded-full bg-[#E0B04A]/20 blur-3xl"
-          />
-
-          <div className="relative flex items-start gap-4">
-            <motion.div
-              animate={reduce ? undefined : { y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#E0B04A]/40 bg-white/5 text-[#E0B04A]"
-            >
-              <Package size={21} />
-            </motion.div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white sm:text-xl">
-                Looking for the Right Steel Polishing Product?
-              </h3>
-
-              <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300">
-                Tell us about your metal finishing application, surface
-                requirements, and specifications to explore the right abrasive
-                and polishing solutions.
-              </p>
-            </div>
-          </div>
-
-          <motion.div
-            whileHover={{ y: -5, scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className="relative shrink-0"
-          >
-            <a
-              href="/contact#contact-form"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#06182E] transition-colors hover:bg-[#F0CA6A] sm:w-auto"
-            >
-              Request A Quote
-              <motion.span
-                animate={
-                  reduce ? undefined : { x: [0, 3, 0], y: [0, -3, 0] }
-                }
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="flex"
-              >
-                <ArrowUpRight size={18} />
-              </motion.span>
-            </a>
-          </motion.div>
-        </motion.div>
+      
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
 
+
+
+
 import { useRef } from "react";
 import {
   motion,
@@ -8,50 +11,26 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-
 import {
   ArrowRight,
-  ArrowUpRight,  
-  Check,
-  Layers,  
+  ArrowUpRight,
   Sparkles,
+  Layers,
+  ShieldCheck,
+  Award,
+  Truck,
+  CheckCircle2,
 } from "lucide-react";
-
 import { Link } from "react-router-dom";
 import ProductImg from "../../assets/images/productHero.png";
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-const processes = [
-  {
-    no: "01",
-    label: "Cutting",
-    description: "Precision material preparation",
-  },
-  {
-    no: "02",
-    label: "Grinding",
-    description: "Controlled surface refinement",
-  },
-  {
-    no: "03",
-    label: "Polishing",
-    description: "Smooth and consistent finish",
-  },
-  {
-    no: "04",
-    label: "Finishing",
-    description: "Professional surface quality",
-  },
-];
 
 const marqueeWords = [
   "Steel Polishing",
   "Precision Abrasives",
   "Industrial Grinding",
   "Surface Finishing",
+  "Flap & Fiber Discs",
+  "Mirror Buffing",
 ];
 
 /* =========================================================
@@ -64,53 +43,39 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.15,
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
     },
   },
 };
 
 const fadeUpVariants = {
-  hidden: {
-    opacity: 0,
-    y: 35,
-  },
+  hidden: { opacity: 0, y: 35 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.75,
-      ease: EASE,
-    },
+    transition: { duration: 0.75, ease: EASE },
   },
 };
 
-
-
 const fadeRightVariants = {
-  hidden: {
-    opacity: 0,
-    x: 40,
-  },
+  hidden: { opacity: 0, x: 35 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.9,
-      ease: EASE,
-    },
+    transition: { duration: 0.85, ease: EASE },
   },
 };
 
 /* =========================================================
-   PRODUCTS HERO
+   PRODUCTS HERO COMPONENT
 ========================================================= */
 
 const ProductsHero = () => {
   const sectionRef = useRef(null);
   const reduce = useReducedMotion();
 
-  /* Scroll animation */
+  /* Parallax Scroll Animation */
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -122,132 +87,111 @@ const ProductsHero = () => {
     mass: 0.5,
   });
 
-  const imageY = useTransform(smoothProgress, [0, 1], [0, 70]);
-  const imageScale = useTransform(smoothProgress, [0, 1], [1, 1.08]);
+  const imageY = useTransform(smoothProgress, [0, 1], [0, 45]);
+  const imageScale = useTransform(smoothProgress, [0, 1], [1, 1.04]);
 
   return (
     <MotionConfig reducedMotion="never">
       <section
         ref={sectionRef}
-        className="relative isolate w-full overflow-hidden bg-[#06182E] text-white"
+        className="relative isolate w-full overflow-hidden bg-[#151C22] text-white"
       >
+        {/* Google Cursive Font 'Great Vibes' */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+        />
+
         {/* =================================================
-            BACKGROUND
+            1. FULL BACKGROUND IMAGE + BRAND TONED OVERLAY
         ================================================== */}
-
-        <div className="pointer-events-none absolute inset-0">
-      
-
-          <div className="absolute -right-40 top-0 h-[500px] w-[500px] rounded-full border border-[#C9972B]/10" />
-
-          <div className="absolute -right-20 top-20 h-[350px] w-[350px] rounded-full border border-[#C9972B]/10" />
-
-          <motion.div
-            animate={
-              reduce
-                ? undefined
-                : {
-                    scale: [1, 1.15, 1],
-                    opacity: [0.15, 0.3, 0.15],
-                  }
-            }
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute -bottom-32 left-0 h-[400px] w-[400px] rounded-full bg-[#C9972B]/10 blur-3xl"
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          {/* Background Image */}
+          <img
+            src={ProductImg}
+            alt="KT Glow Industrial Workshop Background"
+            className="h-full w-full object-cover object-center scale-105 filter blur-[2px]"
           />
+
+          {/* Deep Brand Dark Overlay (Reference Jaisa Rich Feel) */}
+          <div className="absolute inset-0 bg-[#151C22]/85 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#13191F]/95 via-[#151C22]/85 to-[#171F26]/75" />
+
+          {/* Subtle Ambient Gold Radial Glow */}
+          <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-[#E0B04A]/[0.08] blur-[130px]" />
+          <div className="absolute -bottom-20 left-0 h-[400px] w-[400px] rounded-full bg-[#E0B04A]/[0.05] blur-[110px]" />
+
+          {/* Geometric Circles */}
+          <div className="absolute -right-32 top-10 h-[420px] w-[420px] rounded-full border border-white/[0.05]" />
+          <div className="absolute -right-16 top-24 h-[300px] w-[300px] rounded-full border border-[#E0B04A]/10" />
         </div>
 
         {/* =================================================
-            MAIN HERO CONTENT
+            2. MAIN HERO CONTENT
         ================================================== */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-45">
+          
+          
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-12 pt-32 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20 lg:pt-32">
-          {/* Breadcrumb */}
-
-      
-
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
+            
             {/* =================================================
-                LEFT CONTENT
+                LEFT CONTENT (Headings + Great Vibes Cursive)
             ================================================== */}
-
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="relative z-10 lg:col-span-6"
+              className="relative z-10 lg:col-span-7"
             >
-              {/* Label */}
-
-              {/* <motion.div
+              {/* Circular Icon Badge */}
+              <motion.div
                 variants={fadeUpVariants}
-                className="inline-flex max-sm:hidden items-center gap-3 rounded-full border border-[#C9972B]/30 bg-[#C9972B]/10 px-4 py-2"
+                className="flex items-center gap-3.5"
               >
-                <Sparkles
-                  size={15}
-                  className="text-[#E0B04A]"
-                />
-
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E0B04A] sm:text-xs">
-                  Industrial Product Collection
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E0B04A]/70 bg-[#E0B04A]/10 text-[#E0B04A] shadow-[0_0_15px_rgba(224,176,74,0.15)]">
+                  <Sparkles size={20} />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#E0B04A] sm:text-xs">
+                  ✦ INDUSTRIAL COLLECTION ✦
                 </span>
-              </motion.div> */}
+              </motion.div>
 
-              {/* Heading */}
-
+              {/* Main Headline with 'Great Vibes' */}
               <motion.h1
                 variants={fadeUpVariants}
-                className="mt-7 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-[68px]"
+                className="mt-5 text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[62px]"
               >
-                Engineered
-                <span className="block text-white">
-                  for Precision.
-                </span>
-
-                <span className="mt-2 block font-serif italic text-[#E0B04A]">
-                  Designed for Shine.
+                Engineered for{" "}
+                <span className="block font-['Great_Vibes',cursive] text-[50px] font-normal leading-[1.1] text-[#E0B04A] sm:text-[68px] lg:text-[80px]">
+                  Flawless Shine
                 </span>
               </motion.h1>
 
               {/* Description */}
-
               <motion.p
                 variants={fadeUpVariants}
-                className="mt-6 max-w-xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8"
+                className="mt-4 max-w-xl text-[14.5px] leading-[1.8] text-slate-300 sm:text-[16px]"
               >
-                Discover our range of industrial abrasive, steel
-                polishing, grinding and finishing products built
-                to support precision, consistency and professional
-                surface quality.
+                Discover precision cutting, grinding, and steel polishing abrasives
+                engineered by KT Glow for demanding industrial fabrication and
+                flawless mirror consistency.
               </motion.p>
 
-              {/* Features */}
-
+              {/* 4 Feature Points */}
               <motion.div
                 variants={fadeUpVariants}
-                className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2"
+                className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2"
               >
                 {[
                   "Precision-focused solutions",
-                  "Reliable product performance",
-                  "Industrial applications",
-                  "Quality-driven finishing",
+                  "Reliable industrial performance",
+                  "Heavy-duty resinoid bonds",
+                  "Quality-driven mirror finish",
                 ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#C9972B]/40 bg-[#C9972B]/10">
-                      <Check
-                        size={11}
-                        className="text-[#E0B04A]"
-                      />
-                    </span>
-
-                    <span className="text-xs font-medium text-white/75 sm:text-sm">
+                  <div key={item} className="flex items-center gap-2.5">
+                    <CheckCircle2 size={16} className="shrink-0 text-[#E0B04A]" />
+                    <span className="text-xs font-medium text-white/80 sm:text-sm">
                       {item}
                     </span>
                   </div>
@@ -255,279 +199,153 @@ const ProductsHero = () => {
               </motion.div>
 
               {/* CTA Buttons */}
-
               <motion.div
                 variants={fadeUpVariants}
-                className="mt-9 flex flex-wrap gap-3"
+                className="mt-8 flex flex-wrap items-center gap-3.5"
               >
-                <motion.a
+                <a
                   href="#product-categories"
-                  whileHover={reduce ? undefined : { y: -4 }}
-                  whileTap={reduce ? undefined : { scale: 0.97 }}
-                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#E0B04A] px-6 py-3.5 text-sm font-bold text-[#06182E] transition-colors hover:bg-[#F0CA6A] sm:px-8"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#E0B04A] px-7 py-3.5 text-sm font-bold text-[#151C22] shadow-md shadow-[#E0B04A]/20 transition-all hover:bg-[#F0CA6A] hover:shadow-lg"
                 >
                   Explore Products
-
                   <ArrowRight
-                    size={18}
+                    size={17}
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
-                </motion.a>
+                </a>
 
-                <motion.div
-                  whileHover={reduce ? undefined : { y: -4 }}
-                  whileTap={reduce ? undefined : { scale: 0.97 }}
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-[#E0B04A]/60 hover:bg-white/[0.08]"
                 >
-                  <Link
-                    to="/contact"
-                    className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/20 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E0B04A]/60 hover:bg-white/[0.08] sm:px-8"
-                  >
-                    Request a Quote
-
-                    <ArrowUpRight
-                      size={18}
-                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    />
-                  </Link>
-                </motion.div>
-              </motion.div>
-
-              {/* Bottom Text */}
-
-              {/* <motion.div
-                variants={fadeUpVariants}
-                className="mt-10 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#C9972B]/30 bg-[#C9972B]/10">
-                  <Settings2
-                    size={19}
-                    className="text-[#E0B04A]"
+                  Request a Quote
+                  <ArrowUpRight
+                    size={17}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
-                </div>
-
-                <div>
-                  <p className="text-xs font-semibold text-white">
-                    Industrial Surface Solutions
-                  </p>
-
-                  <p className="mt-1 text-[10px] text-white/40 sm:text-xs">
-                    Cutting · Grinding · Polishing · Finishing
-                  </p>
-                </div>
-              </motion.div> */}
+                </Link>
+              </motion.div>
             </motion.div>
 
             {/* =================================================
-                RIGHT PRODUCT SHOWCASE
+                RIGHT PRODUCT IMAGE (Compact Foreground Frame)
             ================================================== */}
-
             <motion.div
               variants={fadeRightVariants}
               initial="hidden"
               animate="visible"
-              className="relative lg:col-span-6"
+              className="relative flex justify-center lg:col-span-5"
             >
-              {/* Main Image Frame */}
+              {/* Scaled-down Max Width Frame (max-w-[420px]) */}
+              <div className="relative w-full max-w-[420px]">
+                {/* Thin Ambient Accent Frame */}
+                <div className="absolute -inset-2.5 rounded-3xl border border-[#E0B04A]/25 sm:-inset-3.5" />
 
-              <div className="relative mx-auto max-w-[600px]">
-                {/* Image Background Frame */}
-
-                <div className="absolute -inset-3 rounded-[2rem] border border-[#C9972B]/20 sm:-inset-5" />
-
-                {/* Main Image */}
-
+                {/* Main Compact Image Container */}
                 <motion.div
                   style={{
                     y: reduce ? 0 : imageY,
                     scale: reduce ? 1 : imageScale,
                   }}
-                  className="relative aspect-[4/4.5] overflow-hidden rounded-[1.5rem] bg-[#102B46] sm:rounded-[2rem]"
+                  className="relative aspect-[4/3.4] overflow-hidden rounded-2xl bg-[#1D252E] shadow-2xl ring-1 ring-white/10"
                 >
-                  <motion.img
+                  <img
                     src={ProductImg}
                     alt="Industrial steel polishing and abrasive products"
-                    initial={{ opacity: 0, scale: 1.12 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 1.4,
-                      ease: EASE,
-                    }}
+                    loading="eager"
                     className="h-full w-full object-cover object-center"
                   />
 
-                  {/* Image Overlay */}
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#06182E]/95 via-[#06182E]/10 to-[#06182E]/20" />
+                  {/* Gradient overlay on foreground card */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#151C22]/95 via-transparent to-[#151C22]/20" />
 
                   {/* Top Image Label */}
-
-                  <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/20 bg-[#06182E]/60 px-3 py-2 backdrop-blur-md sm:left-6 sm:top-6">
-                    <span className="h-2 w-2 rounded-full bg-[#E0B04A]" />
-
-                    <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white sm:text-xs">
+                  <div className="absolute left-3.5 top-3.5 flex items-center gap-1.5 rounded-full border border-white/20 bg-[#151C22]/80 px-3 py-1.5 backdrop-blur-md">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#E0B04A]" />
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
                       Product Excellence
                     </span>
                   </div>
 
-                  {/* Image Bottom Text */}
-
-                  <div className="absolute bottom-5 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-8">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        delay: 0.6,
-                        duration: 0.7,
-                        ease: EASE,
-                      }}
-                    >
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E0B04A] sm:text-xs">
-                        Built for Industrial Performance
-                      </p>
-
-                      <h2 className="mt-3 font-serif text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl">
-                        Precision in
-                        <span className="block italic text-[#E0B04A]">
-                          Every Process.
-                        </span>
-                      </h2>
-                    </motion.div>
+                  {/* Bottom Text Over Foreground Image */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#E0B04A]">
+                      Built for Industrial Performance
+                    </p>
+                    <h3 className="mt-1 font-serif text-lg font-bold leading-tight text-white sm:text-xl">
+                      Precision in{" "}
+                      <span className="font-['Great_Vibes',cursive] text-2xl text-[#E0B04A]">
+                        Every Process
+                      </span>
+                    </h3>
                   </div>
                 </motion.div>
 
-                {/* Floating Product Badge */}
-
-                <motion.div
-                  animate={
-                    reduce
-                      ? undefined
-                      : {
-                          y: [0, -8, 0],
-                        }
-                  }
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -left-2 top-1/3 rounded-2xl border border-white/15 bg-[#0C2945]/90 p-4 backdrop-blur-md sm:-left-8 sm:p-5"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C9972B]/15 text-[#E0B04A]">
-                      <Layers size={20} />
+                {/* Floating Compact Badge (Left) */}
+                <div className="absolute -left-3 top-1/4 rounded-xl border border-white/10 bg-[#1A232C]/90 p-2.5 shadow-xl backdrop-blur-md sm:-left-6">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#E0B04A]/15 text-[#E0B04A]">
+                      <Layers size={16} />
                     </div>
-
                     <div>
-                      <p className="text-xs font-bold text-white sm:text-sm">
-                        Abrasive Solutions
-                      </p>
-
-                      <p className="mt-1 text-[10px] text-white/45">
-                        Industrial Applications
-                      </p>
+                      <p className="text-[11px] font-bold text-white">Abrasives</p>
+                      <p className="text-[9px] text-white/50">Industrial Series</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Floating Precision Badge */}
-
-                <motion.div
-                  animate={
-                    reduce
-                      ? undefined
-                      : {
-                          y: [0, 8, 0],
-                        }
-                  }
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -right-2 bottom-1/4 rounded-2xl border border-[#C9972B]/25 bg-[#0C2945]/90 p-4 backdrop-blur-md sm:-right-8 sm:p-5"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C9972B]/15 text-[#E0B04A]">
-                      <Sparkles size={20} />
+                {/* Floating Compact Badge (Right) */}
+                <div className="absolute -right-3 bottom-1/4 rounded-xl border border-[#E0B04A]/25 bg-[#1A232C]/90 p-2.5 shadow-xl backdrop-blur-md sm:-right-6">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#E0B04A]/15 text-[#E0B04A]">
+                      <Award size={16} />
                     </div>
-
                     <div>
-                      <p className="text-xs font-bold text-white sm:text-sm">
-                        Surface Finishing
-                      </p>
-
-                      <p className="mt-1 text-[10px] text-white/45">
-                        Precision & Consistency
-                      </p>
+                      <p className="text-[11px] font-bold text-white">Mirror Polish</p>
+                      <p className="text-[9px] text-white/50">Top Consistency</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                {/* Image Corner Accent */}
-
-                <div className="absolute -bottom-3 -left-3 h-16 w-16 rounded-bl-[2rem] border-b-2 border-l-2 border-[#E0B04A]/70 sm:-bottom-5 sm:-left-5 sm:h-20 sm:w-20" />
-
-                <div className="absolute -right-3 -top-3 h-16 w-16 rounded-tr-[2rem] border-r-2 border-t-2 border-[#E0B04A]/70 sm:-right-5 sm:-top-5 sm:h-20 sm:w-20" />
+                {/* Corner Decorative Accents */}
+                <div className="absolute -bottom-2 -left-2 h-8 w-8 rounded-bl-xl border-b-2 border-l-2 border-[#E0B04A]/70" />
+                <div className="absolute -right-2 -top-2 h-8 w-8 rounded-tr-xl border-r-2 border-t-2 border-[#E0B04A]/70" />
               </div>
             </motion.div>
+
           </div>
+
+          {/* =================================================
+              3. STATS HIGHLIGHTS BAR
+          ================================================== */}
+          <div className="mt-12 grid grid-cols-2 gap-3 border-t border-white/10 pt-8 sm:grid-cols-4 sm:gap-4">
+            {[
+              { icon: ShieldCheck, value: "ISO 9001:2015", label: "Certified Production" },
+              { icon: Award, value: "100%", label: "Mirror Finish Guarantee" },
+              { icon: Layers, value: "6+ Categories", label: "Industrial Variants" },
+              { icon: Truck, value: "Pan India", label: "Direct Factory Supply" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-black/20 p-3 backdrop-blur-md"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#E0B04A]/10 text-[#E0B04A]">
+                  <stat.icon size={18} />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold text-white sm:text-base">{stat.value}</p>
+                  <p className="text-[11px] text-white/60">{stat.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
 
         {/* =================================================
-            PROCESS TIMELINE
+            4. BOTTOM INFINITE TICKER
         ================================================== */}
-
-        <div className="relative z-10 border-t border-white/10 bg-[#081D35]/80">
-          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              className="grid grid-cols-2 gap-5 sm:grid-cols-4 sm:gap-6"
-            >
-              {processes.map((process, index) => (
-                <motion.div
-                  key={process.no}
-                  variants={fadeUpVariants}
-                  whileHover={reduce ? undefined : { y: -4 }}
-                  className="relative"
-                >
-                  {/* Connector */}
-
-                  {index !== processes.length - 1 && (
-                    <div className="absolute left-10 top-5 hidden h-px w-[calc(100%-2rem)] bg-gradient-to-r from-[#C9972B]/50 to-transparent sm:block" />
-                  )}
-
-                  <div className="flex items-start gap-3">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#C9972B]/30 bg-[#C9972B]/10 font-serif text-sm font-bold text-[#E0B04A]">
-                      {process.no}
-                    </span>
-
-                    <div className="min-w-0 pt-1">
-                      <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-white sm:text-sm">
-                        {process.label}
-                      </h3>
-
-                      <p className="mt-2 text-[10px] leading-5 text-white/40 sm:text-xs">
-                        {process.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-
-        {/* =================================================
-            BOTTOM MARQUEE
-        ================================================== */}
-
-        <div className="relative z-10 overflow-hidden border-t border-white/10 bg-[#06182E] py-4">
+        <div className="relative z-10 overflow-hidden border-t border-white/10 bg-[#11171D] py-3.5">
           <motion.div
             animate={
               reduce
@@ -537,35 +355,27 @@ const ProductsHero = () => {
                   }
             }
             transition={{
-              duration: 30,
+              duration: 28,
               repeat: Infinity,
               ease: "linear",
             }}
             className="flex w-max items-center"
           >
             {[0, 1].map((copy) => (
-              <div
-                key={copy}
-                className="flex shrink-0 items-center"
-              >
+              <div key={copy} className="flex shrink-0 items-center">
                 {marqueeWords.map((word) => (
-                  <div
-                    key={`${copy}-${word}`}
-                    className="flex items-center"
-                  >
-                    <span className="px-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50 sm:px-8 sm:text-xs">
+                  <div key={`${copy}-${word}`} className="flex items-center">
+                    <span className="px-6 text-[10.5px] font-semibold uppercase tracking-[0.2em] text-white/50 sm:px-8 sm:text-xs">
                       {word}
                     </span>
-
-                    <span className="text-[#E0B04A]">
-                      ✦
-                    </span>
+                    <span className="text-[#E0B04A]">✦</span>
                   </div>
                 ))}
               </div>
             ))}
           </motion.div>
         </div>
+
       </section>
     </MotionConfig>
   );

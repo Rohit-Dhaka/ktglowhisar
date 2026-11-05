@@ -242,7 +242,7 @@ const AboutCTA = () => {
 
             <div className="mt-6 border-t border-white/15 pt-5">
               <Link
-                to="/request-quote"
+                to="/contact"
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-[#CBD5E1] transition-colors hover:text-white"
               >
                 Get in Touch

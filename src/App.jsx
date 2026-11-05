@@ -11,11 +11,12 @@ import Products from "./pages/Products";
 import ScrollToTop from "./components/ScrollToTop";
 import Resources from "./pages/Resources";
 import ContactSection from "./components/home/ContactSection";
-import ContactForm from "./components/contact/ContactForm";
+import ProductDetail from "./components/products/ProductDetail";
+
 function App() {
   return (
     <>
-    <ScrollToTop/>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
@@ -23,11 +24,16 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
+        
+        {/* 👇 2. Dynamic Product Detail Route */}
+        <Route path="/products/:id" element={<ProductDetail />} />
+
         <Route path="/resources" element={<Resources />} />
-        <Route path="/request-quote" element={<ContactForm />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>
+
       <Footer />
     </>
   );

@@ -20,12 +20,12 @@ import {
   Hammer,
 } from "lucide-react";
 
-import A from '../../assets/images/a.png'
-import B from '../../assets/images/b.png'
-import C from '../../assets/images/c.png'
-import D from '../../assets/images/d.png'
-import E from '../../assets/images/e.png'
-import F from '../../assets/images/f.png'
+import A from '../../assets/images/MetalGrinding.png'
+import B from '../../assets/images/SurfacePolishing.png'
+import C from '../../assets/images/EdgeDeburring.png'
+import D from '../../assets/images/Rust&ScaleRemoval.png'
+import E from '../../assets/images/WeldSeamFinishing.png'
+import F from '../../assets/images/Buffing&FinalGloss.png'
 
 /* =========================================================
    ANIMATION VARIANTS
