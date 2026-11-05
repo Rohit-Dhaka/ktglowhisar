@@ -1,13 +1,13 @@
 import {
   ArrowRight,
   ArrowUpRight,
-  ChevronRight,
+  
   Mail,
   MapPin,
   Phone,
   PhoneCall,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+
 import { motion, useReducedMotion } from "framer-motion";
 import ContactImg from "../../assets/images/contactHero.png";
 

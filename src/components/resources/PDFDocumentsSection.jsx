@@ -267,18 +267,11 @@ const PDFDocumentsSection = () => {
                 </motion.span>
               </span>
 
-              <span className="block overflow-hidden pb-2">
+              <span className="block overflow-hidden pb-2 font-serif italic text-[#E0B04A]">
                 <motion.span variants={lineReveal} className="inline-block">
                   Resources &amp;{" "}
                   <span className="relative inline-block">
-                    <motion.span
-                      aria-hidden="true"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.9, delay: 1, ease: EASE }}
-                      className="absolute -inset-x-1 bottom-[0.08em] h-[0.42em] origin-left -skew-x-6 rounded-sm bg-gradient-to-r from-[#E0B04A]/70 to-[#F0CA6A]/60"
-                    />
+                 
                     <span className="relative">Documents.</span>
                   </span>
                 </motion.span>
@@ -419,74 +412,7 @@ const PDFDocumentsSection = () => {
           ))}
         </motion.div>
 
-        {/* =====================================================
-            BOTTOM CTA
-        ====================================================== */}
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="relative mt-10 flex flex-col gap-5 overflow-hidden rounded-2xl bg-[#06182E] p-5 sm:p-7 lg:flex-row lg:items-center lg:justify-between"
-        >
-          {/* graphics */}
-          <motion.div
-            aria-hidden="true"
-            animate={reduce ? undefined : { rotate: 360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full border border-dashed border-[#E0B04A]/30"
-          />
-          <motion.div
-            aria-hidden="true"
-            animate={
-              reduce ? undefined : { scale: [1, 1.1, 1], opacity: [0.5, 0.9, 0.5] }
-            }
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="pointer-events-none absolute -bottom-16 left-1/3 h-40 w-40 rounded-full bg-[#E0B04A]/20 blur-3xl"
-          />
-
-          <div className="relative flex items-start gap-4">
-            <motion.div
-              animate={reduce ? undefined : { y: [0, -5, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#E0B04A]/40 bg-white/5 text-[#E0B04A]"
-            >
-              <FileText size={21} />
-            </motion.div>
-
-            <div>
-              <h3 className="text-lg font-bold text-white sm:text-xl">
-                Need More Information?
-              </h3>
-
-              <p className="mt-2 max-w-xl text-sm leading-6 text-slate-300">
-                Contact our team for additional product details,
-                technical information, or assistance with your requirements.
-              </p>
-            </div>
-          </div>
-
-          <motion.div
-            whileHover={{ y: -5, scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className="relative shrink-0"
-          >
-            <a
-              href="/contact"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#06182E] transition-colors hover:bg-[#F0CA6A] sm:w-auto"
-            >
-              Contact Our Team
-              <motion.span
-                animate={reduce ? undefined : { x: [0, 3, 0], y: [0, -3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="flex"
-              >
-                <ArrowUpRight size={18} />
-              </motion.span>
-            </a>
-          </motion.div>
-        </motion.div>
+   
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -7,14 +6,10 @@ import {
   ChevronRight,
   Download,
   FileText,
-  FolderOpen,
   Layers,
 } from "lucide-react";
 
-
-
-const BG_IMAGE =
-  "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=2000&q=90";
+import BG_IMAGE from "../../assets/images/hero3.png";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -40,66 +35,13 @@ const fadeUpVariants = {
   },
 };
 
-const fadeLeftVariants = {
-  hidden: { opacity: 0, x: -35 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: EASE,
-    },
-  },
-};
+
 
 /* =========================================================
    TYPEWRITER
 ========================================================= */
 
-const Typewriter = ({ text, reduce }) => {
-  const [count, setCount] = useState(reduce ? text.length : 0);
 
-  useEffect(() => {
-    if (reduce) {
-      setCount(text.length);
-      return undefined;
-    }
-
-    let index = 0;
-
-    const interval = setInterval(() => {
-      index += 1;
-      setCount(index);
-
-      if (index >= text.length) {
-        clearInterval(interval);
-      }
-    }, 65);
-
-    return () => clearInterval(interval);
-  }, [text, reduce]);
-
-  return (
-    <span className="relative inline-block">
-      <span className="sr-only">{text}</span>
-
-      <span aria-hidden="true">
-        {text.slice(0, count)}
-      </span>
-
-      {!reduce && (
-        <motion.span
-          animate={{ opacity: [1, 0, 1] }}
-          transition={{
-            duration: 0.8,
-            repeat: Infinity,
-          }}
-          className="ml-1 inline-block h-[0.85em] w-[3px] translate-y-[0.08em] bg-[#E0B04A]"
-        />
-      )}
-    </span>
-  );
-};
 
 /* =========================================================
    RESOURCES HERO
@@ -131,15 +73,6 @@ const ResourcesHero = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-[#06182E] via-[#06182E]/95 to-[#06182E]/65" />
 
       {/* Blueprint Grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-        }}
-      />
 
       {/* Gold Decorative Glow */}
       <motion.div
@@ -174,10 +107,7 @@ const ResourcesHero = () => {
               variants={fadeUpVariants}
               className="mb-8 flex items-center gap-2 text-sm text-white/60"
             >
-              <a
-                href="/"
-                className="transition-colors hover:text-[#E0B04A]"
-              >
+              <a href="/" className="transition-colors hover:text-[#E0B04A]">
                 Home
               </a>
 
@@ -186,49 +116,42 @@ const ResourcesHero = () => {
               <span className="text-white">Resources</span>
             </motion.div>
 
-            {/* Badge */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="inline-flex items-center gap-3 rounded-full border border-[#C9972B]/40 bg-white/[0.06] px-4 py-2.5"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                {!reduce && (
-                  <motion.span
-                    animate={{
-                      scale: [1, 2, 1],
-                      opacity: [0.6, 0, 0.6],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                    }}
-                    className="absolute inset-0 rounded-full bg-[#E0B04A]"
-                  />
-                )}
-
-                <span className="relative h-2.5 w-2.5 rounded-full bg-[#E0B04A]" />
-              </span>
-
-              <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:text-xs">
-                Resources & Documentation
-              </span>
-            </motion.div>
-
             {/* Heading */}
+
             <motion.h1
               variants={fadeUpVariants}
-              className="mt-7 text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+              className="mt-7 text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl lg:text-[64px]"
             >
               Everything You
-              <span className="mt-2 block text-white">
-                Need to Know
-              </span>
-
+              <span className="mt-2 block text-white">Need to Know</span>
               <span className="mt-2 block font-serif italic text-[#E0B04A]">
-                <Typewriter
-                  text="Starts Here."
-                  reduce={reduce}
-                />
+                {"Starts Here.".split("").map((letter, index) => (
+                  <motion.span
+                    key={`${letter}-${index}`}
+                    initial={
+                      reduce
+                        ? false
+                        : {
+                            opacity: 0,
+                            y: 25,
+                            filter: "blur(6px)",
+                          }
+                    }
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      filter: "blur(0px)",
+                    }}
+                    transition={{
+                      duration: reduce ? 0 : 0.45,
+                      delay: reduce ? 0 : index * 0.08,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="inline-block"
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
               </span>
             </motion.h1>
 
@@ -237,9 +160,9 @@ const ResourcesHero = () => {
               variants={fadeUpVariants}
               className="mt-6 max-w-xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8"
             >
-              Explore our product catalogues, technical documentation,
-              and company resources. Find the information you need
-              about our industrial abrasive and steel polishing solutions.
+              Explore our product catalogues, technical documentation, and
+              company resources. Find the information you need about our
+              industrial abrasive and steel polishing solutions.
             </motion.p>
 
             {/* Buttons */}
@@ -254,7 +177,6 @@ const ResourcesHero = () => {
                 className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#E0B04A] px-6 py-3.5 text-sm font-bold text-[#06182E] transition-colors hover:bg-[#F0CA6A] sm:px-8"
               >
                 Explore Documents
-
                 <ArrowRight
                   size={18}
                   className="transition-transform duration-300 group-hover:translate-x-1"
@@ -268,28 +190,11 @@ const ResourcesHero = () => {
                 className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/25 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E0B04A] hover:bg-white/10 sm:px-8"
               >
                 Contact Us
-
                 <ArrowUpRight
                   size={18}
                   className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </motion.a>
-            </motion.div>
-
-            {/* Bottom Information */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6"
-            >
-              <div className="flex items-center gap-2 text-xs text-white/60 sm:text-sm">
-                <FileText size={16} className="text-[#E0B04A]" />
-                Product Catalogues
-              </div>
-
-              <div className="flex items-center gap-2 text-xs text-white/60 sm:text-sm">
-                <FolderOpen size={16} className="text-[#E0B04A]" />
-                Technical Resources
-              </div>
             </motion.div>
           </motion.div>
 
@@ -368,10 +273,7 @@ const ResourcesHero = () => {
                       key={item}
                       className="flex h-16 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]"
                     >
-                      <FileText
-                        size={20}
-                        className="text-[#E0B04A]/60"
-                      />
+                      <FileText size={20} className="text-[#E0B04A]/60" />
                     </div>
                   ))}
                 </div>
@@ -474,9 +376,7 @@ const ResourcesHero = () => {
                 </div>
 
                 <div>
-                  <p className="text-xs font-bold text-white">
-                    Catalogues
-                  </p>
+                  <p className="text-xs font-bold text-white">Catalogues</p>
                   <p className="text-[10px] text-white/50">
                     Product information
                   </p>
@@ -500,9 +400,7 @@ const ResourcesHero = () => {
                 </div>
 
                 <div>
-                  <p className="text-xs font-bold text-white">
-                    Technical Docs
-                  </p>
+                  <p className="text-xs font-bold text-white">Technical Docs</p>
                   <p className="text-[10px] text-white/50">
                     Download resources
                   </p>
