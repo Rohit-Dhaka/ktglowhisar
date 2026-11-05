@@ -123,7 +123,7 @@ const FacilityVisitSection = () => {
   const reduce = useReducedMotion();
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#F3F4F1] py-16 sm:py-20 lg:py-24">
+    <section className="relative w-full overflow-hidden bg-[#F3F4F1] py-8 sm:py-10">
       {/* Background Decoration */}
       <div
         aria-hidden="true"

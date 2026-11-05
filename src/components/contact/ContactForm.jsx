@@ -75,7 +75,7 @@ const ContactForm = () => {
   return (
     <section
       id="contact-form"
-      className="relative w-full overflow-hidden bg-[#06182E] py-16 sm:py-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-[#06182E] py-8 sm:py-10"
     >
   
       <div

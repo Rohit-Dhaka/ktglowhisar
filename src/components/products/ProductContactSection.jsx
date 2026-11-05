@@ -128,7 +128,7 @@ const ProductContactSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#06182E] py-16 text-white sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#06182E] py-8 sm:py-10 text-white">
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"

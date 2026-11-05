@@ -75,7 +75,7 @@ const ResourcesCTASection = () => {
   const review = clientReviews[activeReview];
 
   return (
-    <section className="w-full overflow-hidden bg-[#F7F8FA] px-4 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+    <section className="w-full overflow-hidden bg-[#F7F8FA] px-4  sm:px-8  lg:px-12 py-8 sm:py-10">
       <div className="mx-auto">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}

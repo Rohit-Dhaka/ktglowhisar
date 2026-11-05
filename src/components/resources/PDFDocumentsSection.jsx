@@ -191,7 +191,7 @@ const PDFDocumentsSection = () => {
   return (
     <section
       id="pdf-documents"
-      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-white py-8 sm:py-10"
     >
       <link
         rel="stylesheet"

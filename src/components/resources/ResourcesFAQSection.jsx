@@ -17,7 +17,7 @@ const ResourcesFAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full overflow-hidden bg-[#e8e9ea] px-4 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+    <section className="w-full overflow-hidden bg-[#e8e9ea] px-4 py-8 sm:py-10 sm:px-8  lg:px-12">
       <div className="mx-auto">
         <motion.header
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}

@@ -63,7 +63,7 @@ const DepartmentContactSection = () => {
   };
 
   return (
-    <section className="overflow-hidden bg-[#F5F7FA] py-14 sm:py-20 lg:py-24">
+    <section className="overflow-hidden bg-[#F5F7FA] py-8 sm:py-10">
       <div className=" px-4 sm:px-8 lg:px-12">
         {/* Top Header */}
         <motion.div
