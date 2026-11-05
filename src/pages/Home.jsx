@@ -9,6 +9,7 @@ import SEO from "../components/SEO";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import ContactSection from "../components/home/ContactSection";
 import LocationSection from "../components/home/Locationsection";
+import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
       {/* <IndustriesWeServe /> */}
       <ManufacturingProcess />
       <ProductApplications />
+      <Testimonials/>
     <ContactSection/>
     <LocationSection/>
     </main>

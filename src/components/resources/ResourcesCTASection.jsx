@@ -32,7 +32,7 @@ const ResourcesCTASection = () => {
   };
 
   return (
-    <section className="bg-white px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+    <section className="bg-white px-4 sm:px-8 lg:px-12 pb-16 sm:pb-20  lg:pb-24">
       <div className="">
         <motion.div
           initial={{ opacity: 0, y: reduceMotion ? 0 : 40, scale: reduceMotion ? 1 : 0.98 }}

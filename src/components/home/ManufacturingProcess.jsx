@@ -135,7 +135,7 @@ const ManufacturingProcess = () => {
       />
 
     
-      <div className="relative z-10  px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10  px-4 sm:px-8 lg:px-12">
      
         <motion.div
           variants={containerVariants}

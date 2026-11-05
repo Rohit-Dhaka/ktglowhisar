@@ -33,12 +33,7 @@ const qualityFeatures = [
   },
 ];
 
-const qualityPoints = [
-  "Quality-focused manufacturing practices",
-  "Product specification verification",
-  "Consistent production standards",
-  "Customer requirement alignment",
-];
+
 
 const containerVariants = {
   hidden: {
@@ -83,28 +78,15 @@ const fadeLeftVariants = {
   },
 };
 
-const fadeRightVariants = {
-  hidden: {
-    opacity: 0,
-    x: 35,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
+;
 
 const QualityAssurance = () => {
   return (
     <MotionConfig reducedMotion="never">
-      <section className="w-full overflow-hidden bg-[#F8FAFC] py-16 sm:py-20 lg:py-24">
-        <div className=" px-4 sm:px-6 lg:px-8">
+      <section className="w-full overflow-hidden bg-[#eff0f0] py-16 sm:py-20 lg:py-24">
+        <div className=" px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* Left: Intro */}
+            
             <motion.div
               variants={fadeLeftVariants}
               initial="hidden"
@@ -113,7 +95,7 @@ const QualityAssurance = () => {
               className="lg:col-span-5"
             >
               <div className="lg:sticky lg:top-36">
-                {/* Section Label */}
+                
                 <motion.div
                   variants={fadeUpVariants}
                   className="mb-4 flex items-center gap-3"
@@ -125,7 +107,7 @@ const QualityAssurance = () => {
                   </p>
                 </motion.div>
 
-                {/* Main Heading: Serif + Gold */}
+                
                 <motion.h2
                   variants={fadeUpVariants}
                   className="font-serif text-3xl font-bold leading-tight sm:text-4xl"
@@ -146,7 +128,7 @@ const QualityAssurance = () => {
                   industrial abrasive and polishing solutions.
                 </motion.p>
 
-                {/* Image */}
+                
                 <motion.div
                   variants={fadeUpVariants}
                   whileHover={{ scale: 1.015 }}
@@ -169,7 +151,7 @@ const QualityAssurance = () => {
                   </span>
                 </motion.div>
 
-                {/* CTA */}
+                
                 <motion.div
                   variants={fadeUpVariants}
                   whileHover={{ y: -3 }}
@@ -187,7 +169,7 @@ const QualityAssurance = () => {
               </div>
             </motion.div>
 
-            {/* Right: Process Timeline */}
+            
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -217,9 +199,9 @@ const QualityAssurance = () => {
                 to meet defined specifications and customer expectations.
               </motion.p>
 
-              {/* Timeline */}
+              
               <ol className="relative mt-10">
-                {/* Vertical Line */}
+                
                 <motion.span
                   aria-hidden="true"
                   initial={{ scaleY: 0 }}
@@ -234,13 +216,13 @@ const QualityAssurance = () => {
                 />
 
                 {qualityFeatures.map(
-                  ({ id, title, description, icon: Icon }, index) => (
+                  ({ id, title, description, icon: Icon }, ) => (
                     <motion.li
                       key={id}
                       variants={fadeUpVariants}
                       className="group relative pb-10 pl-16 last:pb-0"
                     >
-                      {/* Timeline Icon */}
+                      
                       <motion.span
                         whileHover={{
                           scale: 1.08,

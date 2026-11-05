@@ -1,7 +1,6 @@
 
 import { useState } from "react";
-import {
-  ArrowRight,
+import {  
   CheckCircle2,
   Mail,
   MessageSquare,
@@ -78,45 +77,50 @@ const ContactForm = () => {
       id="contact-form"
       className="relative w-full overflow-hidden bg-[#06182E] py-16 sm:py-20 lg:py-24"
     >
-      {/* Background decoration */}
+  
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-[#C9972B]/10 blur-3xl"
       />
 
-      <div className="relative mx-auto  px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="mx-auto mb-12 max-w-2xl text-center sm:mb-16"
-        >
-          <div className="mb-4 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-[#E0B04A]" />
+      <div className="relative mx-auto  px-4 sm:px-8 lg:px-12">
+     
+    <motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeUp}
+  className="mb-12 grid grid-cols-1 items-center gap-6 sm:mb-16 lg:grid-cols-2 lg:gap-16"
+>
+  {/* LEFT CONTENT */}
+  <div>
+    <div className="mb-5 flex items-center gap-3">
+      <span className="h-0.5 w-10 rounded-full bg-[#E0B04A]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#E0B04A]">
-              Send an Enquiry
-            </span>
+      <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#E0B04A] sm:text-sm">
+        Send an Enquiry
+      </span>
+    </div>
 
-            <span className="h-px w-8 bg-[#E0B04A]" />
-          </div>
+    <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+      Let&apos;s Discuss Your
+      <span className="mt-1 block font-serif italic text-[#E0B04A]">
+        Requirements.
+      </span>
+    </h2>
+  </div>
 
-          <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Let&apos;s Discuss Your
-            <span className="mt-2 block font-serif italic text-[#E0B04A]">
-              Requirements.
-            </span>
-          </h2>
+  {/* RIGHT CONTENT */}
+  <div className="lg:justify-self-end lg:max-w-2xl">
+    <p className="text-sm leading-7 text-slate-400 sm:text-base sm:leading-8 lg:text-lg">
+      Tell us about your industrial requirements, product specifications,
+      and application needs. Our team will carefully review your enquiry
+      and help you identify suitable steel polishing and abrasive
+      solutions with a focus on quality, precision, and performance.
+    </p>
+  </div>
+</motion.div>
 
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
-            Tell us what you need. Our team will review your enquiry and help
-            you find the right industrial solution.
-          </p>
-        </motion.div>
-
-        {/* Form Layout */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -129,7 +133,7 @@ const ContactForm = () => {
           }}
           className="grid overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-12"
         >
-          {/* Left Information Panel */}
+          
           <motion.div
             variants={fadeUp}
             className="relative flex flex-col justify-between bg-[#0B2340] p-6 sm:p-8 lg:col-span-4 lg:p-10"
@@ -152,7 +156,7 @@ const ContactForm = () => {
               </p>
             </div>
 
-            {/* Contact Details */}
+            
             <div className="mt-10 space-y-5">
               <a
                 href="tel:+919728303738"
@@ -191,7 +195,7 @@ const ContactForm = () => {
               </a>
             </div>
 
-            {/* Bottom Statement */}
+            
             <div className="mt-10 border-t border-white/10 pt-6">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#E0B04A]">
                 KT Glow
@@ -204,7 +208,7 @@ const ContactForm = () => {
             </div>
           </motion.div>
 
-          {/* Right Form Panel */}
+          
           <motion.div
             variants={fadeUp}
             className="bg-[#06182E] p-5 sm:p-8 lg:col-span-8 lg:p-10"
@@ -233,7 +237,7 @@ const ContactForm = () => {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name & Email */}
+              
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="fullName" className={labelClass}>
@@ -272,7 +276,6 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Phone & Company */}
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="phone" className={labelClass}>
@@ -310,7 +313,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Enquiry Type & Product */}
+             
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="enquiryType" className={labelClass}>
@@ -350,7 +353,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Quantity */}
+              
               <div>
                 <label htmlFor="quantity" className={labelClass}>
                   Estimated Quantity
@@ -367,7 +370,7 @@ const ContactForm = () => {
                 />
               </div>
 
-              {/* Message */}
+            
               <div>
                 <label htmlFor="message" className={labelClass}>
                   Your Message <span className="text-[#E0B04A]">*</span>
@@ -385,7 +388,6 @@ const ContactForm = () => {
                 />
               </div>
 
-              {/* Submit */}
               <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="max-w-xs text-xs leading-5 text-slate-500">
                   Fields marked with * are required. Please provide accurate

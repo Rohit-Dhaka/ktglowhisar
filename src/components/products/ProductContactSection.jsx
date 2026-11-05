@@ -188,7 +188,7 @@ const ProductContactSection = () => {
           ))}
       </div>
 
-      <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 sm:px-8 lg:px-12">
         {/* Main CTA Container */}
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.97 }}

@@ -39,9 +39,7 @@ const missionVision = [
   },
 ];
 
-/* Timeline: odd steps (01, 03, 05) = image left / text right,
-   even steps (02, 04, 06) = text left / image right.
-   Swap the images below with ones that match each value. */
+
 const coreValues = [
   {
     id: "01",
@@ -142,9 +140,12 @@ const coreValues = [
 ];
 
 const commitmentPoints = [
-  "Quality-driven product solutions",
-  "Precision-focused finishing",
-  "Customer-oriented approach",
+        "We are committed to delivering high-quality industrial products that meet industry standards. Every product is developed with a strong .",
+
+        "Our manufacturing process emphasizes precision, accuracy, and superior finishing. We ensure that every product meets the required specifications .",
+
+        "We prioritize customer needs by providing reliable solutions, responsive support, and timely delivery. Our goal is to build long-term relationships .",
+
 ];
 
 
@@ -206,9 +207,7 @@ const fadeRightVariants = {
   },
 };
 
-/* =========================================================
-   TIMELINE ITEM
-========================================================= */
+
 
 const SLIDE = 70;
 
@@ -241,7 +240,7 @@ const TimelineItem = ({ item, index }) => {
           className={`order-1 ${imageLeft ? "md:order-1" : "md:order-2"}`}
         >
           <div className="group relative">
-            <div className="relative sm:mx-auto h-[300px] sm:w-[70%] overflow-hidden rounded-2xl border border-[#DCE3EC] bg-[#E2E8F0] shadow-[0_18px_40px_-20px_rgba(6,24,46,0.35)]">
+            <div className="relative sm:mx-auto h-[300px]  overflow-hidden rounded-2xl border border-[#DCE3EC] bg-[#E2E8F0] shadow-[0_18px_40px_-20px_rgba(6,24,46,0.35)]">
               <img
                 src={item.image}
                 alt={item.title}
@@ -257,7 +256,7 @@ const TimelineItem = ({ item, index }) => {
           </div>
         </motion.div>
 
-        {/* TEXT */}
+        
         <motion.div
           initial={{ opacity: 0, x: imageLeft ? SLIDE : -SLIDE }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -346,39 +345,50 @@ const CoreValuesTimeline = ({ viewport }) => {
 
   return (
     <div className="mt-16 sm:mt-20">
-      {/* HEADER */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        className="mx-auto max-w-2xl text-center"
-      >
-        <motion.p
-          variants={fadeUpVariants}
-          className="text-xs font-semibold uppercase tracking-widest text-black sm:text-sm"
-        >
-          Our Core Values
-        </motion.p>
+   
+  <motion.div
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={viewport}
+  className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-16"
+>
+  {/* LEFT CONTENT */}
+  <motion.div variants={fadeUpVariants}>
+    <div className="mb-5 flex items-center gap-3">
+      <span className="h-0.5 w-10 rounded-full bg-[#06182E]" />
 
-        <motion.h3
-          variants={fadeUpVariants}
-          className="mt-3 font-serif text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl"
-        >
-          Principles That
-          <span className="mt-1 block font-serif italic text-[#C9972B]">
-            Define Us
-          </span>
-        </motion.h3>
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#06182E] sm:text-sm">
+        Our Purpose & Principles
+      </p>
+    </div>
 
-        <motion.p
-          variants={fadeUpVariants}
-          className="mt-4 text-sm leading-7 text-black sm:text-base"
-        >
-          The principles that guide our decisions, operations, and
-          relationships with customers.
-        </motion.p>
-      </motion.div>
+    <h2 className="text-3xl font-bold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl">
+      What Drives Our{" "}
+      <span className="font-serif italic text-[#C9972B]">
+        Company
+      </span>
+
+      <span className="mt-1 block font-serif italic text-[#C9972B]">
+        Forward
+      </span>
+    </h2>
+  </motion.div>
+
+  {/* RIGHT CONTENT */}
+  <motion.div
+    variants={fadeUpVariants}
+    className="lg:justify-self-end lg:max-w-2xl"
+  >
+    <p className="text-sm leading-7 text-black sm:text-base sm:leading-8 lg:text-lg">
+      Our mission, vision, and core values define our commitment to
+      quality manufacturing, customer satisfaction, and continuous
+      improvement. They guide our approach to steel polishing and
+      industrial abrasive solutions, ensuring precision, reliability,
+      and long-term value for our customers.
+    </p>
+  </motion.div>
+</motion.div>
 
       
       <div ref={timelineRef} className="relative mt-14 sm:mt-20">
@@ -407,7 +417,7 @@ const CoreValuesTimeline = ({ viewport }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: EASE }}
-        className="mx-auto mt-16 max-w-4xl rounded-2xl border border-[#DCE3EC] bg-[#F8FAFC] p-6 sm:mt-20 sm:p-8"
+        className=" mt-16 rounded-2xl w-full border border-[#DCE3EC] bg-[#F8FAFC] p-6 sm:mt-20 sm:p-8"
       >
         <div className="grid gap-6 md:grid-cols-2 md:items-center">
           <div>
@@ -478,7 +488,7 @@ const MissionVisionValues = () => {
   return (
     <MotionConfig reducedMotion="never">
       <section className="w-full overflow-hidden bg-white pb-16 sm:pb-20 lg:pb-24">
-        <div className=" px-4 sm:px-6 lg:px-8">
+        <div className=" px-4 sm:px-8 lg:px-12">
           
 
           <div className="mb-10 flex flex-col gap-6 sm:mb-14 lg:flex-row lg:items-end lg:justify-between">
@@ -515,7 +525,7 @@ const MissionVisionValues = () => {
               </motion.h2>
             </motion.div>
 
-            {/* RIGHT SIDE DESCRIPTION */}
+            
 
             <motion.div
               initial={initialAnimation}
@@ -533,7 +543,7 @@ const MissionVisionValues = () => {
             </motion.div>
           </div>
 
-          {/* MISSION & VISION */}
+     
 
           <motion.div
             variants={containerVariants}
@@ -550,7 +560,7 @@ const MissionVisionValues = () => {
                   whileHover={hoverLift}
                   className="p-6 sm:p-10 lg:p-14"
                 >
-                  {/* LABEL */}
+                  
 
                   <div className="flex items-center gap-3">
                     <motion.span
@@ -572,13 +582,13 @@ const MissionVisionValues = () => {
                     </h3>
                   </div>
 
-                  {/* TEXT */}
+               
 
                   <p className="mt-6 text-base leading-8 text-white sm:text-lg sm:leading-9">
                     {text}
                   </p>
 
-                  {/* TAGLINE */}
+               
 
                   <p className="mt-6 inline-flex items-center gap-3 font-serif text-sm font-semibold italic text-[#C9972B]">
                     <span className="h-0.5 w-8 rounded-full bg-[#C9972B]/60" />
@@ -589,7 +599,7 @@ const MissionVisionValues = () => {
             )}
           </motion.div>
 
-          {/* CORE VALUES TIMELINE */}
+          
 
           <CoreValuesTimeline viewport={viewport} />
         </div>

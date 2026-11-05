@@ -165,7 +165,7 @@ const AboutSection = () => {
       />
 
       {/* Main Container */}
-      <div className="relative z-10  px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10  px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-14 xl:gap-16">
           
           {/* ===================================================

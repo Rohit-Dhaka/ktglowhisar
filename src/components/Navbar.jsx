@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/images/Logo.png";
 import {
   Menu,
@@ -48,12 +48,10 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled] = useState(false);
 
   const [hiddenMenu, setHiddenMenu] = useState(null);
   
-  const { pathname } = useLocation();
-
   const closeMenu = () => {
     setIsOpen(false);
     setActiveDropdown(null);
@@ -73,10 +71,6 @@ const Navbar = () => {
   };
 
   
-  useEffect(() => {
-    closeMenu();
-  }, [pathname]);
-
   
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -211,7 +205,7 @@ const Navbar = () => {
                     <div className="grid flex-1 grid-cols-2 gap-1 p-4">
                       {link.dropdown.map(({ name, path, icon: Icon }) => (
                         <NavLink
-                          key={path}
+                          key={name}
                           to={path}
                           end
                           onClick={(e) => hideDesktopMenu(e, link.name)}
@@ -364,7 +358,7 @@ const Navbar = () => {
                       <div className="ml-3 space-y-1 border-l border-[#E5E7EB] py-2 pl-3">
                         {link.dropdown.map(({ name, path, icon: Icon }) => (
                           <NavLink
-                            key={path}
+                            key={name}
                             to={path}
                             onClick={closeMenu}
                             className={({ isActive }) =>

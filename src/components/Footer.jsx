@@ -149,7 +149,7 @@ const Footer = () => {
       />
 
   
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
   
           <div className="sm:col-span-2 lg:col-span-4">

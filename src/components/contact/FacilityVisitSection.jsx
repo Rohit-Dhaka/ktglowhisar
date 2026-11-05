@@ -131,7 +131,7 @@ const FacilityVisitSection = () => {
         className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-[#E0B04A]/10 blur-3xl"
       />
 
-      <div className="relative z-10  px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10  px-4 sm:px-8 lg:px-12">
         {/* =================================================
             SECTION HEADER
         ================================================= */}

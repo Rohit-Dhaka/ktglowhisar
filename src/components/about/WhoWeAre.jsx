@@ -13,9 +13,6 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import EnhancingImg from "../../assets/images/enhancingImg.png";
 
-/* =========================================================
-   DATA
-========================================================= */
 
 const companyHighlights = [
   {
@@ -56,9 +53,7 @@ const imageFeatures = [
   },
 ];
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
+
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -87,20 +82,7 @@ const fadeUpVariants = {
   },
 };
 
-const fadeLeftVariants = {
-  hidden: {
-    opacity: 0,
-    x: -35,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: EASE,
-    },
-  },
-};
+
 
 const fadeRightVariants = {
   hidden: {
@@ -149,9 +131,6 @@ const imageVariants = {
   },
 };
 
-/* =========================================================
-   SECTION
-========================================================= */
 
 const WhoWeAre = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -174,15 +153,13 @@ const WhoWeAre = () => {
   return (
     <section className="w-full overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
 
-      <div className=" px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-8 lg:px-12">
 
-        {/* =====================================================
-            SECTION HEADING
-        ====================================================== */}
+   
 
         <div className="mb-10 flex flex-col gap-6 sm:mb-12 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
 
-          {/* Left Side */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -191,7 +168,7 @@ const WhoWeAre = () => {
             className="w-full lg:max-w-[50%]"
           >
 
-            {/* Label */}
+            
             <motion.span
               variants={fadeUpVariants}
               className="inline-flex items-center gap-2 rounded-full border border-[#DCE3EC] bg-[#F5F7FA] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#0F2B46] sm:text-sm"
@@ -200,7 +177,7 @@ const WhoWeAre = () => {
               Who We Are
             </motion.span>
 
-            {/* Heading */}
+            
 
 
 
@@ -220,7 +197,7 @@ const WhoWeAre = () => {
 
           </motion.div>
 
-          {/* Right Side Description */}
+          
           <motion.div
             variants={fadeRightVariants}
             initial="hidden"
@@ -238,15 +215,11 @@ const WhoWeAre = () => {
 
         </div>
 
-        {/* =====================================================
-            MAIN CONTENT
-        ====================================================== */}
+   
 
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
 
-          {/* =====================================================
-              LEFT IMAGE SECTION
-          ====================================================== */}
+      
 
           <motion.div
             variants={containerVariants}
@@ -256,7 +229,7 @@ const WhoWeAre = () => {
             className="flex min-w-0 flex-col"
           >
 
-            {/* Main Image */}
+            
             <motion.div
               variants={imageVariants}
               className="relative min-h-[260px] flex-1 overflow-hidden rounded-3xl border border-[#DCE3EC] sm:min-h-[320px] lg:min-h-[260px]"
@@ -277,10 +250,10 @@ const WhoWeAre = () => {
                   duration: 0.6,
                   ease: EASE,
                 }}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-fit"
               />
 
-              {/* Image Overlay */}
+              
               <motion.div
                 variants={fadeUpVariants}
                 className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/20 bg-[#06182E]/90 p-4 sm:bottom-6 sm:left-6 sm:right-6 sm:p-5"
@@ -320,13 +293,13 @@ const WhoWeAre = () => {
 
             </motion.div>
 
-            {/* Image Feature Cards */}
+            
             <motion.div
               variants={containerVariants}
               className="mt-4 grid grid-cols-3 gap-3"
             >
 
-              {imageFeatures.map((item, index) => {
+              {imageFeatures.map((item) => {
                 const Icon = item.icon;
 
                 return (
@@ -368,7 +341,7 @@ const WhoWeAre = () => {
 
             </motion.div>
 
-            {/* Image Bottom Information */}
+            
             <motion.div
               variants={fadeUpVariants}
               whileHover={hoverLift}
@@ -388,9 +361,6 @@ const WhoWeAre = () => {
 
           </motion.div>
 
-          {/* =====================================================
-              RIGHT CONTENT SECTION
-          ====================================================== */}
 
           <motion.div
             variants={containerVariants}
@@ -400,7 +370,7 @@ const WhoWeAre = () => {
             className="flex min-w-0 flex-col rounded-3xl border border-[#DCE3EC] bg-[#F8FAFC] p-5 sm:p-7 lg:p-8"
           >
 
-            {/* Content Label */}
+            
             <motion.span
               variants={fadeUpVariants}
               className="inline-flex w-fit items-center gap-2 rounded-full border border-[#DCE3EC] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#0F2B46] sm:text-sm"
@@ -409,7 +379,7 @@ const WhoWeAre = () => {
               Our Expertise
             </motion.span>
 
-            {/* Content Heading */}
+            
             <motion.h3
               variants={fadeUpVariants}
               className="mt-5 text-2xl font-bold italic leading-tight tracking-tight text-[#06182E] sm:text-3xl"
@@ -421,7 +391,7 @@ const WhoWeAre = () => {
               </span>
             </motion.h3>
 
-            {/* Description */}
+            
             <motion.p
               variants={fadeUpVariants}
               className="mt-5 text-sm leading-7 text-black sm:text-base sm:leading-7"
@@ -443,7 +413,7 @@ const WhoWeAre = () => {
               metalworking with dependable polishing solutions.
             </motion.p>
 
-            {/* Highlights */}
+            
             <motion.div
               variants={containerVariants}
               className="mt-7 space-y-4"
@@ -460,7 +430,7 @@ const WhoWeAre = () => {
                     className="group flex items-start gap-4 rounded-2xl border border-[#DCE3EC] bg-white p-4"
                   >
 
-                    {/* Icon */}
+                    
                     <motion.div
                       whileHover={
                         shouldReduceMotion
@@ -475,7 +445,7 @@ const WhoWeAre = () => {
                       <Icon size={21} strokeWidth={1.8} />
                     </motion.div>
 
-                    {/* Highlight Content */}
+                    
                     <div className="min-w-0">
 
                       <h4 className="text-sm font-bold italic text-[#06182E] sm:text-base">
@@ -494,7 +464,7 @@ const WhoWeAre = () => {
 
             </motion.div>
 
-            {/* CTA */}
+            
             <motion.div
               variants={fadeUpVariants}
               className="mt-auto pt-7"
@@ -502,7 +472,7 @@ const WhoWeAre = () => {
 
               <div className="flex flex-wrap items-center gap-3">
 
-                {/* About Button */}
+                
                 <motion.div
                   whileHover={
                     shouldReduceMotion
@@ -528,7 +498,7 @@ const WhoWeAre = () => {
                   </Link>
                 </motion.div>
 
-                {/* Products Button */}
+                
                 <motion.div
                   whileHover={
                     shouldReduceMotion

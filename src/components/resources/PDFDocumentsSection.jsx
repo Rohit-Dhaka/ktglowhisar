@@ -232,7 +232,7 @@ const PDFDocumentsSection = () => {
         className="pointer-events-none absolute right-10 top-1/2 h-[240px] w-[240px] rounded-full bg-[#E0B04A]/25 blur-3xl"
       />
 
-      <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 sm:px-8 lg:px-12">
         {/* =====================================================
             SECTION HEADER
         ====================================================== */}

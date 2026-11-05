@@ -111,14 +111,7 @@ const ProductQualitySection = () => {
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* =====================================================
-          BACKGROUND GRAPHICS
-      ====================================================== */}
-      {/* faint blueprint grid */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(6,24,46,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(6,24,46,0.045)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"
-      />
+ 
       <motion.div
         aria-hidden="true"
         animate={reduce ? undefined : { rotate: 360 }}
@@ -136,7 +129,7 @@ const ProductQualitySection = () => {
         className="pointer-events-none absolute -left-24 bottom-10 h-[260px] w-[260px] rounded-full bg-[#E0B04A]/25 blur-3xl"
       />
 
-      <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 sm:px-8 lg:px-12">
         {/* Main Layout */}
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* =====================================================

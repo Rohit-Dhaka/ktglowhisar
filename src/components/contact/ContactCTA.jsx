@@ -22,7 +22,7 @@ const ContactCTA = () => {
   };
 
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <section className="bg-white px-4 sm:px-8 lg:px-12 py-16  sm:py-20  lg:py-24">
       <div className="">
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 40, scale: reduce ? 1 : 0.98 }}
@@ -31,7 +31,7 @@ const ContactCTA = () => {
           transition={{ duration: 0.8, ease: EASE }}
           className="relative overflow-hidden rounded-3xl bg-[#06182E] px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20"
         >
-          {/* Background Decoration */}
+          
           <motion.div
             aria-hidden="true"
             animate={reduce ? undefined : { scale: [1, 1.06, 1], opacity: [0.6, 1, 0.6] }}
@@ -55,7 +55,7 @@ const ContactCTA = () => {
 
           <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#0F2B46]/70 blur-3xl" />
 
-          {/* Content */}
+          
           <motion.div
             variants={stagger}
             initial="hidden"
@@ -63,7 +63,7 @@ const ContactCTA = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="relative z-10 grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
           >
-            {/* Left Content */}
+            
             <div>
               <motion.span
                 variants={fadeUp}
@@ -103,7 +103,7 @@ const ContactCTA = () => {
               </motion.p>
             </div>
 
-            {/* Right CTA Card */}
+            
             <motion.div
               variants={fadeLeft}
               className="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm sm:p-7"

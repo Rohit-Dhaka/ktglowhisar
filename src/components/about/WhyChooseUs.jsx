@@ -106,7 +106,7 @@ const WhyChooseUs = () => {
     <MotionConfig reducedMotion="never">
       <section className="w-full overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
         <div className=" px-4 sm:px-6 lg:px-8">
-          {/* Header */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -126,7 +126,7 @@ const WhyChooseUs = () => {
                 </p>
               </div>
 
-              {/* Main Heading: Serif Font + Gold Color */}
+              
               <h2 className=" text-3xl font-bold leading-tight  sm:text-4xl lg:text-5xl">
                 Your Trusted Partner for {" "}
                 <span className="font-serif text-[#C9972B]" >
@@ -142,7 +142,7 @@ const WhyChooseUs = () => {
               </p>
             </motion.div>
 
-            {/* CTA */}
+            
             <motion.div
               variants={fadeUpVariants}
               whileHover={{ y: -3 }}
@@ -158,7 +158,7 @@ const WhyChooseUs = () => {
             </motion.div>
           </motion.div>
 
-          {/* Advantages Grid */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
