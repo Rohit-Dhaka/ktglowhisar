@@ -1,13 +1,13 @@
 import {
   ArrowRight,
   ArrowUpRight,
-  
+  ChevronRight,
   Mail,
   MapPin,
   Phone,
   PhoneCall,
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import ContactImg from "../../assets/images/contactHero.png";
 
@@ -66,9 +66,24 @@ const ContactHero = () => {
 
   return (
     <section className="relative isolate flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[#06182E]">
-      {/* ---------- Background decoration ---------- */}
-  
+      
+      {/* Top Breadcrumb Navigation */}
+      <motion.div
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="absolute left-0 top-0 z-20 w-full px-4 pt-6 sm:px-6 lg:px-8"
+      >
+        <div className="mx-auto flex max-w-7xl items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/70 sm:text-sm">
+          <Link to="/" className="transition-colors hover:text-[#E0B04A]">
+            Home
+          </Link>
+          <ChevronRight size={15} />
+          <span className="text-[#E0B04A]">Contact Us</span>
+        </div>
+      </motion.div>
 
+      {/* Background decoration */}
       <motion.div
         aria-hidden="true"
         animate={reduce ? undefined : { opacity: [0.3, 0.55, 0.3], scale: [1, 1.1, 1] }}
@@ -77,17 +92,18 @@ const ContactHero = () => {
       />
 
       {/* Giant outline watermark */}
- <span
-  aria-hidden="true"
-  className="pointer-events-none absolute inset-x-4 -bottom-6 select-none whitespace-nowrap text-center font-serif text-[18vw] font-bold leading-none text-transparent lg:inset-x-10 lg:-bottom-12 lg:text-[18vw]"
-  style={{ WebkitTextStroke: "1px rgba(255,255,255,0.07)" }}
->
-  CONTACT
-</span>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-4 -bottom-6 select-none whitespace-nowrap text-center font-serif text-[18vw] font-bold leading-none text-transparent lg:inset-x-10 lg:-bottom-12 lg:text-[18vw]"
+        style={{ WebkitTextStroke: "1px rgba(255,255,255,0.07)" }}
+      >
+        CONTACT
+      </span>
 
-      {/* ---------- Content ---------- */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-10 pt-38 sm:px-6 lg:px-8">
+      {/* Content */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+          
           {/* ===== LEFT: TEXT ===== */}
           <motion.div
             variants={container}
@@ -95,32 +111,31 @@ const ContactHero = () => {
             animate="visible"
             className="lg:col-span-7"
           >
-  
+            {/* Circular Icon Badge + Tag */}
+            <motion.div
+              variants={fadeUp}
+              className="mb-5 flex items-center gap-3.5"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#E0B04A]/70 bg-[#E0B04A]/10 text-[#E0B04A] shadow-[0_0_15px_rgba(224,176,74,0.15)] sm:h-13 sm:w-13">
+                <PhoneCall size={20} strokeWidth={1.8} />
+              </div>
 
-            {/* Eyebrow with gold dash */}
-            <motion.div variants={fadeUp} className="mb-5 flex items-center gap-3">
-              <motion.span
-                initial={{ width: 0 }}
-                animate={{ width: 40 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="h-0.5 shrink-0 bg-[#E0B04A]"
-              />
-              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#E0B04A] sm:text-sm">
-                Let&apos;s Connect
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E0B04A] sm:text-xs md:text-sm">
+                ✦ LET&apos;S CONNECT ✦
               </span>
             </motion.div>
 
-            {/* Heading - line reveal */}
-            <h1 className="text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[72px]">
+            {/* Heading with ResourcesHero font size */}
+            <h1 className="text-3xl font-extrabold leading-[1.14] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-[54px] xl:text-[58px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
                   Let&apos;s Start
                 </motion.span>
               </span>
-              <span className="block overflow-hidden pb-3">
+              <span className="block overflow-hidden pb-2">
                 <motion.span
                   variants={lineReveal}
-                  className="block font-serif font-bold italic text-[#E0B04A]"
+                  className="block font-serif italic text-[#E0B04A]"
                 >
                   a Conversation.
                 </motion.span>
@@ -130,24 +145,24 @@ const ContactHero = () => {
             {/* Description */}
             <motion.p
               variants={fadeUp}
-              className="mt-5 max-w-xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8"
+              className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base sm:leading-7"
             >
               Have a question about our products or services? Our team is ready
               to help you find the right solutions for your business — from
               product enquiries and technical support to business opportunities.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons (Full-width on mobile) */}
             <motion.div
               variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             >
               <motion.a
                 href="#contact-form"
-                whileHover={reduce ? undefined : { scale: 1.05, y: -2 }}
+                whileHover={reduce ? undefined : { scale: 1.03, y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#D49A2A] to-[#F0C968] px-7 py-3.5 text-sm font-semibold text-[#06182E] shadow-[0_10px_30px_-8px_rgba(224,176,74,0.6)]"
+                className="group flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#D49A2A] to-[#F0C968] px-7 py-3.5 text-sm font-bold text-[#06182E] shadow-[0_10px_30px_-8px_rgba(224,176,74,0.6)] sm:w-auto sm:inline-flex"
               >
                 Send an Enquiry
                 <ArrowRight
@@ -158,10 +173,10 @@ const ContactHero = () => {
 
               <motion.a
                 href="#contact-information"
-                whileHover={reduce ? undefined : { scale: 1.05, y: -2 }}
+                whileHover={reduce ? undefined : { scale: 1.03, y: -2 }}
                 whileTap={reduce ? undefined : { scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-[#E0B04A]/60 hover:bg-white/10"
+                className="group flex w-full items-center justify-center gap-3 rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-[#E0B04A]/60 hover:bg-white/10 sm:w-auto sm:inline-flex"
               >
                 <PhoneCall size={18} className="text-[#E0B04A]" />
                 Contact Information
@@ -258,7 +273,7 @@ const ContactHero = () => {
                   <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300">
                     Prefer a call?
                   </span>
-                  <span className="block  italic text-base font-bold  text-[#E0B04A]">
+                  <span className="block italic text-base font-bold text-[#E0B04A]">
                     {CONTACT.phoneDisplay}
                   </span>
                 </span>
