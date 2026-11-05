@@ -344,7 +344,7 @@ const ProductsSection = () => {
             {products.map((product) => (
               <SwiperSlide
                 key={product.id}
-                className="!h-[400px] !w-[calc(100%-32px)] pb-3 sm:!w-[calc(50%-9px)] lg:!w-[calc(33.333%-13.333px)] xl:!w-[calc(33.333%-16px)]"
+                className="sm:!h-[500px] !w-[calc(100%-32px)] pb-3 sm:!w-[calc(50%-9px)] lg:!w-[calc(33.333%-13.333px)] xl:!w-[calc(33.333%-16px)]"
               >
                 <Link
                   to={product.path}

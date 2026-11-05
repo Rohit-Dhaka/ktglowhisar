@@ -18,46 +18,42 @@ import {
 import "swiper/css";
 import "swiper/css/pagination";
 
-/* =========================================================
-   PRODUCT IMAGES IMPORTS
-========================================================= */
 
-// 1. Cutting & Grinding Wheels
+
+
 import Cutting1 from "../../assets/productimg/Cutting & Grinding Wheels1.png";
 import Cutting2 from "../../assets/productimg/Cutting & Grinding Wheels2.png";
 import Cutting3 from "../../assets/productimg/Cutting & Grinding Wheels3.png";
 
-// 2. Flap Discs
+
 import Two from "../../assets/images/2.png";
 
-// 3. Fiber Discs
+
 import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
 import Fiber2 from "../../assets/productimg/Fiber Discs2.png";
 import Fiber3 from "../../assets/productimg/Fiber Discs3.png";
 
-// 4. Non-Woven Polishing Wheels
+
 import NonWoven1 from "../../assets/productimg/Non-Woven Polishing Wheels1.png";
 import NonWoven2 from "../../assets/productimg/Non-Woven Polishing Wheels2.png";
 import NonWoven3 from "../../assets/productimg/Non-Woven Polishing Wheels3.png";
 
-// 5. Polishing & Buffing Wheels
+
 import Buffing1 from "../../assets/productimg/Polishing & Buffing Wheels1.png";
 import Buffing2 from "../../assets/productimg/Polishing & Buffing Wheels2.png";
 import Buffing3 from "../../assets/productimg/Polishing & Buffing Wheels3.png";
 
-// 6. Polishing Wax
+
 import Wax1 from "../../assets/productimg/Polishing Wax1.png";
 import Wax2 from "../../assets/productimg/Polishing Wax2.png";
 import Wax3 from "../../assets/productimg/Polishing Wax3.png";
 
-// 7. Rubber Roll (Agar aapki images me extension na ho toh bina .png ke import karein)
+
 import Ruberroll1 from "../../assets/productimg/Ruberroll1.png";
 import Ruberroll2 from "../../assets/productimg/Ruberroll2.png";
 import Ruberroll3 from "../../assets/productimg/Ruberroll3.png";
 
-/* =========================================================
-   PRODUCTS DATA (Total 7 Products)
-========================================================= */
+
 
 export const products = [
   {
@@ -160,16 +156,14 @@ const categories = [
   { id: "polishing", label: "Polishing, Wax & Rolls" },
 ];
 
-/* =========================================================
-   SINGLE PRODUCT CARD COMPONENT (With Live Image Switcher)
-========================================================= */
+
 
 const ProductCard = ({ product }) => {
   const [activeImg, setActiveImg] = useState(product.image);
 
   return (
     <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-3.5 shadow-[0_6px_20px_rgba(6,24,46,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#B8862B]/60 hover:shadow-[0_16px_36px_rgba(6,24,46,0.1)]">
-      {/* Image Container with Badges */}
+      
       <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-xl bg-[#F0F2F5]">
         <img
           src={activeImg}
@@ -178,21 +172,21 @@ const ProductCard = ({ product }) => {
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
         />
 
-        {/* Gradient overlay */}
+        
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06182E]/50 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
 
-        {/* Top-Left: Number ID Tag */}
+        
         <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full border border-white/40 bg-white/90 px-2.5 py-0.5 text-[10.5px] font-extrabold tracking-wider text-[#06182E] shadow-sm backdrop-blur-md">
           {product.id}
         </div>
 
-        {/* Top-Right: Specialty Tag */}
+        
         <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-[#B8862B]/30 bg-[#06182E]/90 px-2.5 py-0.5 text-[10.5px] font-bold text-[#E0B04A] shadow-sm backdrop-blur-md">
           <Sparkles size={11} />
           {product.badge}
         </div>
 
-        {/* 3 Clickable Image Switch Dots (Bottom-Right Inside Image) */}
+        
         {product.images && product.images.length > 1 && (
           <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1 rounded-full bg-[#06182E]/80 p-1 backdrop-blur-md">
             {product.images.map((img, idx) => (
@@ -216,7 +210,7 @@ const ProductCard = ({ product }) => {
         )}
       </div>
 
-      {/* Content Area */}
+      
       <div className="flex flex-1 flex-col p-3 sm:p-4">
         <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#718865]">
           <Zap size={12} className="text-[#B8862B]" />
@@ -231,7 +225,7 @@ const ProductCard = ({ product }) => {
           {product.description}
         </p>
 
-        {/* Specs Chips */}
+        
         <div className="mt-3 flex flex-wrap gap-1.5">
           {product.specs?.map((spec, i) => (
             <span
@@ -243,7 +237,7 @@ const ProductCard = ({ product }) => {
           ))}
         </div>
 
-        {/* Bottom CTA Link */}
+        
         <div className="mt-4 flex items-center justify-between border-t border-[#06182E]/5 pt-3">
           <Link
             to={product.path}
@@ -268,9 +262,6 @@ const ProductCard = ({ product }) => {
   );
 };
 
-/* =========================================================
-   OUR PRODUCTS MAIN SECTION
-========================================================= */
 
 const OurProducts = () => {
   const swiperRef = useRef(null);
@@ -278,7 +269,7 @@ const OurProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [viewMode, setViewMode] = useState("grid"); // 'grid' | 'carousel'
 
-  // Filter products by selected category
+  
   const filteredProducts =
     selectedCategory === "all"
       ? products

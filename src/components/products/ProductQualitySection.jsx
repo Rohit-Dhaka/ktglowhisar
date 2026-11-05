@@ -74,8 +74,7 @@ const headingWords = {
   show: { transition: { staggerChildren: 0.07 } },
 };
 
-const bracket =
-  "absolute h-7 w-7 border-[#E0B04A] sm:h-9 sm:w-9";
+const bracket = "absolute h-7 w-7 border-[#E0B04A] sm:h-9 sm:w-9";
 
 /* =========================================================
    SECTION
@@ -111,7 +110,6 @@ const ProductQualitySection = () => {
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
- 
       <motion.div
         aria-hidden="true"
         animate={reduce ? undefined : { rotate: 360 }}
@@ -187,7 +185,11 @@ const ProductQualitySection = () => {
                   initial={{ opacity: 0, scale: 1.6 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease: EASE }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.5 + i * 0.1,
+                    ease: EASE,
+                  }}
                   className={`${bracket} ${pos} z-10`}
                 />
               ))}
@@ -207,7 +209,7 @@ const ProductQualitySection = () => {
               </div>
 
               {/* Image Bottom Content */}
-              <div className="absolute bottom-0 left-0 right-0 z-20 p-8 sm:p-12">
+              <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-12">
                 <motion.div
                   initial="hidden"
                   whileInView="show"
@@ -217,7 +219,7 @@ const ProductQualitySection = () => {
                 >
                   <motion.p
                     variants={fadeUp}
-                    className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F0CA6A]"
+                    className="text-xs max-sm:hidden font-semibold uppercase tracking-[0.18em] text-[#F0CA6A]"
                   >
                     Our Commitment
                   </motion.p>
@@ -234,10 +236,10 @@ const ProductQualitySection = () => {
 
                   <motion.p
                     variants={fadeUp}
-                    className="mt-3 text-sm leading-6 text-slate-300"
+                    className="sm:mt-3 mt-1 text-sm leading-6 text-slate-300"
                   >
-                    A consistent focus on product quality, precision,
-                    and dependable industrial solutions.
+                    A consistent focus on product quality, precision, and
+                    dependable industrial solutions.
                   </motion.p>
                 </motion.div>
               </div>
@@ -251,12 +253,16 @@ const ProductQualitySection = () => {
               transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
               className="absolute -top-5 right-3 z-30 sm:-top-6 sm:right-8"
             >
-              <div className="relative flex h-[104px] w-[104px] items-center justify-center rounded-full border border-[#E0B04A]/60 bg-[#06182E] shadow-[0_12px_30px_rgba(6,24,46,0.35)] sm:h-[120px] sm:w-[120px]">
+              <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#E0B04A]/60 bg-[#06182E] sm:h-[120px] sm:w-[120px]">
                 <motion.svg
                   viewBox="0 0 120 120"
                   aria-hidden="true"
                   animate={reduce ? undefined : { rotate: 360 }}
-                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="absolute inset-0 h-full w-full"
                 >
                   <defs>
@@ -265,6 +271,7 @@ const ProductQualitySection = () => {
                       d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"
                     />
                   </defs>
+
                   <text
                     fontSize="9"
                     fontWeight="700"
@@ -273,15 +280,15 @@ const ProductQualitySection = () => {
                     lengthAdjust="spacing"
                   >
                     <textPath href="#quality-seal-circle">
-                      QUALITY • PRECISION • RELIABLE •{" "}
+                      QUALITY • PRECISION • RELIABLE •
                     </textPath>
                   </text>
                 </motion.svg>
 
                 <BadgeCheck
-                  size={34}
+                  size={24}
                   strokeWidth={1.6}
-                  className="text-[#E0B04A]"
+                  className="text-[#E0B04A] sm:h-[34px] sm:w-[34px]"
                 />
               </div>
             </motion.div>
@@ -292,13 +299,17 @@ const ProductQualitySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.9, ease: EASE }}
-              className="absolute -bottom-5 right-3 z-30 sm:right-8"
+              className="absolute sm:-bottom-5 sm:right-3 right-1 -bottom-14 z-30 sm:right-8"
             >
               <motion.div
                 animate={reduce ? undefined : { y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 whileHover={{ scale: 1.05 }}
-                className="rounded-2xl border border-[#DCE3EC] bg-white p-4 shadow-[0_14px_35px_rgba(6,24,46,0.15)] sm:p-5"
+                className="rounded-2xl  border border-[#DCE3EC] bg-white p-4 shadow-[0_14px_35px_rgba(6,24,46,0.15)] sm:p-5"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F5F7FA] text-[#B8862B]">
@@ -336,7 +347,11 @@ const ProductQualitySection = () => {
             >
               <motion.span
                 animate={reduce ? undefined : { scale: [1, 1.25, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="flex text-[#B8862B]"
               >
                 <BadgeCheck size={15} />
@@ -387,9 +402,9 @@ const ProductQualitySection = () => {
               className="mt-3 text-sm leading-7 text-black sm:text-base sm:leading-8"
             >
               We understand the importance of quality in industrial
-              applications. Our product-focused approach emphasizes
-              precision, consistency, and reliability to help meet
-              the needs of our customers and their industries.
+              applications. Our product-focused approach emphasizes precision,
+              consistency, and reliability to help meet the needs of our
+              customers and their industries.
             </motion.p>
 
             {/* Feature timeline */}

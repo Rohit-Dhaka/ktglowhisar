@@ -218,40 +218,45 @@ const ContactHero = () => {
             </motion.div>
 
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.9, ease: EASE }}
-              className="absolute -right-2 top-10 sm:-right-8"
-            >
-              <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E] shadow-xl">
-                <motion.svg
-                  viewBox="0 0 200 200"
-                  aria-hidden="true"
-                  animate={reduce ? undefined : { rotate: 360 }}
-                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 h-full w-full"
-                >
-                  <defs>
-                    <path
-                      id="contact-badge-circle"
-                      d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
-                    />
-                  </defs>
-                  <text
-                    fill="#E0B04A"
-                    fontSize="17"
-                    fontWeight="700"
-                    letterSpacing="4"
-                  >
-                    <textPath href="#contact-badge-circle">
-                      GET IN TOUCH • KT GLOW • GET IN TOUCH •
-                    </textPath>
-                  </text>
-                </motion.svg>
-                <ArrowUpRight size={26} className="text-[#E0B04A]" />
-              </div>
-            </motion.div>
+       <motion.div
+  initial={{ opacity: 0, scale: 0.6 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.7, delay: 0.9, ease: EASE }}
+  className="absolute -right-1 top-6 sm:-right-8 sm:top-10"
+>
+  <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E] sm:h-28 sm:w-28">
+    <motion.svg
+      viewBox="0 0 200 200"
+      aria-hidden="true"
+      animate={reduce ? undefined : { rotate: 360 }}
+      transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      className="absolute inset-0 h-full w-full"
+    >
+      <defs>
+        <path
+          id="contact-badge-circle"
+          d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
+        />
+      </defs>
+
+      <text
+        fill="#E0B04A"
+        fontSize="17"
+        fontWeight="700"
+        letterSpacing="4"
+      >
+        <textPath href="#contact-badge-circle">
+          GET IN TOUCH • KT GLOW • GET IN TOUCH •
+        </textPath>
+      </text>
+    </motion.svg>
+
+    <ArrowUpRight
+      size={20}
+      className="text-[#E0B04A] sm:h-[26px] sm:w-[26px]"
+    />
+  </div>
+</motion.div>
 
             
             <motion.a
