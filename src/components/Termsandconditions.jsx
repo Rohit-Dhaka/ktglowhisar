@@ -4,7 +4,7 @@ const COMPANY = {
   brand: "KT Glow",
   firm: "Thalor Manufacturer",
   phone: "+919728303738",
-  email: "Vikash61289@gmail.com",
+  email: "vikash61289@gmail.com",
   address: "Plot No. 10, Fees Market, Industrial Area, Hisar, Haryana",
 };
 
