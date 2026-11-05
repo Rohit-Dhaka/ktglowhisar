@@ -7,7 +7,7 @@ import Cutting2 from "../../assets/productimg/Cutting & Grinding Wheels2.png";
 import Cutting3 from "../../assets/productimg/Cutting & Grinding Wheels3.png";
 
 // 2. Flap Discs (Fallback image)
-import Flapdiscs1 from "../../assets/productimg/Flapdiscs1.png";
+import Flapdiscs1 from "../../assets/productimg/FlapdiscsOne.png";
 import Flapdiscs2 from "../../assets/productimg/Flapdiscs2.png";
 import Flapdiscs3 from "../../assets/productimg/Flapdiscs3.png";
 
