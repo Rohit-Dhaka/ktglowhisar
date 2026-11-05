@@ -7,9 +7,9 @@ import Cutting2 from "../../assets/productimg/Cutting & Grinding Wheels2.png";
 import Cutting3 from "../../assets/productimg/Cutting & Grinding Wheels3.png";
 
 // 2. Flap Discs (Fallback image)
-import Flapdiscs1 from "../../assets/productimg/FlapDiscs1.png";
-import Flapdiscs2 from "../../assets/productimg/FlapDiscs2.png";
-import Flapdiscs3 from "../../assets/productimg/FlapDiscs3.png";
+import Flapdiscs1 from "../../assets/productimg/Flapdiscs1.png";
+import Flapdiscs2 from "../../assets/productimg/Flapdiscs2.png";
+import Flapdiscs3 from "../../assets/productimg/Flapdiscs3.png";
 
 // 3. Fiber Discs
 import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
