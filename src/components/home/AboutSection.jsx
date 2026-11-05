@@ -165,7 +165,7 @@ const AboutSection = () => {
       />
 
       {/* Main Container */}
-      <div className="relative z-10  px-4 sm:px-8 lg:px-12">
+      <div className="relative z-10 px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-14 xl:gap-16">
           
           {/* ===================================================
@@ -264,7 +264,7 @@ const AboutSection = () => {
               </p>
             </motion.div>
 
-            {/* 👇 INCREASED HEADING SIZE: text-[32px] sm:text-[44px] lg:text-[52px] */}
+            {/* Heading */}
             <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-[#06182E] sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -274,7 +274,6 @@ const AboutSection = () => {
 
               <span className="block overflow-hidden pb-2">
                 <motion.span variants={lineReveal} className="inline-block">
-                  {/* Shimmering Cursive Font */}
                   <motion.span
                     animate={
                       reduce
@@ -382,18 +381,18 @@ const AboutSection = () => {
               ))}
             </motion.div>
 
-            {/* CTA Button */}
+            {/* CTA Button (Full width on mobile) */}
             <motion.div variants={fadeUp} className="mt-6">
               <motion.div
                 whileHover={{ y: -4, scale: 1.03 }}
                 whileTap={{ scale: 0.96 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="inline-block"
+                className="w-full sm:w-fit"
               >
                 <Link
                   to="/about"
                   aria-label="Discover Our Company"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-[#06182E] px-6 py-3 text-[14px] font-bold text-white shadow-[0_10px_24px_rgba(6,24,46,0.22)] transition-all duration-300 hover:bg-[#0D2A4A] hover:shadow-[0_14px_30px_rgba(6,24,46,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#06182E]"
+                  className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#06182E] px-6 py-3.5 text-[14px] font-bold text-white shadow-[0_10px_24px_rgba(6,24,46,0.22)] transition-all duration-300 hover:bg-[#0D2A4A] hover:shadow-[0_14px_30px_rgba(6,24,46,0.28)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#06182E] sm:w-auto sm:inline-flex"
                 >
                   <span>Discover Our Company</span>
                   <motion.span
