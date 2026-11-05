@@ -1,17 +1,6 @@
 import { useEffect, useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  MotionConfig,
-  useReducedMotion,
-} from "framer-motion";
-import {
-  Star,
-  Quote,
-  ArrowLeft,
-  ArrowRight,
-  MessageSquareQuote,
-} from "lucide-react";
+import { motion, AnimatePresence, MotionConfig, useReducedMotion } from "framer-motion";
+import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -79,8 +68,8 @@ const testimonialSlides = Array.from(
   (_, slideIndex) =>
     testimonials.slice(
       slideIndex * ITEMS_PER_SLIDE,
-      slideIndex * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE
-    )
+      slideIndex * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE,
+    ),
 );
 
 const Testimonials = () => {
@@ -168,14 +157,16 @@ const Testimonials = () => {
                       {/* CARD TOP */}
                       <div className="flex items-start justify-between">
                         <div className="flex items-center gap-1">
-                          {Array.from({ length: item.rating }).map((_, starIndex) => (
-                            <Star
-                              key={starIndex}
-                              size={15}
-                              fill="#C9972B"
-                              stroke="#C9972B"
-                            />
-                          ))}
+                          {Array.from({ length: item.rating }).map(
+                            (_, starIndex) => (
+                              <Star
+                                key={starIndex}
+                                size={15}
+                                fill="#C9972B"
+                                stroke="#C9972B"
+                              />
+                            ),
+                          )}
                         </div>
 
                         <Quote
@@ -210,7 +201,6 @@ const Testimonials = () => {
                             </p>
                           </div>
                         </div>
-
                       </div>
                     </motion.article>
                   ))}
@@ -221,8 +211,6 @@ const Testimonials = () => {
 
           {/* CAROUSEL CONTROLS */}
           <div className="mt-7 flex flex-col items-center justify-between gap-5 sm:flex-row">
-       
-
             {/* ARROWS */}
             <div className="flex items-center gap-3">
               <button

@@ -11,11 +11,9 @@ import {
 
 import {
   ArrowRight,
-  ArrowUpRight,
-  ChevronRight,
+  ArrowUpRight,  
   Check,
-  Layers,
-  Settings2,
+  Layers,  
   Sparkles,
 } from "lucide-react";
 
@@ -87,20 +85,7 @@ const fadeUpVariants = {
   },
 };
 
-const fadeLeftVariants = {
-  hidden: {
-    opacity: 0,
-    x: -40,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.9,
-      ease: EASE,
-    },
-  },
-};
+
 
 const fadeRightVariants = {
   hidden: {

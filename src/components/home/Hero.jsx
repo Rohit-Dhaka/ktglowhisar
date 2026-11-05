@@ -16,6 +16,9 @@ import {
   BadgeCheck,
   Users,
   Truck,
+  CheckCircle2,
+  Sparkles,
+  Zap,
 } from "lucide-react";
 
 import heroImage from "../../assets/images/hero1.png";
@@ -60,7 +63,7 @@ function useSEO({ title, description, keywords }) {
 }
 
 /* =========================================================
-   CONTENT
+   CONTENT & TAGS
 ========================================================= */
 
 const content = {
@@ -68,12 +71,19 @@ const content = {
   title: "Precision Abrasives",
   highlight: "For a Flawless Steel Finish",
   description:
-    "High-performance cutting, grinding and polishing solutions engineered for superior finishing.",
+    "Engineered for demanding industrial applications, KT Glow manufactures premium cutting, grinding, and polishing solutions.",
   button: "Explore Products",
   link: "/products",
 };
 
-/* Edit these to match your real selling points */
+/* 2-3 Selling Tags */
+const trustTags = [
+  { icon: CheckCircle2, label: "ISO 9001:2015 Certified" },
+  { icon: Sparkles, label: "Mirror Finish Guarantee" },
+  { icon: Zap, label: "Heavy-Duty Performance" },
+];
+
+/* 4 Feature Items */
 const features = [
   { icon: Cog, label: "Precision Engineered" },
   { icon: ShieldCheck, label: "Strong & Durable" },
@@ -81,7 +91,7 @@ const features = [
   { icon: Factory, label: "Industrial Grade" },
 ];
 
-/* Edit these to match your real numbers (used by the stats bar below) */
+/* Real numbers for bottom stats bar */
 const stats = [
   { icon: BadgeCheck, value: "10+", label: "Years of Experience" },
   { icon: Users, value: "5000+", label: "Happy Customers" },
@@ -90,7 +100,7 @@ const stats = [
 ];
 
 /* =========================================================
-   ANIMATION VARIANTS (framer-motion)
+   ANIMATION VARIANTS
 ========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -99,28 +109,27 @@ const heroContainer = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
     },
   },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 35 },
+  hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: EASE },
+    transition: { duration: 0.65, ease: EASE },
   },
 };
 
-/* each heading line slides up from behind a mask */
 const lineReveal = {
   hidden: { y: "110%", opacity: 0 },
   show: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.95, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -128,19 +137,19 @@ const featureContainer = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.7,
+      staggerChildren: 0.07,
+      delayChildren: 0.35,
     },
   },
 };
 
 const featureItem = {
-  hidden: { opacity: 0, y: 25, scale: 0.85 },
+  hidden: { opacity: 0, y: 15, scale: 0.92 },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.6, ease: EASE },
+    transition: { duration: 0.5, ease: EASE },
   },
 };
 
@@ -148,24 +157,23 @@ const statsContainer = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
     },
   },
 };
 
 const statItem = {
-  hidden: { opacity: 0, y: 35, scale: 0.92 },
+  hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: EASE },
+    transition: { duration: 0.55, ease: EASE },
   },
 };
 
 /* =========================================================
-   HERO SECTION
+   HERO COMPONENT
 ========================================================= */
 
 const Hero = () => {
@@ -178,7 +186,7 @@ const Hero = () => {
     keywords: SEO_KEYWORDS,
   });
 
-  /* scroll parallax */
+  /* Scroll parallax */
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -190,258 +198,271 @@ const Hero = () => {
     mass: 0.5,
   });
 
-  const imageY = useTransform(smooth, [0, 1], [0, 100]);
-  const imageScale = useTransform(smooth, [0, 1], [1.02, 1.12]);
-  const circleY = useTransform(smooth, [0, 1], [0, 180]);
+  const imageY = useTransform(smooth, [0, 1], [0, 80]);
+  const imageScale = useTransform(smooth, [0, 1], [1.02, 1.1]);
+  const circleY = useTransform(smooth, [0, 1], [0, 140]);
   const circleRotate = useTransform(smooth, [0, 1], [0, 20]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex min-h-[100svh] w-screen flex-col overflow-hidden bg-[#FBF8F2] md:h-screen md:min-h-0"
-    >
-      {/* Google font (you can also put this <link> in index.html) */}
+    <section ref={sectionRef} className="relative w-full overflow-hidden bg-[#FBF8F2]">
+      {/* Google font */}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-   
-      <motion.div
-        style={{
-          y: reduce ? 0 : imageY,
-          scale: reduce ? 1 : imageScale,
-        }}
-        className="absolute inset-x-0 -bottom-[10%] -top-[5%] z-0 origin-center"
-      >
-        <motion.img
-          src={heroImage}
-          alt={`${content.title} ${content.highlight} — KT Glow abrasives`}
-          loading="eager"
-          initial={{ opacity: 0, scale: 1.12 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.8, ease: EASE }}
-          className="block h-full w-full object-cover object-center md:object-contain md:object-right"
-        />
-      </motion.div>
-
       {/* =====================================================
-          LEFT FADE / GRADIENT
+          PART 1: HERO VIEWPORT (RESPONSIVE FULL SCREEN)
       ====================================================== */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,#FBF8F2_0%,rgba(251,248,242,0.95)_48%,rgba(251,248,242,0.78)_100%)] md:bg-[linear-gradient(90deg,#FBF8F2_0%,#FBF8F2_27%,rgba(251,248,242,0.92)_43%,rgba(251,248,242,0.55)_53%,rgba(251,248,242,0)_70%)]"
-      />
-
-      {/* =====================================================
-          SOFT GOLD GLOW (floats slowly)
-      ====================================================== */}
-      <motion.div
-        aria-hidden="true"
-        animate={
-          reduce
-            ? undefined
-            : { y: [0, -24, 0], scale: [1, 1.12, 1], opacity: [0.5, 0.85, 0.5] }
-        }
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute right-[8%] top-[18%] z-[1] h-[180px] w-[180px] rounded-full bg-[#E0B04A]/25 blur-3xl md:h-[300px] md:w-[300px]"
-      />
-
-      {/* =====================================================
-          DECORATIVE CIRCLE
-      ====================================================== */}
-      <motion.div
-        aria-hidden="true"
-        style={{
-          y: reduce ? 0 : circleY,
-          rotate: reduce ? 0 : circleRotate,
-        }}
-        animate={reduce ? undefined : { scale: [1, 1.05, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute -right-[100px] top-[70px] z-[1] h-[220px] w-[220px] rounded-full border border-[#B8862B]/25 md:-right-[170px] md:top-[100px] md:h-[500px] md:w-[500px]"
-      />
-
-      {/* =====================================================
-          MAIN CONTENT
-      ====================================================== */}
-      <div className="relative z-[2] mx-auto flex w-full max-w-[1800px] flex-1 items-end px-6 pb-[80px] sm:px-10 sm:pt-20 md:px-[72px] md:pb-8 md:pt-[10vh] lg:px-24 xl:px-32">
+      <div className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden px-4 pt-24 pb-10 sm:px-8 sm:pt-28 sm:pb-14 md:px-12 lg:px-20 xl:px-28">
+        
+        {/* Background Image (Parallax + Zoom-in) */}
         <motion.div
-          variants={heroContainer}
-          initial="hidden"
-          animate="show"
-          className="w-full max-w-[900px]"
+          style={{
+            y: reduce ? 0 : imageY,
+            scale: reduce ? 1 : imageScale,
+          }}
+          className="absolute inset-0 z-0 origin-center"
         >
-          {/* SMALL LABEL */}
-          <motion.div variants={fadeUp} className="mb-4 flex items-center gap-3 max-md:pt-30">
-            <motion.span
-              initial={{ width: 0 }}
-              animate={{ width: 38 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="h-0.5 shrink-0 bg-[#B8862B]"
-            />
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8A6212] md:text-[13px]">
-              {content.subtitle}
-            </p>
-          </motion.div>
+          <motion.img
+            src={heroImage}
+            alt={`${content.title} ${content.highlight} — KT Glow abrasives`}
+            loading="eager"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.6, ease: EASE }}
+            className="h-full w-full object-cover object-right sm:object-right md:object-right"
+          />
+        </motion.div>
 
-          {/* HEADING (single H1 for the page) */}
-          <h1 className="text-[40px] font-extrabold leading-[1.1] tracking-[-0.04em] text-[#06182E] sm:text-[54px] md:text-[clamp(44px,min(5.6vw,8.4vh),84px)]">
-            <span className="block overflow-hidden pb-1 pt-3">
-              <motion.span variants={lineReveal} className="block">
-                {content.title}
-              </motion.span>
-            </span>
+        {/* Gradient Overlay for Text Readability */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="absolute inset-0 z-[1] bg-gradient-to-b from-[#FBF8F2]/95 via-[#FBF8F2]/90 to-[#FBF8F2]/80 md:bg-gradient-to-r md:from-[#FBF8F2] md:via-[#FBF8F2]/92 md:to-transparent md:w-[70%]"
+        />
 
-            <span className="block overflow-hidden pb-3">
-              <motion.span
-                variants={lineReveal}
-                className="inline-block"
-              >
-                {/* gold gradient text with a slow shimmer */}
-                <motion.span
-                  animate={
-                    reduce
-                      ? undefined
-                      : { backgroundPosition: ["0% 50%", "200% 50%"] }
-                  }
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="inline-block bg-[linear-gradient(90deg,#9A6B12,#E0B04A,#9A6B12)] bg-[length:200%_auto] bg-clip-text pr-2 font-['Dancing_Script',cursive] font-bold tracking-normal text-transparent"
-                >
-                  {content.highlight}
-                </motion.span>
-              </motion.span>
-            </span>
-          </h1>
+        {/* Soft Gold Decorative Glow */}
+        <motion.div
+          aria-hidden="true"
+          animate={
+            reduce
+              ? undefined
+              : { y: [0, -20, 0], scale: [1, 1.1, 1], opacity: [0.4, 0.75, 0.4] }
+          }
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          className="pointer-events-none absolute right-[10%] top-[18%] z-[1] h-40 w-40 rounded-full bg-[#E0B04A]/20 blur-3xl md:h-72 md:w-72"
+        />
 
-          {/* DESCRIPTION */}
-          <motion.p
-            variants={fadeUp}
-            className="mt-5 max-w-[520px] text-[15px] leading-[1.8] text-[#06182E]/80 md:mt-[2vh] md:text-[16.5px]"
-          >
-            {content.description}
-          </motion.p>
+        {/* Decorative Circle */}
+        <motion.div
+          aria-hidden="true"
+          style={{
+            y: reduce ? 0 : circleY,
+            rotate: reduce ? 0 : circleRotate,
+          }}
+          animate={reduce ? undefined : { scale: [1, 1.04, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="pointer-events-none absolute -right-20 top-16 z-[1] h-60 w-60 rounded-full border border-[#B8862B]/20 sm:-right-24 sm:top-24 sm:h-96 sm:w-96 lg:h-[460px] lg:w-[460px]"
+        />
 
-          {/* BUTTON */}
+        {/* Main Content Area */}
+        <div className="relative z-[2] mx-auto w-full max-w-[1600px]">
           <motion.div
-            variants={fadeUp}
-            className="mt-8 pb-10 md:mt-[3.5vh]"
-          >
-            <motion.div
-              whileHover={{ y: -5, scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className="inline-block"
-            >
-              <Link
-                to={content.link}
-                aria-label={content.button}
-                className="inline-flex items-center gap-2 rounded-full bg-[#06182E] px-7 py-4 text-[15px] font-bold text-white shadow-[0_12px_30px_rgba(6,24,46,0.28)] transition-[background-color,box-shadow] duration-300 hover:bg-[#0D2A4A] hover:shadow-[0_18px_38px_rgba(6,24,46,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#06182E]"
-              >
-                {content.button}
-                <motion.span
-                  animate={reduce ? undefined : { x: [0, 5, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="flex text-[#E0B04A]"
-                >
-                  <ArrowRight size={18} />
-                </motion.span>
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* FEATURES */}
-          <motion.div
-            variants={featureContainer}
+            variants={heroContainer}
             initial="hidden"
             animate="show"
-            className="mt-10 flex flex-wrap gap-6 pb-4 sm:gap-8 md:mt-[3.5vh] md:gap-9"
+            className="w-full max-w-2xl lg:max-w-3xl"
           >
-            {features.map(({ icon: Icon, label }, index) => (
-              <motion.div
-                key={label}
-                variants={featureItem}
-                whileHover={{ y: -7 }}
-                transition={{ type: "spring", stiffness: 250, damping: 15 }}
-                className="flex max-w-[125px] cursor-default flex-col items-start gap-2"
-              >
-                <motion.span
-                  animate={reduce ? undefined : { y: [0, -4, 0] }}
-                  transition={{
-                    duration: 3,
-                    delay: index * 0.3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  whileHover={{ scale: 1.15, rotate: 8 }}
-                  className="flex rounded-full bg-[#B8862B]/15 p-[6px] text-[#8A6212]"
-                >
-                  <Icon size={28} strokeWidth={1.75} />
-                </motion.span>
+            {/* Subtitle / Brand Tag (Now properly visible below navbar) */}
+            <motion.div variants={fadeUp} className="mb-2.5 flex items-center gap-2.5 sm:mb-3.5 sm:gap-3">
+              <motion.span
+                initial={{ width: 0 }}
+                animate={{ width: 30 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="h-0.5 shrink-0 bg-[#B8862B]"
+              />
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#8A6212] sm:text-xs md:text-sm">
+                {content.subtitle}
+              </p>
+            </motion.div>
 
-                <span className="text-[13px] font-bold leading-[1.35] text-[#06182E]">
-                  {label}
-                </span>
+            {/* Main Heading (Properly scaled for small screens) */}
+            <h1 className="text-[28px] font-extrabold leading-[1.14] tracking-tight text-[#06182E] xs:text-3xl sm:text-5xl md:text-6xl lg:text-[68px]">
+              <span className="block overflow-hidden pb-1 pt-0.5">
+                <motion.span variants={lineReveal} className="block">
+                  {content.title}
+                </motion.span>
+              </span>
+
+              <span className="block overflow-hidden pb-1.5 pt-0.5">
+                <motion.span variants={lineReveal} className="inline-block">
+                  <motion.span
+                    animate={
+                      reduce
+                        ? undefined
+                        : { backgroundPosition: ["0% 50%", "200% 50%"] }
+                    }
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="inline-block bg-gradient-to-r from-[#9A6B12] via-[#E0B04A] to-[#9A6B12] bg-[length:200%_auto] bg-clip-text pr-2 font-['Dancing_Script',cursive] font-bold text-transparent text-[30px] xs:text-[34px] sm:text-5xl md:text-6xl lg:text-[70px]"
+                  >
+                    {content.highlight}
+                  </motion.span>
+                </motion.span>
+              </span>
+            </h1>
+
+            {/* Tags (Compact & responsive pills) */}
+            <motion.div
+              variants={fadeUp}
+              className="mt-3 flex flex-wrap items-center gap-1.5 sm:mt-4 sm:gap-2.5"
+            >
+              {trustTags.map((tag, idx) => {
+                const TagIcon = tag.icon;
+                return (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#B8862B]/25 bg-[#F5EEDB] px-2.5 py-0.5 text-[10px] font-semibold text-[#8A6212] shadow-sm sm:px-3 sm:py-1 sm:text-xs"
+                  >
+                    <TagIcon size={12} className="shrink-0 text-[#B8862B]" />
+                    {tag.label}
+                  </span>
+                );
+              })}
+            </motion.div>
+
+            {/* Description Paragraph */}
+            <motion.p
+              variants={fadeUp}
+              className="mt-3 max-w-2xl text-[13px] leading-relaxed text-[#06182E]/85 sm:mt-4 sm:text-[15px] sm:leading-7"
+            >
+              {content.description}
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div variants={fadeUp} className="mt-5 sm:mt-7">
+              <motion.div
+                whileHover={{ y: -3, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block"
+              >
+                <Link
+                  to={content.link}
+                  aria-label={content.button}
+                  className="inline-flex items-center gap-2 rounded-full bg-[#06182E] px-5 py-3 text-xs font-bold text-white shadow-md shadow-[#06182E]/20 transition-all duration-300 hover:bg-[#0D2A4A] sm:px-7 sm:py-3.5 sm:text-sm md:text-base"
+                >
+                  {content.button}
+                  <motion.span
+                    animate={reduce ? undefined : { x: [0, 4, 0] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="text-[#E0B04A]"
+                  >
+                    <ArrowRight size={16} />
+                  </motion.span>
+                </Link>
               </motion.div>
-            ))}
+            </motion.div>
+
+            {/* =====================================================
+                4 FEATURE ITEMS (PERFECTLY SCALED FOR SMALL SCREENS)
+            ====================================================== */}
+            <motion.div
+              variants={featureContainer}
+              initial="hidden"
+              animate="show"
+              className="mt-7 grid w-full grid-cols-2 justify-items-center gap-x-3 gap-y-5 sm:mt-10 sm:grid-cols-4 sm:gap-6 md:mt-12 lg:gap-8 max-w-lg mx-auto md:mx-0"
+            >
+              {features.map(({ icon: Icon, label }, index) => (
+                <motion.div
+                  key={label}
+                  variants={featureItem}
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  className="flex w-full max-w-[130px] cursor-default flex-col items-center justify-center text-center gap-2"
+                >
+                  {/* Circular Gold Badge (Responsive size: 48px on mobile, 60px on desktop) */}
+                  <motion.div
+                    animate={reduce ? undefined : { y: [0, -3, 0] }}
+                    transition={{
+                      duration: 3,
+                      delay: index * 0.25,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    whileHover={{ scale: 1.08, rotate: 5 }}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#B8862B]/20 bg-[#EFE5D2]/85 text-[#8A6212] shadow-sm transition-colors duration-300 hover:bg-[#EAE0CB] sm:h-14 sm:w-14 md:h-15 md:w-15"
+                  >
+                    <Icon size={20} strokeWidth={1.8} className="sm:h-6 sm:w-6" />
+                  </motion.div>
+
+                  {/* Centered Label with Fixed Height so both columns stay strictly aligned */}
+                  <div className="flex h-8 items-center justify-center">
+                    <span className="text-[11px] font-bold leading-tight text-[#06182E] sm:text-xs md:text-[13px]">
+                      {label}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* =====================================================
-          BOTTOM STATS (hidden for now — remove the comment
-          markers to show it again)
+          PART 2: STATS BAR (SHOWS BELOW THE FULL SCREEN HEIGHT)
       ====================================================== */}
-      
-      <div className="relative z-[3] w-full">
+      <div className="relative z-[3] w-full bg-[#718865] shadow-inner">
         <motion.div
           variants={statsContainer}
           initial="hidden"
-          animate="show"
-          className="grid w-full grid-cols-2 gap-y-6 bg-[rgba(117,141,107,0.94)] px-4 py-6 backdrop-blur-[10px] sm:px-8 md:grid-cols-4 md:gap-y-0 md:px-16 md:py-5 lg:px-24"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mx-auto grid w-full max-w-[1600px] grid-cols-2 gap-y-5 px-3 py-5 sm:px-8 md:grid-cols-4 md:gap-y-0 md:px-12 md:py-6 lg:px-20"
         >
           {stats.map(({ icon: Icon, value, label }, index) => (
             <motion.div
               key={label}
               variants={statItem}
-              whileHover={{ y: -5 }}
-              className={`flex cursor-default items-center gap-[10px] px-2 sm:px-4 md:gap-[14px] md:px-6 ${
+              whileHover={{ y: -3 }}
+              className={`flex items-center gap-2.5 px-2 sm:gap-4 sm:px-4 md:px-6 ${
                 index !== stats.length - 1
-                  ? "md:border-r md:border-white/[0.22]"
+                  ? "md:border-r md:border-white/20"
                   : ""
               }`}
             >
+              {/* Icon Container */}
               <motion.span
-                animate={reduce ? undefined : { y: [0, -4, 0] }}
+                animate={reduce ? undefined : { y: [0, -3, 0] }}
                 transition={{
                   duration: 3,
                   delay: index * 0.2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                className="flex shrink-0 text-white"
+                className="flex shrink-0 rounded-lg bg-white/10 p-1.5 text-white sm:rounded-xl sm:p-2.5"
               >
                 <Icon
                   strokeWidth={1.75}
-                  className="h-[26px] w-[26px] md:h-[31px] md:w-[31px]"
+                  className="h-5 w-5 sm:h-7 sm:w-7 md:h-8 md:w-8"
                 />
               </motion.span>
 
-              <div>
-                <p className="text-[19px] font-extrabold leading-none text-white md:text-[25px]">
+              {/* Text: Value & Label */}
+              <div className="min-w-0">
+                <p className="font-extrabold leading-none text-white text-base sm:text-xl md:text-2xl lg:text-3xl">
                   {value}
                 </p>
-                <p className="mt-[5px] text-[10.5px] text-white/[0.86] md:text-[12.5px]">
+                <p className="mt-0.5 truncate text-[10px] font-medium text-white/90 sm:text-xs md:text-[13px]">
                   {label}
                 </p>
               </div>
@@ -449,7 +470,6 @@ const Hero = () => {
           ))}
         </motion.div>
       </div>
-      
     </section>
   );
 };

@@ -5,11 +5,9 @@ import {
   ArrowUpRight,
   Award,
   BadgeCheck,
-  Download,
-  FileCheck,
+  Download,  
   FileText,
-  Layers,
-  ShieldCheck,
+  Layers,  
   Truck,
   Users,
 } from "lucide-react";
