@@ -9,7 +9,7 @@ import {
   Layers,
 } from "lucide-react";
 
-import BG_IMAGE from "../../assets/images/Hero3.png";
+import BG_IMAGE from "../../assets/images/productHero.png";
 
 const EASE = [0.22, 1, 0.36, 1];
 
