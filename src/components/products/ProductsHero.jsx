@@ -151,14 +151,7 @@ const ProductsHero = () => {
         ================================================== */}
 
         <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
+      
 
           <div className="absolute -right-40 top-0 h-[500px] w-[500px] rounded-full border border-[#C9972B]/10" />
 
@@ -189,23 +182,7 @@ const ProductsHero = () => {
         <div className="relative z-10 mx-auto max-w-7xl px-4 pb-12 pt-32 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8 lg:pb-20 lg:pt-32">
           {/* Breadcrumb */}
 
-          <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            className=" flex items-center gap-2 text-xs font-medium text-white/50 sm:mb-14 sm:text-sm"
-          >
-            <Link
-              to="/"
-              className="transition-colors hover:text-[#E0B04A]"
-            >
-              Home
-            </Link>
-
-            <ChevronRight size={15} />
-
-            <span className="text-white">Products</span>
-          </motion.div>
+      
 
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8">
             {/* =================================================
@@ -220,7 +197,7 @@ const ProductsHero = () => {
             >
               {/* Label */}
 
-              <motion.div
+              {/* <motion.div
                 variants={fadeUpVariants}
                 className="inline-flex max-sm:hidden items-center gap-3 rounded-full border border-[#C9972B]/30 bg-[#C9972B]/10 px-4 py-2"
               >
@@ -232,13 +209,13 @@ const ProductsHero = () => {
                 <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#E0B04A] sm:text-xs">
                   Industrial Product Collection
                 </span>
-              </motion.div>
+              </motion.div> */}
 
               {/* Heading */}
 
               <motion.h1
                 variants={fadeUpVariants}
-                className="mt-7 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+                className="mt-7 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-[68px]"
               >
                 Engineered
                 <span className="block text-white">
@@ -332,7 +309,7 @@ const ProductsHero = () => {
 
               {/* Bottom Text */}
 
-              <motion.div
+              {/* <motion.div
                 variants={fadeUpVariants}
                 className="mt-10 flex flex-wrap items-center gap-4 border-t border-white/10 pt-6"
               >
@@ -352,7 +329,7 @@ const ProductsHero = () => {
                     Cutting · Grinding · Polishing · Finishing
                   </p>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
 
             {/* =================================================

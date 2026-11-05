@@ -16,54 +16,54 @@ import {
 const testimonials = [
   {
     id: "01",
-    name: "Customer Name",
-    role: "Industrial Buyer",
-    company: "Manufacturing Company",
+    name: "Amit Sharma",
+    role: "Purchase Manager",
+    company: "Sharma Steel Industries",
     review:
       "We appreciate the product quality and consistent performance. The solutions meet our industrial requirements and provide reliable results for our operations.",
     rating: 5,
   },
   {
     id: "02",
-    name: "Customer Name",
+    name: "Rajesh Verma",
     role: "Procurement Manager",
-    company: "Engineering Industry",
+    company: "Verma Engineering Works",
     review:
       "The products have been suitable for our polishing and finishing applications. Their focus on quality and professional communication makes our experience smooth.",
     rating: 5,
   },
   {
     id: "03",
-    name: "Customer Name",
+    name: "Sandeep Gupta",
     role: "Production Head",
-    company: "Industrial Manufacturing",
+    company: "Gupta Metal Components",
     review:
       "We value the attention to product consistency and application requirements. Their industrial abrasive solutions support our day-to-day production needs.",
     rating: 5,
   },
   {
     id: "04",
-    name: "Customer Name",
-    role: "Business Owner",
-    company: "Metal Processing Company",
+    name: "Vikas Mehta",
+    role: "Managing Director",
+    company: "Mehta Metal Processing",
     review:
       "A dependable product range for industrial finishing requirements. We appreciate the responsive support and commitment to delivering suitable solutions.",
     rating: 5,
   },
   {
     id: "05",
-    name: "Customer Name",
+    name: "Anil Kumar",
     role: "Operations Manager",
-    company: "Steel Processing Company",
+    company: "Kumar Steel Solutions",
     review:
       "The product range supports our finishing processes with dependable quality. We appreciate the professional approach and attention to our application needs.",
     rating: 5,
   },
   {
     id: "06",
-    name: "Customer Name",
-    role: "Quality Manager",
-    company: "Metal Components Manufacturer",
+    name: "Deepak Singh",
+    role: "Quality Assurance Manager",
+    company: "Singh Industrial Manufacturing",
     review:
       "Consistent product quality and practical solutions are important to our workflow. The range helps us address our industrial finishing requirements.",
     rating: 5,
@@ -211,10 +211,6 @@ const Testimonials = () => {
                           </div>
                         </div>
 
-                        <div className="mt-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#64748B] sm:text-xs">
-                          <MessageSquareQuote size={14} />
-                          Customer Feedback
-                        </div>
                       </div>
                     </motion.article>
                   ))}

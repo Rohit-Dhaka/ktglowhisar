@@ -9,7 +9,7 @@ import SEO from "../components/SEO";
 const Products = () => {
   return (
     <main>
-             <SEO
+      <SEO
         title="Steel Polishing Products Manufacturer in Hisar | KT GLOW"
         description="Explore KT GLOW steel polishing products, stainless steel polishing compounds, buffing products, and industrial metal finishing solutions."
         canonicalUrl="https://yourdomain.com/products"

@@ -1,4 +1,3 @@
-
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -17,125 +16,95 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.15,
+      staggerChildren: 0.12,
+      delayChildren: 0.18,
     },
   },
 };
 
 const fadeUpVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.7,
-      ease: EASE,
-    },
+    transition: { duration: 0.75, ease: EASE },
   },
 };
-
-
 
 const ResourcesHero = () => {
   const reduce = useReducedMotion();
 
+  const floatTransition = (duration) => ({
+    duration,
+    repeat: reduce ? 0 : Infinity,
+    ease: "easeInOut",
+  });
+
   return (
-    <section className="relative w-full overflow-hidden bg-[#06182E] text-white">
-      {/* Background Image */}
+    <section className="relative isolate flex min-h-[100svh] w-full justify-center items-center overflow-hidden bg-[#06182E] text-white">
+      {/* Background image and layered contrast */}
       <motion.div
-        initial={{ scale: 1.08 }}
+        aria-hidden="true"
+        className="absolute inset-0"
+        initial={reduce ? false : { scale: 1.06 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.8, ease: EASE }}
-        className="absolute inset-0"
       >
         <div
           className="h-full w-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url('${BG_IMAGE}')`,
-          }}
+          style={{ backgroundImage: `url('${BG_IMAGE}')` }}
         />
       </motion.div>
+      <div className="absolute inset-0 bg-[#06182E]/85" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#06182E] via-[#06182E]/95 to-[#06182E]/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#06182E]/70 via-transparent to-[#06182E]/35" />
 
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-[#06182E]/90" />
-
-      <div className="absolute inset-0 bg-gradient-to-r from-[#06182E] via-[#06182E]/95 to-[#06182E]/65" />
-
-      {/* Blueprint Grid */}
-
-      {/* Gold Decorative Glow */}
+      {/* Ambient gold accent */}
       <motion.div
+        aria-hidden="true"
         animate={
           reduce
             ? undefined
             : {
-                y: [0, -25, 0],
-                scale: [1, 1.15, 1],
+                y: [0, -20, 0],
+                scale: [1, 1.08, 1],
+                opacity: [0.45, 0.7, 0.45],
               }
         }
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none absolute -right-20 top-1/4 h-80 w-80 rounded-full bg-[#C9972B]/10 blur-3xl"
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -right-28 top-1/4 h-80 w-80 rounded-full bg-[#C9972B]/15 blur-3xl sm:h-[26rem] sm:w-[26rem]"
       />
 
-      {/* Main Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
-          {/* LEFT CONTENT */}
+      {/* Main hero content */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg ">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Copy */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="relative z-10"
           >
-            {/* Breadcrumb */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="mb-8 flex items-center gap-2 text-sm text-white/60"
-            >
-              <a href="/" className="transition-colors hover:text-[#E0B04A]">
-                Home
-              </a>
-
-              <ChevronRight size={15} />
-
-              <span className="text-white">Resources</span>
-            </motion.div>
-
-            {/* Heading */}
-
             <motion.h1
               variants={fadeUpVariants}
-              className="mt-7 text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl md:text-6xl lg:text-[64px]"
+              className="max-w-2xl text-[2.65rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl xl:text-[68px]"
             >
               Everything You
               <span className="mt-2 block text-white">Need to Know</span>
-              <span className="mt-2 block font-serif italic text-[#E0B04A]">
+              <span className="mt-2 block font-serif font-bold italic text-[#E0B04A]">
                 {"Starts Here.".split("").map((letter, index) => (
                   <motion.span
                     key={`${letter}-${index}`}
                     initial={
                       reduce
                         ? false
-                        : {
-                            opacity: 0,
-                            y: 25,
-                            filter: "blur(6px)",
-                          }
+                        : { opacity: 0, y: 18, filter: "blur(4px)" }
                     }
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                      filter: "blur(0px)",
-                    }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={{
-                      duration: reduce ? 0 : 0.45,
-                      delay: reduce ? 0 : index * 0.08,
-                      ease: [0.22, 1, 0.36, 1],
+                      duration: reduce ? 0 : 0.42,
+                      delay: reduce ? 0 : 0.65 + index * 0.055,
+                      ease: EASE,
                     }}
                     className="inline-block"
                   >
@@ -143,10 +112,8 @@ const ResourcesHero = () => {
                   </motion.span>
                 ))}
               </span>
-              
             </motion.h1>
 
-            {/* Description */}
             <motion.p
               variants={fadeUpVariants}
               className="mt-6 max-w-xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8"
@@ -156,16 +123,15 @@ const ResourcesHero = () => {
               industrial abrasive and steel polishing solutions.
             </motion.p>
 
-            {/* Buttons */}
             <motion.div
               variants={fadeUpVariants}
-              className="mt-8 flex flex-wrap gap-3 sm:mt-10"
+              className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap"
             >
               <motion.a
                 href="#pdf-documents"
-                whileHover={reduce ? undefined : { y: -4, scale: 1.03 }}
-                whileTap={reduce ? undefined : { scale: 0.97 }}
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#E0B04A] px-6 py-3.5 text-sm font-bold text-[#06182E] transition-colors hover:bg-[#F0CA6A] sm:px-8"
+                whileHover={reduce ? undefined : { y: -3 }}
+                whileTap={reduce ? undefined : { scale: 0.98 }}
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#E0B04A] px-7 py-3 text-sm font-bold text-[#06182E] transition-colors hover:bg-[#F0CA6A]"
               >
                 Explore Documents
                 <ArrowRight
@@ -173,239 +139,199 @@ const ResourcesHero = () => {
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
               </motion.a>
-
               <motion.a
                 href="/contact"
-                whileHover={reduce ? undefined : { y: -4, scale: 1.03 }}
-                whileTap={reduce ? undefined : { scale: 0.97 }}
-                className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/25 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E0B04A] hover:bg-white/10 sm:px-8"
+                whileHover={reduce ? undefined : { y: -3 }}
+                whileTap={reduce ? undefined : { scale: 0.98 }}
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-white/25 bg-white/[0.04] px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-[#E0B04A]/70 hover:bg-white/[0.08]"
               >
                 Contact Us
                 <ArrowUpRight
-                  size={18}
+                  size={17}
                   className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </motion.a>
             </motion.div>
           </motion.div>
 
-          {/* RIGHT DOCUMENT VISUAL */}
+          {/* Document composition */}
           <motion.div
-            initial={{ opacity: 0, x: 45, scale: 0.92 }}
+            initial={reduce ? false : { opacity: 0, x: 36, scale: 0.96 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{
-              duration: 1,
-              delay: 0.3,
-              ease: EASE,
-            }}
-            className="relative mx-auto w-full max-w-[520px]"
+            transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
+            className="relative mx-auto w-full max-w-[500px] lg:max-w-[520px]"
           >
-            {/* Decorative Circle */}
-            <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#E0B04A]/15 sm:h-[420px] sm:w-[420px]" />
+            <div
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 h-[270px] w-[270px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#E0B04A]/20 sm:h-[390px] sm:w-[390px]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/10 sm:h-[460px] sm:w-[460px]"
+            />
 
             <motion.div
               animate={
-                reduce
-                  ? undefined
-                  : {
-                      rotate: [0, 2, 0],
-                      y: [0, -8, 0],
-                    }
+                reduce ? undefined : { y: [0, -7, 0], rotate: [0, 1, 0] }
               }
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="relative mx-auto h-[380px] w-full max-w-[420px] sm:h-[470px]"
+              transition={floatTransition(7)}
+              className="relative mx-auto h-[360px] w-full max-w-[390px] sm:h-[460px] sm:max-w-[430px]"
             >
-              {/* Back Document */}
-              <motion.div
-                animate={reduce ? undefined : { y: [0, -8, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute left-1/2 top-1/2 h-[280px] w-[210px] -translate-x-1/2 -translate-y-1/2 rotate-[-12deg] rounded-2xl border border-white/10 bg-[#102B46]/80 sm:h-[340px] sm:w-[250px]"
-              />
+              {/* Rear sheet */}
+              <div className="absolute left-1/2 top-1/2 h-[250px] w-[185px] -translate-x-1/2 -translate-y-1/2 rotate-[-13deg] rounded-2xl border border-white/10 bg-[#102B46]/90 sm:h-[320px] sm:w-[235px]" />
 
-              {/* Middle Document */}
+              {/* Middle sheet */}
               <motion.div
-                animate={reduce ? undefined : { y: [0, 10, 0] }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute left-1/2 top-1/2 h-[290px] w-[220px] -translate-x-1/2 -translate-y-1/2 rotate-[8deg] rounded-2xl border border-[#E0B04A]/25 bg-[#0E2943] p-5 sm:h-[350px] sm:w-[260px]"
+                animate={reduce ? undefined : { y: [0, 8, 0] }}
+                transition={floatTransition(6)}
+                className="absolute left-1/2 top-1/2 h-[265px] w-[195px] -translate-x-1/2 -translate-y-1/2 rotate-[8deg] rounded-2xl border border-[#E0B04A]/25 bg-[#0E2943] p-4 sm:h-[330px] sm:w-[245px] sm:p-5"
               >
                 <div className="flex items-center justify-between">
-                  <Layers size={22} className="text-[#E0B04A]" />
-
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
+                  <Layers size={21} className="text-[#E0B04A]" />
+                  <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">
                     Catalogue
                   </span>
                 </div>
-
-                <div className="mt-10 space-y-3">
+                <div className="mt-8 space-y-3">
                   {[85, 65, 95, 55, 80].map((width, index) => (
                     <div
                       key={index}
                       style={{ width: `${width}%` }}
-                      className="h-2 rounded-full bg-white/10"
+                      className="h-1.5 rounded-full bg-white/10"
                     />
                   ))}
                 </div>
-
-                <div className="mt-8 grid grid-cols-2 gap-3">
+                <div className="mt-7 grid grid-cols-2 gap-2.5">
                   {[1, 2, 3, 4].map((item) => (
                     <div
                       key={item}
-                      className="flex h-16 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]"
+                      className="flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] sm:h-16"
                     >
-                      <FileText size={20} className="text-[#E0B04A]/60" />
+                      <FileText size={19} className="text-[#E0B04A]/65" />
                     </div>
                   ))}
                 </div>
+                <div className="mt-5 h-px w-full bg-white/10" />
+                <p className="mt-3 text-[9px] uppercase tracking-[0.16em] text-white/35">
+                  Technical information
+                </p>
               </motion.div>
 
-              {/* Front Document */}
+              {/* Front cover */}
               <motion.div
                 animate={
                   reduce
                     ? undefined
-                    : {
-                        y: [0, -10, 0],
-                        rotate: [-2, 1, -2],
-                      }
+                    : { y: [0, -9, 0], rotate: [-1.5, 0.5, -1.5] }
                 }
-                transition={{
-                  duration: 5.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute left-1/2 top-1/2 h-[300px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#E0B04A]/20 bg-[#F8F6F0] p-5 sm:h-[360px] sm:w-[270px] sm:p-6"
+                transition={floatTransition(5.5)}
+                className="absolute left-1/2 top-1/2 h-[280px] w-[210px] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-[#E0B04A]/25 bg-[#F8F6F0] p-4 sm:h-[350px] sm:w-[265px] sm:p-6"
               >
-                {/* Document Header */}
                 <div className="flex items-center justify-between">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#06182E] text-[#E0B04A]">
-                    <FileText size={22} />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#06182E] text-[#E0B04A] sm:h-11 sm:w-11">
+                    <FileText size={21} />
                   </div>
-
-                  <span className="rounded-full bg-[#E0B04A]/20 px-3 py-1 text-[10px] font-bold tracking-widest text-[#8A6212]">
+                  <span className="rounded-full bg-[#E0B04A]/20 px-3 py-1 text-[9px] font-bold tracking-[0.16em] text-[#8A6212]">
                     PDF
                   </span>
                 </div>
 
-                {/* Document Title */}
-                <div className="mt-7">
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#8A6212]">
+                <div className="mt-6 sm:mt-8">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.2em] text-[#8A6212] sm:text-[9px]">
                     Industrial Solutions
                   </p>
-
-                  <h3 className="mt-2 font-serif text-xl font-bold leading-tight text-[#06182E] sm:text-2xl">
+                  <h2 className="mt-2 font-serif text-xl font-bold leading-tight text-[#06182E] sm:text-2xl">
                     Product
                     <span className="block italic text-[#C9972B]">
                       Catalogue
                     </span>
-                  </h3>
+                  </h2>
                 </div>
 
-                {/* Document Lines */}
-                <div className="mt-6 space-y-2.5">
+                <div className="mt-5 space-y-2.5 sm:mt-6">
                   {[100, 85, 95, 70, 90].map((width, index) => (
                     <motion.div
                       key={index}
-                      initial={{ scaleX: 0 }}
+                      initial={reduce ? false : { scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{
-                        duration: 0.8,
-                        delay: 0.7 + index * 0.1,
+                        duration: reduce ? 0 : 0.7,
+                        delay: reduce ? 0 : 0.65 + index * 0.08,
                         ease: EASE,
                       }}
                       style={{ width: `${width}%` }}
-                      className="h-2 origin-left rounded-full bg-[#06182E]/10"
+                      className="h-1.5 origin-left rounded-full bg-[#06182E]/10"
                     />
                   ))}
                 </div>
 
-                {/* Footer */}
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between sm:bottom-6 sm:left-6 sm:right-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-dashed border-[#C9972B] text-[9px] font-bold text-[#8A6212]">
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between sm:bottom-6 sm:left-6 sm:right-6">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-dashed border-[#C9972B] text-[9px] font-bold text-[#8A6212]">
                     KT
                   </div>
-
                   <motion.div
-                    animate={reduce ? undefined : { y: [0, 4, 0] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E0B04A] text-[#06182E]"
+                    animate={reduce ? undefined : { y: [0, 3, 0] }}
+                    transition={floatTransition(1.6)}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E0B04A] text-[#06182E]"
                   >
-                    <Download size={18} />
+                    <Download size={17} />
                   </motion.div>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Floating Catalogue Chip */}
+            {/* Floating resource labels */}
             <motion.div
-              animate={reduce ? undefined : { y: [0, -8, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute left-0 top-8 rounded-full border border-white/15 bg-[#0E2943]/90 px-4 py-3 backdrop-blur-md sm:left-2"
+              animate={reduce ? undefined : { y: [0, -7, 0] }}
+              transition={floatTransition(4.5)}
+              className="absolute left-0 top-5 rounded-full border border-white/15 bg-[#0E2943] px-3 py-2.5 sm:left-1 sm:px-4 sm:py-3"
             >
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E0B04A]/15 text-[#E0B04A]">
-                  <FileText size={17} />
-                </div>
-
-                <div>
-                  <p className="text-xs font-bold text-white">Catalogues</p>
-                  <p className="text-[10px] text-white/50">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E0B04A]/15 text-[#E0B04A] sm:h-9 sm:w-9">
+                  <FileText size={16} />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold text-white sm:text-xs">
+                    Catalogues
+                  </span>
+                  <span className="block text-[9px] text-white/50 sm:text-[10px]">
                     Product information
-                  </p>
-                </div>
+                  </span>
+                </span>
               </div>
             </motion.div>
 
-            {/* Floating Technical Chip */}
             <motion.div
-              animate={reduce ? undefined : { y: [0, 8, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-8 right-0 rounded-full border border-[#E0B04A]/25 bg-[#0E2943]/90 px-4 py-3 backdrop-blur-md sm:right-2"
+              animate={reduce ? undefined : { y: [0, 7, 0] }}
+              transition={floatTransition(5)}
+              className="absolute bottom-5 right-0 rounded-full border border-[#E0B04A]/25 bg-[#0E2943] px-3 py-2.5 sm:right-1 sm:px-4 sm:py-3"
             >
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#E0B04A]/15 text-[#E0B04A]">
-                  <Download size={17} />
-                </div>
-
-                <div>
-                  <p className="text-xs font-bold text-white">Technical Docs</p>
-                  <p className="text-[10px] text-white/50">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E0B04A]/15 text-[#E0B04A] sm:h-9 sm:w-9">
+                  <Download size={16} />
+                </span>
+                <span>
+                  <span className="block text-[11px] font-bold text-white sm:text-xs">
+                    Technical Docs
+                  </span>
+                  <span className="block text-[9px] text-white/50 sm:text-[10px]">
                     Download resources
-                  </p>
-                </div>
+                  </span>
+                </span>
               </div>
             </motion.div>
 
-            {/* Bottom Number */}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.28em] text-white/30 sm:text-[10px]">
               Resources / 01
             </div>
           </motion.div>
         </div>
       </div>
+
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 h-px w-full bg-white/15"
+      />
     </section>
   );
 };
