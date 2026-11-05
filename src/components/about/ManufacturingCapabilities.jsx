@@ -107,7 +107,7 @@ const ManufacturingCapabilities = () => {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="w-full overflow-hidden bg-[#F8FAFC] py-14 sm:py-20 lg:py-24">
+      <section className="w-full overflow-hidden bg-[#F8FAFC] py-8 sm:py-10">
         <div className="mx-auto w-full px-4 sm:px-8 lg:px-12">
           {/* SECTION INTRO */}
           <motion.div

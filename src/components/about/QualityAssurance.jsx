@@ -83,7 +83,7 @@ const fadeLeftVariants = {
 const QualityAssurance = () => {
   return (
     <MotionConfig reducedMotion="never">
-      <section className="w-full overflow-hidden bg-[#eff0f0] py-16 sm:py-20 lg:py-24">
+      <section className="w-full overflow-hidden bg-[#eff0f0] py-8 sm:py-10">
         <div className=" px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             

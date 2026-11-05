@@ -151,7 +151,7 @@ const WhoWeAre = () => {
       };
 
   return (
-    <section className="w-full overflow-hidden bg-white py-12 sm:py-16 lg:py-20">
+    <section className="w-full overflow-hidden bg-white py-8 sm:py-10">
 
       <div className="px-4 sm:px-8 lg:px-12">
 

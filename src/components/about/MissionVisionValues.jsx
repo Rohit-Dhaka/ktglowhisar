@@ -487,7 +487,7 @@ const MissionVisionValues = () => {
 
   return (
     <MotionConfig reducedMotion="never">
-      <section className="w-full overflow-hidden bg-white pb-16 sm:pb-20 lg:pb-24">
+      <section className="w-full overflow-hidden bg-white py-8 sm:py-10">
         <div className=" px-4 sm:px-8 lg:px-12">
           
 
