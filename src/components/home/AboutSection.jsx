@@ -300,8 +300,8 @@ const AboutSection = () => {
               className="mt-3.5 space-y-2 text-[14.5px] leading-[1.75] text-[#06182E]/80 sm:text-[16px]"
             >
               <p>
-                Thalor Manufacturer, based in the Industrial Area of Hisar,
-                Haryana, produces high-performance steel polishing compounds and
+                Thalor Manufacturer, based in the <strong className="font-bold text-[#06182E]">Industrial Area of Hisar,
+                Haryana</strong> produces high-performance steel polishing compounds and
                 abrasive products under the trusted <strong className="font-bold text-[#06182E]">KT Glow</strong> brand.
               </p>
               <p>

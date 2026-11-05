@@ -268,7 +268,7 @@ const Hero = () => {
         />
 
         {/* Main Content Area */}
-        <div className="relative z-[2] mx-auto w-full max-w-[1600px]">
+        <div className="relative z-[2] mx-auto pt-12 w-full max-w-[1600px]">
           <motion.div
             variants={heroContainer}
             initial="hidden"
@@ -317,24 +317,7 @@ const Hero = () => {
               </span>
             </h1>
 
-            {/* Tags (Compact & responsive pills) */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-3 flex flex-wrap items-center gap-1.5 sm:mt-4 sm:gap-2.5"
-            >
-              {trustTags.map((tag, idx) => {
-                const TagIcon = tag.icon;
-                return (
-                  <span
-                    key={idx}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#B8862B]/25 bg-[#F5EEDB] px-2.5 py-0.5 text-[10px] font-semibold text-[#8A6212] shadow-sm sm:px-3 sm:py-1 sm:text-xs"
-                  >
-                    <TagIcon size={12} className="shrink-0 text-[#B8862B]" />
-                    {tag.label}
-                  </span>
-                );
-              })}
-            </motion.div>
+            
 
             {/* Description Paragraph */}
             <motion.p
@@ -473,5 +456,4 @@ const Hero = () => {
     </section>
   );
 };
-
 export default Hero;

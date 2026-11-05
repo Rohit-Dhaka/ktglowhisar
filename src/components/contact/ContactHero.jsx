@@ -258,7 +258,7 @@ const ContactHero = () => {
                   <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-300">
                     Prefer a call?
                   </span>
-                  <span className="block font-serif text-base font-bold italic text-[#E0B04A]">
+                  <span className="block  italic text-base font-bold  text-[#E0B04A]">
                     {CONTACT.phoneDisplay}
                   </span>
                 </span>
