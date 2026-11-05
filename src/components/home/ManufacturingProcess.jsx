@@ -233,7 +233,7 @@ const ManufacturingProcess = () => {
                   className="group relative flex flex-col items-start lg:items-center lg:text-center"
                 >
                   {/* Step Milestone Node on the Track */}
-                  <div className="relative mb-4 flex items-center justify-center">
+                  <div className="relative  mb-4 flex max-sm:flex-col max-sm:gap-2 items-center justify-center">
                     {/* Outer glowing pulsing ring */}
                     <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E]/90 shadow-[0_0_20px_rgba(224,176,74,0.18)] backdrop-blur-md transition-all duration-300 group-hover:border-[#E0B04A] group-hover:shadow-[0_0_30px_rgba(224,176,74,0.35)]">
                       <motion.span
@@ -246,7 +246,7 @@ const ManufacturingProcess = () => {
                     </div>
 
                     {/* Step ID Tag pinned to node */}
-                    <span className="absolute -bottom-2 rounded-full border border-[#E0B04A]/30 bg-[#06182E] px-2 py-0.2 text-[9.5px] font-extrabold uppercase tracking-widest text-[#E0B04A]">
+                    <span className="sm:absolute -bottom-2 rounded-full border border-[#E0B04A]/30 bg-[#06182E] px-2 py-0.2 text-[9.5px] font-extrabold uppercase tracking-widest text-[#E0B04A]">
                       Step {step.id}
                     </span>
                   </div>

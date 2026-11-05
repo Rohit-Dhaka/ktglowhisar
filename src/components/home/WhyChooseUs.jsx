@@ -239,31 +239,35 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           className="absolute right-4 top-4 z-10 sm:right-6 sm:top-6"
         >
-          <motion.div
-            animate={
-              shouldReduceMotion
-                ? undefined
-                : { y: [0, -4, 0] }
-            }
-            transition={{
-              duration: 3.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="flex h-[96px] w-[96px] flex-col items-center justify-center rounded-full border-2 border-[#E0B04A] bg-[#FBF8F2] text-center shadow-lg sm:h-[115px] sm:w-[115px]"
-          >
-            <Award size={18} strokeWidth={1.8} className="text-[#B8862B]" />
+        <motion.div
+  animate={
+    shouldReduceMotion
+      ? undefined
+      : { y: [0, -4, 0] }
+  }
+  transition={{
+    duration: 3.5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="flex h-[60px] w-[60px] flex-col items-center justify-center rounded-full border border-[#E0B04A] bg-[#FBF8F2] text-center sm:h-[115px] sm:w-[115px]"
+>
+  <Award
+    size={11}
+    strokeWidth={1.8}
+    className="text-[#B8862B] sm:h-[18px] sm:w-[18px]"
+  />
 
-            <p className="mt-0.5 text-[20px] font-extrabold leading-none text-[#06182E] sm:text-[24px]">
-              {badge.value}
-            </p>
+  <p className="mt-0.5 text-[13px] font-extrabold leading-none text-[#06182E] sm:text-[24px]">
+    {badge.value}
+  </p>
 
-            <p className="mt-0.5 text-[8.5px] font-bold uppercase leading-tight tracking-wide text-[#06182E] sm:text-[9.5px]">
-              {badge.line1}
-              <br />
-              {badge.line2}
-            </p>
-          </motion.div>
+  <p className="mt-0.5 text-[5.5px] font-bold uppercase leading-tight tracking-wide text-[#06182E] sm:text-[9.5px]">
+    {badge.line1}
+    <br />
+    {badge.line2}
+  </p>
+</motion.div>
         </motion.div>
       </div>
     </section>

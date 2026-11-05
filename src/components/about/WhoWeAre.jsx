@@ -540,9 +540,6 @@
 // export default WhoWeAre;
 
 
-
-
-
 import {
   ArrowRight,
   Factory,
@@ -958,10 +955,10 @@ const WhoWeAre = () => {
               variants={fadeUpVariants}
               className="mt-6 pt-5 border-t border-[#E5E7EB]"
             >
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link
                   to="/about"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-xs font-bold text-white shadow-md transition-all hover:bg-[#0D2A4A] hover:text-[#E0B04A] sm:text-sm"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-xs font-bold text-white shadow-md transition-all hover:bg-[#0D2A4A] hover:text-[#E0B04A] sm:w-auto sm:inline-flex sm:text-sm"
                 >
                   About KT GLOW
                   <ArrowRight size={16} />
@@ -969,7 +966,7 @@ const WhoWeAre = () => {
 
                 <Link
                   to="/products"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#B8862B]/50 bg-white px-5 py-3 text-xs font-semibold text-[#06182E] transition-colors hover:border-[#06182E] hover:bg-[#FAF8F5] sm:text-sm"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-[#B8862B]/50 bg-white px-5 py-3 text-xs font-semibold text-[#06182E] transition-colors hover:border-[#06182E] hover:bg-[#FAF8F5] sm:w-auto sm:inline-flex sm:text-sm"
                 >
                   Explore Products
                 </Link>

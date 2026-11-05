@@ -2,8 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
   ArrowRight,
-  Package,
-  Layers3,
+  Package,  
   Cog,
   Disc3,
   Sparkles,
@@ -46,9 +45,7 @@ const featuredProducts = [
   },
 ];
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
+
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -64,7 +61,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
-/* each heading line slides up from behind a mask */
+
 const lineReveal = {
   hidden: { y: "110%", opacity: 0 },
   show: {
@@ -101,7 +98,7 @@ const sideIn = {
   },
 };
 
-/* shine that sweeps across an image on hover */
+
 const Shine = () => (
   <span
     aria-hidden="true"
@@ -124,9 +121,7 @@ const FeaturedProductsSection = () => {
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* =====================================================
-          BACKGROUND GRAPHICS
-      ====================================================== */}
+  
       <motion.div
         aria-hidden="true"
         animate={reduce ? undefined : { rotate: 360 }}
@@ -151,9 +146,7 @@ const FeaturedProductsSection = () => {
       />
 
       <div className="relative  px-4 sm:px-8 lg:px-12">
-        {/* =====================================================
-            SECTION HEADER
-        ====================================================== */}
+     
         <motion.div
           variants={headerContainer}
           initial="hidden"
@@ -161,13 +154,13 @@ const FeaturedProductsSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="mb-10 flex flex-col gap-6 sm:mb-14 lg:flex-row lg:items-end lg:justify-between"
         >
-          {/* Left Side - Tag & Heading */}
+          
           <div className="w-full lg:max-w-[50%]">
             
            
            
 
-            {/* Main heading */}
+            
             <h2 className="mt-5 text-[34px] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#06182E] sm:text-[44px] lg:text-[56px]">
               <span className="block overflow-hidden pb-1 pt-2">
                 <motion.span variants={lineReveal} className="block">
@@ -177,7 +170,7 @@ const FeaturedProductsSection = () => {
 
               <span className="block overflow-hidden pb-3">
                 <motion.span variants={lineReveal} className="inline-block">
-                  {/* gold gradient text with a slow shimmer */}
+                  
                   <motion.span
                     animate={
                       reduce
@@ -197,7 +190,7 @@ const FeaturedProductsSection = () => {
               </span>
             </h2>
 
-            {/* underline that draws itself, with a travelling spark */}
+            
             <motion.div
               variants={fadeUp}
               className="relative mt-1 h-[3px] w-[110px] overflow-hidden rounded-full bg-[#06182E]/10"
@@ -224,7 +217,7 @@ const FeaturedProductsSection = () => {
             </motion.div>
           </div>
 
-          {/* Right Side - Description */}
+          
           <motion.div variants={fadeUp} className="w-full lg:max-w-[45%]">
             <p className="text-sm leading-7 text-black sm:text-base sm:leading-8">
               Explore our comprehensive range of abrasive products, polishing
@@ -235,11 +228,9 @@ const FeaturedProductsSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* =====================================================
-            FEATURED PRODUCT LAYOUT
-        ====================================================== */}
+    
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
-          {/* ---------- Main Featured Product ---------- */}
+          
           <motion.article
             variants={mainIn}
             initial="hidden"
@@ -248,7 +239,7 @@ const FeaturedProductsSection = () => {
             whileHover={{ y: -6 }}
             className="group overflow-hidden rounded-3xl border border-[#DCE3EC] bg-[#F5F7FA] transition-[border-color,box-shadow] duration-300 hover:border-[#B8862B] hover:shadow-[0_20px_45px_rgba(6,24,46,0.12)] lg:col-span-7"
           >
-            {/* Image */}
+            
             <div className="relative aspect-[4/3] overflow-hidden bg-[#E2E8F0] sm:aspect-[16/10]">
               <img
                 src={mainProduct.image}
@@ -261,7 +252,7 @@ const FeaturedProductsSection = () => {
 
               <Shine />
 
-              {/* Label */}
+          
               <div className="absolute left-4 top-4 sm:left-6 sm:top-6">
                 <motion.span
                   animate={reduce ? undefined : { y: [0, -5, 0] }}
@@ -277,7 +268,6 @@ const FeaturedProductsSection = () => {
                 </motion.span>
               </div>
 
-              {/* Image Bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -301,7 +291,7 @@ const FeaturedProductsSection = () => {
               </div>
             </div>
 
-            {/* Product Content */}
+       
             <div className="p-5 sm:p-7">
               <p className="max-w-xl text-sm leading-7 text-black sm:text-base">
                 {mainProduct.description}
@@ -362,7 +352,7 @@ const FeaturedProductsSection = () => {
             </div>
           </motion.article>
 
-          {/* ---------- Other Featured Products ---------- */}
+          
           <motion.div
             variants={sideContainer}
             initial="hidden"
@@ -380,7 +370,7 @@ const FeaturedProductsSection = () => {
                   whileHover={{ y: -6 }}
                   className="group grid flex-1 grid-cols-1 overflow-hidden rounded-3xl border border-[#DCE3EC] bg-[#F5F7FA] transition-[border-color,box-shadow] duration-300 hover:border-[#B8862B] hover:shadow-[0_20px_45px_rgba(6,24,46,0.12)] sm:grid-cols-[42%_1fr]"
                 >
-                  {/* Image */}
+                  
                   <div className="relative min-h-[200px] overflow-hidden bg-[#E2E8F0] sm:min-h-full">
                     <img
                       src={product.image}
@@ -404,7 +394,7 @@ const FeaturedProductsSection = () => {
                     </motion.span>
                   </div>
 
-                  {/* Content */}
+                  
                   <div className="flex flex-col justify-between p-5 sm:p-6">
                     <div>
                       <motion.div

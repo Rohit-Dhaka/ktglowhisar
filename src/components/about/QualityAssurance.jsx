@@ -1,4 +1,3 @@
-
 import {
   CheckCircle2,
   Microscope,
@@ -32,8 +31,6 @@ const qualityFeatures = [
     icon: CheckCircle2,
   },
 ];
-
-
 
 const containerVariants = {
   hidden: {
@@ -78,13 +75,11 @@ const fadeLeftVariants = {
   },
 };
 
-;
-
 const QualityAssurance = () => {
   return (
     <MotionConfig reducedMotion="never">
       <section className="w-full overflow-hidden bg-[#eff0f0] py-8 sm:py-10">
-        <div className=" px-4 sm:px-8 lg:px-12">
+        <div className="px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             
             <motion.div
@@ -107,15 +102,13 @@ const QualityAssurance = () => {
                   </p>
                 </motion.div>
 
-                
                 <motion.h2
                   variants={fadeUpVariants}
                   className="font-serif text-3xl font-bold leading-tight sm:text-4xl"
                 >
-                  Quality Is at the  {" "}
+                  Quality Is at the{" "}
                   <span className="font-serif text-[#C9972B]">
-
-                  Core of Everything We Do
+                    Core of Everything We Do
                   </span>
                 </motion.h2>
 
@@ -128,7 +121,6 @@ const QualityAssurance = () => {
                   industrial abrasive and polishing solutions.
                 </motion.p>
 
-                
                 <motion.div
                   variants={fadeUpVariants}
                   whileHover={{ scale: 1.015 }}
@@ -151,16 +143,16 @@ const QualityAssurance = () => {
                   </span>
                 </motion.div>
 
-                
+                {/* Full-width on mobile CTA button */}
                 <motion.div
                   variants={fadeUpVariants}
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.97 }}
-                  className="mt-8"
+                  className="mt-8 w-full sm:w-fit"
                 >
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    className="flex w-full items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:inline-flex sm:w-auto"
                   >
                     Discuss Quality Requirements
                     <ArrowRight size={18} />
@@ -169,7 +161,6 @@ const QualityAssurance = () => {
               </div>
             </motion.div>
 
-            
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -199,9 +190,7 @@ const QualityAssurance = () => {
                 to meet defined specifications and customer expectations.
               </motion.p>
 
-              
               <ol className="relative mt-10">
-                
                 <motion.span
                   aria-hidden="true"
                   initial={{ scaleY: 0 }}
@@ -216,13 +205,12 @@ const QualityAssurance = () => {
                 />
 
                 {qualityFeatures.map(
-                  ({ id, title, description, icon: Icon }, ) => (
+                  ({ id, title, description, icon: Icon }) => (
                     <motion.li
                       key={id}
                       variants={fadeUpVariants}
                       className="group relative pb-10 pl-16 last:pb-0"
                     >
-                      
                       <motion.span
                         whileHover={{
                           scale: 1.08,

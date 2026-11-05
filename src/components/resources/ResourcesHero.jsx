@@ -929,8 +929,6 @@
 // export default ResourcesHero;
 
 
-
-
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -1046,9 +1044,23 @@ const ResourcesHero = () => {
         className="pointer-events-none absolute -right-20 top-1/4 z-0 h-80 w-80 rounded-full bg-[#C9972B]/15 blur-3xl"
       />
 
-      
+      {/* Top Breadcrumb Navigation (Same as AboutHero) */}
+      <motion.div
+        initial={{ opacity: 0, y: -15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="absolute left-0 top-0 z-20 w-full px-4 pt-6 sm:px-6 lg:px-8"
+      >
+        <div className="mx-auto flex max-w-7xl items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/70 sm:text-sm">
+          <Link to="/" className="transition-colors hover:text-[#E0B04A]">
+            Home
+          </Link>
+          <ChevronRight size={15} />
+          <span className="text-[#E0B04A]">Resources</span>
+        </div>
+      </motion.div>
 
-      {/* Main Container - Centered Vertically Like AboutHero */}
+      {/* Main Container */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-28 sm:px-6 sm:py-32 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           
@@ -1061,13 +1073,18 @@ const ResourcesHero = () => {
             animate="visible"
             className="min-w-0"
           >
-            {/* Badge Tag */}
+            {/* Circular Icon Badge + Tag (Side-by-side like ProductsHero / AboutHero) */}
             <motion.div
               variants={fadeUpVariants}
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E0B04A]/30 bg-[#E0B04A]/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#E0B04A]"
+              className="mb-5 flex items-center gap-3.5"
             >
-              <Sparkles size={13} />
-              <span>KT Glow Knowledge Base</span>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#E0B04A]/70 bg-[#E0B04A]/10 text-[#E0B04A] shadow-[0_0_15px_rgba(224,176,74,0.15)] sm:h-13 sm:w-13">
+                <Sparkles size={20} strokeWidth={1.8} />
+              </div>
+
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E0B04A] sm:text-xs md:text-sm">
+                ✦ KT GLOW KNOWLEDGE BASE ✦
+              </span>
             </motion.div>
 
             {/* Heading with Typewriter */}
@@ -1097,32 +1114,44 @@ const ResourcesHero = () => {
               guides for our abrasives and steel polishing solutions.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons (Full-width on mobile like AboutHero) */}
             <motion.div
               variants={fadeUpVariants}
-              className="mt-7 flex flex-wrap gap-3 sm:mt-8"
+              className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap"
             >
-              <a
-                href="#pdf-documents"
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-[#E0B04A] px-6 py-3.5 text-sm font-bold text-[#06182E] shadow-md transition-all hover:bg-[#F0CA6A] sm:px-7"
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full sm:w-auto"
               >
-                Explore Documents
-                <ArrowRight
-                  size={17}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </a>
+                <a
+                  href="#pdf-documents"
+                  className="group flex w-full items-center justify-center gap-3 rounded-full bg-[#E0B04A] px-6 py-3.5 text-sm font-bold text-[#06182E] shadow-md transition-all hover:bg-[#F0CA6A] sm:w-auto sm:inline-flex sm:px-7"
+                >
+                  Explore Documents
+                  <ArrowRight
+                    size={17}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </a>
+              </motion.div>
 
-              <Link
-                to="/contact"
-                className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/25 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E0B04A] hover:bg-white/10 sm:px-7"
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full sm:w-auto"
               >
-                Contact Engineers
-                <ArrowUpRight
-                  size={17}
-                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
-              </Link>
+                <Link
+                  to="/contact"
+                  className="group flex w-full items-center justify-center gap-3 rounded-full border border-white/25 bg-white/[0.04] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E0B04A] hover:bg-white/10 sm:w-auto sm:inline-flex sm:px-7"
+                >
+                  Contact Engineers
+                  <ArrowUpRight
+                    size={17}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
 

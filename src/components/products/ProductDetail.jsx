@@ -42,13 +42,13 @@ const ProductDetail = () => {
 
   return (
     <div className="relative w-full overflow-hidden bg-[#F5F6F8] pt-24 pb-12 sm:pt-28 sm:pb-16">
-      {/* Google font - Same as ProductsSection */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Ambient Gold Glow & Subtle Ring (Same as ProductsSection) */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -70,14 +70,12 @@ const ProductDetail = () => {
         className="pointer-events-none absolute -right-28 top-16 z-0 h-[380px] w-[380px] rounded-full border border-[#B8862B]/15"
       />
 
-      {/* Main Container - Exact Same Padding as ProductsSection */}
+      
       <div className="relative z-10 px-4 py-8 sm:px-8 lg:px-12">
         
-        {/* ===================================================
-            1. EDITORIAL HEADER (With Big Headings)
-        =================================================== */}
+      
         <section className="mb-8 sm:mb-10">
-          {/* Top Series Meta Bar */}
+          
           <div className="flex items-center justify-between border-b border-[#06182E]/10 pb-3 text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#06182E]/70 sm:text-[13px]">
             <div className="flex items-center gap-2 text-[#718865]">
               <span className="text-sm">◆</span>
@@ -90,17 +88,17 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* Main Hero Heading & Summary Grid */}
+          
           <div className="relative mt-6 grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
             
-            {/* Giant Faint Ghost Watermark */}
+            
             <div className="pointer-events-none absolute -left-2 -top-6 select-none text-7xl font-black tracking-tighter text-[#06182E]/[0.035] sm:text-8xl md:text-9xl">
               STEEL
             </div>
 
-            {/* Left Column: Badi Badi Headings */}
+            
             <div className="relative z-10 lg:col-span-7">
-              {/* Gold Dash + Subtitle */}
+              
               <div className="mb-2 flex items-center gap-3">
                 <span className="h-0.5 w-9 shrink-0 bg-[#B8862B]" />
                 <p className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#8A6212] sm:text-[13px]">
@@ -116,7 +114,7 @@ const ProductDetail = () => {
               </h1>
             </div>
 
-            {/* Right Column: Accent Border + Paragraph + Tag Pills */}
+            
             <div className="relative z-10 lg:col-span-5">
               <div className="border-l-2 border-[#718865] pl-4 sm:pl-6">
                 <p className="text-[14px] leading-[1.75] text-[#06182E]/75 sm:text-[15.5px]">
@@ -125,7 +123,7 @@ const ProductDetail = () => {
                   and plants where precision and mirror consistency matter.
                 </p>
 
-                {/* Spaced Bullet Tags */}
+                
                 <div className="mt-3.5 flex flex-wrap items-center gap-2 text-[10.5px] font-black uppercase tracking-[0.2em] text-[#06182E] sm:text-[11.5px]">
                   <span>PRECISION</span>
                   <span className="text-[#718865]">•</span>
@@ -139,9 +137,7 @@ const ProductDetail = () => {
           </div>
         </section>
 
-        {/* ===================================================
-            2. BREADCRUMB & BACK BUTTON
-        =================================================== */}
+   
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#06182E]/10 pt-4 sm:mb-8">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#06182E]/60 sm:text-sm">
             <Link to="/" className="hover:text-[#B8862B] transition-colors">Home</Link>
@@ -161,14 +157,12 @@ const ProductDetail = () => {
           </button>
         </div>
 
-        {/* ===================================================
-            3. MAIN PRODUCT DETAILS CARD
-        =================================================== */}
+  
         <div className="grid grid-cols-1 gap-8 rounded-2xl border border-[#E5E7EB] bg-white p-4 shadow-[0_6px_20px_rgba(6,24,46,0.05)] sm:p-6 lg:grid-cols-12 lg:gap-10">
           
-          {/* LEFT: 3 IMAGES GALLERY (5 Columns on Desktop) */}
+          
           <div className="flex flex-col gap-3.5 lg:col-span-5">
-            {/* Big Active Image */}
+            
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-[#E5E7EB] bg-[#F0F2F5] shadow-inner">
               <img
                 src={selectedImg}
@@ -176,19 +170,19 @@ const ProductDetail = () => {
                 className="h-full w-full object-cover transition-all duration-500"
               />
 
-              {/* ID Badge */}
+              
               <div className="absolute left-3 top-3 rounded-full border border-white/40 bg-white/90 px-2.5 py-0.5 text-[10.5px] font-extrabold tracking-wider text-[#06182E] shadow-sm backdrop-blur-md">
                 {product.id}
               </div>
 
-              {/* Specialty Badge */}
+              
               <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-[#B8862B]/30 bg-[#06182E]/90 px-2.5 py-0.5 text-[10.5px] font-bold text-[#E0B04A] shadow-sm backdrop-blur-md">
                 <Sparkles size={11} />
                 {product.badge}
               </div>
             </div>
 
-            {/* 3 Clickable Thumbnails Row */}
+            
             <div className="grid grid-cols-3 gap-3">
               {product.images.map((img, idx) => (
                 <button
@@ -213,7 +207,7 @@ const ProductDetail = () => {
               ))}
             </div>
 
-            {/* Trust Info Pills Below Image */}
+            
             <div className="mt-1 grid grid-cols-2 gap-2 text-[11px] font-medium text-[#06182E]/75">
               <div className="flex items-center gap-1.5 rounded-lg border border-[#E5E7EB] bg-[#FAF8F5] p-2">
                 <ShieldCheck size={14} className="text-[#718865] shrink-0" />
@@ -226,7 +220,7 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* RIGHT: PRODUCT DETAILS & SPECS (7 Columns on Desktop) */}
+          
           <div className="flex flex-col justify-between lg:col-span-7">
             <div>
               <div className="flex items-center gap-2">
@@ -248,7 +242,7 @@ const ProductDetail = () => {
                 {product.overview}
               </p>
 
-              {/* Key Features & Advantages */}
+              
               <div className="mt-5">
                 <h3 className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#06182E]">
                   Key Features & Advantages
@@ -263,7 +257,7 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              {/* Ideal Applications */}
+              
               <div className="mt-5">
                 <h3 className="flex items-center gap-2 text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#06182E]">
                   <Factory size={14} className="text-[#B8862B]" />
@@ -281,7 +275,7 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              {/* Technical Specifications Table */}
+              
               {product.specifications && (
                 <div className="mt-5">
                   <h3 className="text-[11.5px] font-bold uppercase tracking-[0.14em] text-[#06182E]">
@@ -306,14 +300,14 @@ const ProductDetail = () => {
                 </div>
               )}
 
-              {/* Availability Note */}
+              
               <div className="mt-5 rounded-xl border border-[#B8862B]/30 bg-[#FFF9EA] p-3 text-xs text-[#6B4A0B] sm:text-[13px]">
                 <p className="font-semibold">Ordering & Customization:</p>
                 <p className="mt-0.5">{product.available}</p>
               </div>
             </div>
 
-            {/* Action CTA Buttons */}
+            
             <div className="mt-6 flex flex-col gap-3 pt-5 border-t border-[#E5E7EB] sm:flex-row sm:items-center">
               <Link
                 to={`/contact?product=${encodeURIComponent(product.name)}`}
@@ -334,9 +328,7 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        {/* ===================================================
-            4. OTHER PRODUCTS SECTION (Matching Card Style)
-        =================================================== */}
+ 
         <div className="mt-12 sm:mt-16">
           <div className="flex items-center justify-between mb-6">
             <div>

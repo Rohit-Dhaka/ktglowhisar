@@ -1,5 +1,11 @@
+
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, MotionConfig, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  MotionConfig,
+  useReducedMotion,
+} from "framer-motion";
 import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
 
 const testimonials = [
@@ -61,21 +67,50 @@ const testimonials = [
 
 const AUTO_DELAY = 5000;
 const EASE = [0.22, 1, 0.36, 1];
-const ITEMS_PER_SLIDE = 3;
-
-const testimonialSlides = Array.from(
-  { length: Math.ceil(testimonials.length / ITEMS_PER_SLIDE) },
-  (_, slideIndex) =>
-    testimonials.slice(
-      slideIndex * ITEMS_PER_SLIDE,
-      slideIndex * ITEMS_PER_SLIDE + ITEMS_PER_SLIDE,
-    ),
-);
 
 const Testimonials = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [itemsPerSlide, setItemsPerSlide] = useState(1);
+
   const reduce = useReducedMotion();
+
+  // Responsive Items Per Slide
+  useEffect(() => {
+    const updateItemsPerSlide = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerSlide(3);
+      } else if (window.innerWidth >= 640) {
+        setItemsPerSlide(2);
+      } else {
+        setItemsPerSlide(1);
+      }
+    };
+
+    updateItemsPerSlide();
+
+    window.addEventListener("resize", updateItemsPerSlide);
+
+    return () => {
+      window.removeEventListener("resize", updateItemsPerSlide);
+    };
+  }, []);
+
+  // Generate Responsive Slides
+  const testimonialSlides = Array.from(
+    { length: Math.ceil(testimonials.length / itemsPerSlide) },
+    (_, slideIndex) =>
+      testimonials.slice(
+        slideIndex * itemsPerSlide,
+        slideIndex * itemsPerSlide + itemsPerSlide,
+      ),
+  );
+
   const slideCount = testimonialSlides.length;
+
+  // Keep Active Slide Valid After Resize
+  useEffect(() => {
+    setActiveSlide((current) => Math.min(current, slideCount - 1));
+  }, [slideCount]);
 
   const next = () => {
     setActiveSlide((current) => (current + 1) % slideCount);
@@ -85,6 +120,7 @@ const Testimonials = () => {
     setActiveSlide((current) => (current - 1 + slideCount) % slideCount);
   };
 
+  // Autoplay
   useEffect(() => {
     if (reduce || slideCount <= 1) return undefined;
 
@@ -97,7 +133,7 @@ const Testimonials = () => {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="w-full overflow-hidden bg-white px-4 sm:px-8 lg:px-12 py-8 sm:py-10">
+      <section className="w-full overflow-hidden bg-white px-4 py-8 sm:px-8 sm:py-10 lg:px-12">
         <div className="mx-auto">
           {/* SECTION HEADER */}
           <motion.div
@@ -110,6 +146,7 @@ const Testimonials = () => {
             <div>
               <div className="mb-4 flex items-center gap-3">
                 <span className="h-0.5 w-10 rounded-full bg-[#06182E]" />
+
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#06182E] sm:text-sm">
                   Customer Testimonials
                 </span>
@@ -123,39 +160,38 @@ const Testimonials = () => {
               </h2>
             </div>
 
-            <div className="flex flex-col items-end ">
-                <p className="max-w-xl text-sm leading-7 text-[#334155] sm:text-base sm:leading-8 lg:justify-self-end">
-                  Discover what customers say about our industrial abrasive and
-                  polishing solutions. We focus on product quality, reliable
-                  performance, and customer-oriented service.
-                </p>
-                  <div className="mt-7 flex flex-col items-center justify-between gap-5 sm:flex-row">
-                {/* ARROWS */}
-                <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={previous}
-                    aria-label="Previous testimonials"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#06182E] transition-colors hover:bg-[#06182E] hover:text-white"
-                  >
-                    <ArrowLeft size={18} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={next}
-                    aria-label="Next testimonials"
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#06182E] text-white transition-opacity hover:opacity-80"
-                  >
-                    <ArrowRight size={18} />
-                  </button>
-                </div>
-                          </div>
+            <div className="flex flex-col items-end">
+              <p className="max-w-xl text-sm leading-7 text-[#334155] sm:text-base sm:leading-8">
+                Discover what customers say about our industrial abrasive and
+                polishing solutions. We focus on product quality, reliable
+                performance, and customer-oriented service.
+              </p>
+
+              {/* ARROWS */}
+              <div className="mt-5 flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={previous}
+                  aria-label="Previous testimonials"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#06182E] transition-colors hover:bg-[#06182E] hover:text-white sm:h-11 sm:w-11"
+                >
+                  <ArrowLeft size={18} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={next}
+                  aria-label="Next testimonials"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#06182E] text-white transition-opacity hover:opacity-80 sm:h-11 sm:w-11"
+                >
+                  <ArrowRight size={18} />
+                </button>
+              </div>
             </div>
-            
           </motion.div>
 
-          {/* AUTOPLAY CAROUSEL: 3 CARDS PER SLIDE */}
-          <div className="mt-10 sm:mt-14">
+          {/* RESPONSIVE AUTOPLAY CAROUSEL */}
+          <div className="mt-8 sm:mt-14">
             <div className="overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -163,8 +199,15 @@ const Testimonials = () => {
                   initial={reduce ? false : { opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={reduce ? undefined : { opacity: 0, x: -24 }}
-                  transition={{ duration: reduce ? 0 : 0.55, ease: EASE }}
-                  className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5"
+                  transition={{
+                    duration: reduce ? 0 : 0.55,
+                    ease: EASE,
+                  }}
+                  className={`grid grid-cols-1 gap-4 ${
+                    itemsPerSlide >= 2 ? "sm:grid-cols-2" : ""
+                  } ${
+                    itemsPerSlide >= 3 ? "lg:grid-cols-3 lg:gap-5" : ""
+                  }`}
                 >
                   {testimonialSlides[activeSlide].map((item, index) => (
                     <motion.article
@@ -176,7 +219,7 @@ const Testimonials = () => {
                         delay: reduce ? 0 : index * 0.08,
                         ease: EASE,
                       }}
-                      className="flex min-h-[320px] flex-col rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:min-h-[350px] sm:p-6 lg:p-7"
+                      className="flex min-h-[300px] flex-col rounded-2xl border border-[#E2E8F0] bg-white p-4 sm:min-h-[350px] sm:p-6 lg:p-7"
                     >
                       {/* CARD TOP */}
                       <div className="flex items-start justify-between">
@@ -202,14 +245,14 @@ const Testimonials = () => {
                       </div>
 
                       {/* REVIEW */}
-                      <p className="mt-6 flex-1 text-sm leading-7 text-[#334155] sm:text-base sm:leading-8">
+                      <p className="mt-5 flex-1 text-sm leading-7 text-[#334155] sm:mt-6 sm:text-base sm:leading-8">
                         “{item.review}”
                       </p>
 
                       {/* CUSTOMER INFO */}
-                      <div className="mt-7 border-t border-[#E2E8F0] pt-5">
+                      <div className="mt-6 border-t border-[#E2E8F0] pt-4 sm:mt-7 sm:pt-5">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#06182E] text-xs font-bold text-white">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#06182E] text-xs font-bold text-white sm:h-11 sm:w-11">
                             {item.id}
                           </div>
 
@@ -217,9 +260,11 @@ const Testimonials = () => {
                             <h3 className="truncate text-sm font-bold text-[#06182E] sm:text-base">
                               {item.name}
                             </h3>
+
                             <p className="mt-1 text-xs leading-5 text-[#64748B] sm:text-sm">
                               {item.role}
                             </p>
+
                             <p className="text-xs leading-5 text-[#64748B]">
                               {item.company}
                             </p>
@@ -232,9 +277,6 @@ const Testimonials = () => {
               </AnimatePresence>
             </div>
           </div>
-
-          {/* CAROUSEL CONTROLS */}
-        
         </div>
       </section>
     </MotionConfig>

@@ -40,7 +40,6 @@ const companyDetails = [
   },
 ];
 
-
 const containerVariants = {
   hidden: {},
   visible: {
@@ -83,8 +82,6 @@ const fadeRightVariants = {
 const AboutHero = () => {
   return (
     <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#06182E]">
-
-      
       <motion.div
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
@@ -101,13 +98,9 @@ const AboutHero = () => {
         />
       </motion.div>
 
-      
       <div className="absolute inset-0 bg-[#101713]/65" />
-
-      
       <div className="absolute inset-0 bg-gradient-to-r from-[#101713]/90 via-[#101713]/70 to-[#101713]/40" />
 
-      
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -115,67 +108,46 @@ const AboutHero = () => {
         className="absolute left-0 top-0 z-20 w-full px-4 pt-6 sm:px-6 lg:px-8"
       >
         <div className="mx-auto flex max-w-7xl items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/70 sm:text-sm">
-
-          <Link
-            to="/"
-            className="transition-colors hover:text-[#D9A441]"
-          >
+          <Link to="/" className="transition-colors hover:text-[#D9A441]">
             Home
           </Link>
-
           <ChevronRight size={15} />
-
-          <span className="text-[#D9A441]">
-            About Us
-          </span>
-
+          <span className="text-[#D9A441]">About Us</span>
         </div>
       </motion.div>
 
-      
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
-
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_350px] lg:gap-14 xl:grid-cols-[1fr_380px]">
-
-          
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="min-w-0"
           >
-
-            
+            {/* Circular Icon Badge + Tag (Side-by-side like ProductsHero) */}
             <motion.div
               variants={fadeUpVariants}
-              className="mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-[#D9A441]/70 text-[#D9A441] sm:h-16 sm:w-16"
+              className="mb-5 flex items-center gap-3.5"
             >
-              <Factory size={26} strokeWidth={1.5} />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#D9A441]/70 bg-[#D9A441]/10 text-[#D9A441] shadow-[0_0_15px_rgba(217,164,65,0.15)] sm:h-13 sm:w-13">
+                <Factory size={22} strokeWidth={1.7} />
+              </div>
+
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#D9A441] sm:text-xs md:text-sm">
+                ✦ ABOUT OUR COMPANY ✦
+              </span>
             </motion.div>
 
-            
-            <motion.div
-              variants={fadeUpVariants}
-              className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#D9A441] sm:text-sm"
-            >
-              <span>✦</span>
-              <span>About Our Company</span>
-              <span>✦</span>
-            </motion.div>
-
-            
             <motion.h1
               variants={fadeUpVariants}
               className="max-w-4xl font-serif text-4xl font-medium italic leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
             >
               Delivering Excellence
-
               <span className="mt-1 block text-[#D9A441]">
                 Through Innovation
               </span>
             </motion.h1>
 
-            
             <motion.p
               variants={fadeUpVariants}
               className="mt-6 max-w-2xl text-sm leading-7 text-white/85 sm:mt-7 sm:text-base sm:leading-8"
@@ -185,19 +157,19 @@ const AboutHero = () => {
               advanced technology, and customer-focused service.
             </motion.p>
 
-            
+            {/* Buttons section with full-width on mobile */}
             <motion.div
               variants={fadeUpVariants}
               className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap"
             >
-
               <motion.div
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
+                className="w-full sm:w-auto"
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#D9A441] px-6 py-3.5 text-sm font-semibold text-[#06182E] transition-colors hover:bg-[#E8BC62] sm:px-7"
+                  className="flex w-full items-center justify-center gap-3 rounded-full bg-[#D9A441] px-6 py-3.5 text-sm font-semibold text-[#06182E] transition-colors hover:bg-[#E8BC62] sm:w-auto sm:px-7"
                 >
                   Contact Us
                   <ArrowRight size={18} />
@@ -207,29 +179,25 @@ const AboutHero = () => {
               <motion.div
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
+                className="w-full sm:w-auto"
               >
                 <Link
                   to="/products"
-                  className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#D9A441] hover:bg-[#D9A441] hover:text-[#06182E] sm:px-7"
+                  className="flex w-full items-center justify-center rounded-full border border-white/40 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#D9A441] hover:bg-[#D9A441] hover:text-[#06182E] sm:w-auto sm:px-7"
                 >
                   Explore Products
                 </Link>
               </motion.div>
-
             </motion.div>
-
           </motion.div>
 
-          
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="relative border-l border-white/15 pl-5 sm:pl-7 lg:pl-8"
           >
-
             <div className="divide-y divide-white/15">
-
               {companyDetails.map((item) => {
                 const Icon = item.icon;
 
@@ -239,8 +207,6 @@ const AboutHero = () => {
                     variants={fadeRightVariants}
                     className="group flex items-center gap-4 py-5 first:pt-2 last:pb-2 sm:gap-5 sm:py-6"
                   >
-
-                    
                     <motion.div
                       whileHover={{
                         scale: 1.08,
@@ -251,9 +217,7 @@ const AboutHero = () => {
                       <Icon size={22} strokeWidth={1.7} />
                     </motion.div>
 
-                    
                     <div className="min-w-0">
-
                       <p className="text-xs font-medium uppercase tracking-wider text-white/55 sm:text-sm">
                         {item.title}
                       </p>
@@ -261,21 +225,14 @@ const AboutHero = () => {
                       <h3 className="mt-1 text-base font-semibold leading-6 text-white transition-colors group-hover:text-[#D9A441] sm:text-lg">
                         {item.value}
                       </h3>
-
                     </div>
-
                   </motion.div>
                 );
               })}
-
             </div>
-
           </motion.div>
-
         </div>
-
       </div>
-
     </section>
   );
 };

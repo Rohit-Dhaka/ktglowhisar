@@ -15,9 +15,7 @@ import {
   MoveUpRight,
 } from "lucide-react";
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
+
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -31,7 +29,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
-/* heading lines are "wiped" in from the left */
+
 const wipe = {
   hidden: {
     opacity: 0,
@@ -46,7 +44,7 @@ const wipe = {
   },
 };
 
-/* rising gold particles (fixed values so every render is identical) */
+
 const particles = Array.from({ length: 14 }, (_, i) => ({
   left: `${(i * 37 + 8) % 100}%`,
   size: 3 + (i % 3) * 2,
@@ -55,9 +53,7 @@ const particles = Array.from({ length: 14 }, (_, i) => ({
   rise: 280 + (i % 4) * 70,
 }));
 
-/* =========================================================
-   MAGNETIC WRAPPER — child is pulled gently toward the cursor
-========================================================= */
+
 
 const Magnetic = ({ children, className = "" }) => {
   const reduce = useReducedMotion();
@@ -93,14 +89,12 @@ const Magnetic = ({ children, className = "" }) => {
   );
 };
 
-/* =========================================================
-   SECTION
-========================================================= */
+
 
 const ProductContactSection = () => {
   const reduce = useReducedMotion();
 
-  /* 3D tilt + glare for the right card */
+  
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
   const rotateX = useSpring(useTransform(py, [0, 1], [9, -9]), {
@@ -134,9 +128,6 @@ const ProductContactSection = () => {
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* =====================================================
-          BACKGROUND DECORATIONS
-      ====================================================== */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div
           animate={reduce ? undefined : { rotate: 360 }}
@@ -158,7 +149,7 @@ const ProductContactSection = () => {
 
         <div className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#0F2B46]/60 to-transparent" />
 
-        {/* gold glow */}
+        
         <motion.div
           animate={
             reduce
@@ -169,7 +160,7 @@ const ProductContactSection = () => {
           className="absolute -bottom-10 right-[15%] h-[280px] w-[280px] rounded-full bg-[#E0B04A]/20 blur-3xl"
         />
 
-        {/* rising particles */}
+        
         {!reduce &&
           particles.map((p, i) => (
             <motion.span
@@ -189,7 +180,7 @@ const ProductContactSection = () => {
       </div>
 
       <div className="relative px-4 sm:px-8 lg:px-12">
-        {/* Main CTA Container */}
+        
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -197,7 +188,7 @@ const ProductContactSection = () => {
           transition={{ duration: 0.9, ease: EASE }}
           className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0F2B46]/50 p-6 backdrop-blur-sm sm:p-10 lg:p-14"
         >
-          {/* light that runs along the top edge */}
+          
           {!reduce && (
             <motion.span
               aria-hidden="true"
@@ -212,7 +203,7 @@ const ProductContactSection = () => {
             />
           )}
 
-          {/* Decorative Icon */}
+          
           <motion.div
             aria-hidden="true"
             animate={reduce ? undefined : { y: [0, -12, 0], rotate: [0, 6, 0] }}
@@ -223,7 +214,7 @@ const ProductContactSection = () => {
           </motion.div>
 
           <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
-            {/* ---------------- Left Content ---------------- */}
+            
             <motion.div
               variants={container}
               initial="hidden"
@@ -231,7 +222,7 @@ const ProductContactSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               className="lg:col-span-8"
             >
-              {/* Label */}
+              
               <motion.span
                 variants={fadeUp}
                 className="inline-flex items-center gap-2 rounded-full border border-[#E0B04A]/40 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 sm:text-sm"
@@ -246,7 +237,7 @@ const ProductContactSection = () => {
                 Product Enquiry
               </motion.span>
 
-              {/* Heading */}
+              
               <h2 className="mt-6 max-w-3xl text-[34px] font-extrabold leading-[1.1] tracking-[-0.03em] text-white sm:text-[46px] lg:text-[56px] xl:text-[64px]">
                 <motion.span variants={wipe} className="block">
                   Looking For The
@@ -259,7 +250,7 @@ const ProductContactSection = () => {
                 </motion.span>
               </h2>
 
-              {/* hand-drawn underline */}
+              
               <motion.svg
                 variants={fadeUp}
                 viewBox="0 0 300 20"
@@ -285,7 +276,7 @@ const ProductContactSection = () => {
                 />
               </motion.svg>
 
-              {/* Description */}
+              
               <motion.p
                 variants={fadeUp}
                 className="mt-5 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base sm:leading-8"
@@ -295,7 +286,7 @@ const ProductContactSection = () => {
                 discuss your product needs and request a quotation.
               </motion.p>
 
-              {/* Buttons (magnetic) */}
+              
               <motion.div
                 variants={fadeUp}
                 className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
@@ -337,7 +328,7 @@ const ProductContactSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* ---------------- Right Highlight (3D tilt) ---------------- */}
+            
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -356,7 +347,7 @@ const ProductContactSection = () => {
                 }
                 className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#06182E]/60 p-5 transition-colors duration-300 hover:border-[#E0B04A]/50 sm:p-6"
               >
-                {/* glare that follows the cursor */}
+                
                 {!reduce && (
                   <motion.div
                     aria-hidden="true"
@@ -365,7 +356,7 @@ const ProductContactSection = () => {
                   />
                 )}
 
-                {/* Icon with sonar rings */}
+           
                 <div className="relative h-12 w-12">
                   {!reduce &&
                     [0, 1].map((i) => (
@@ -400,7 +391,7 @@ const ProductContactSection = () => {
                   product requirements with our team.
                 </p>
 
-                {/* Divider */}
+            
                 <div className="relative my-5 h-px overflow-hidden bg-white/10">
                   <motion.span
                     initial={{ scaleX: 0 }}
@@ -411,7 +402,6 @@ const ProductContactSection = () => {
                   />
                 </div>
 
-                {/* Bottom Link */}
                 <a
                   href="/contact"
                   className="group relative flex items-center justify-between gap-3 text-sm font-semibold text-white"
@@ -426,7 +416,6 @@ const ProductContactSection = () => {
             </motion.div>
           </div>
 
-          {/* Bottom Information */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
