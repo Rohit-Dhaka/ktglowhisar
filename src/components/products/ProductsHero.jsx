@@ -237,9 +237,7 @@ const ProductsHero = () => {
               </motion.div>
             </motion.div>
 
-            {/* =================================================
-                RIGHT PRODUCT IMAGE (Compact Foreground Frame)
-            ================================================== */}
+        
             <motion.div
               variants={fadeRightVariants}
               initial="hidden"
@@ -247,7 +245,7 @@ const ProductsHero = () => {
               className="relative flex justify-center lg:col-span-5"
             >
               <div className="relative w-full max-w-[420px]">
-                {/* Thin Ambient Accent Frame */}
+                
                 <div className="absolute -inset-2.5 rounded-3xl border border-[#E0B04A]/25 sm:-inset-3.5" />
 
                 {/* Main Compact Image Container */}
@@ -265,10 +263,10 @@ const ProductsHero = () => {
                     className="h-full w-full object-cover object-center"
                   />
 
-                  {/* Gradient overlay on foreground card */}
+                  
                   <div className="absolute inset-0 bg-gradient-to-t from-[#151C22]/95 via-transparent to-[#151C22]/20" />
 
-                  {/* Top Image Label */}
+                  
                   <div className="absolute left-3.5 top-3.5 flex items-center gap-1.5 rounded-full border border-white/20 bg-[#151C22]/80 px-3 py-1.5 backdrop-blur-md">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#E0B04A]" />
                     <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
@@ -290,7 +288,7 @@ const ProductsHero = () => {
                   </div>
                 </motion.div>
 
-                {/* Floating Compact Badge (Left) */}
+                
                 <div className="absolute -left-3 top-1/4 rounded-xl border border-white/10 bg-[#1A232C]/90 p-2.5 shadow-xl backdrop-blur-md sm:-left-6">
                   <div className="flex items-center gap-2">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#E0B04A]/15 text-[#E0B04A]">
@@ -303,7 +301,7 @@ const ProductsHero = () => {
                   </div>
                 </div>
 
-                {/* Floating Compact Badge (Right) */}
+                
                 <div className="absolute -right-3 bottom-1/4 rounded-xl border border-[#E0B04A]/25 bg-[#1A232C]/90 p-2.5 shadow-xl backdrop-blur-md sm:-right-6">
                   <div className="flex items-center gap-2">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#E0B04A]/15 text-[#E0B04A]">
@@ -316,7 +314,7 @@ const ProductsHero = () => {
                   </div>
                 </div>
 
-                {/* Corner Decorative Accents */}
+                
                 <div className="absolute -bottom-2 -left-2 h-8 w-8 rounded-bl-xl border-b-2 border-l-2 border-[#E0B04A]/70" />
                 <div className="absolute -right-2 -top-2 h-8 w-8 rounded-tr-xl border-r-2 border-t-2 border-[#E0B04A]/70" />
               </div>
@@ -324,9 +322,6 @@ const ProductsHero = () => {
 
           </div>
 
-          {/* =================================================
-              3. STATS HIGHLIGHTS BAR
-          ================================================== */}
           <div className="mt-12 grid grid-cols-2 gap-3 border-t border-white/10 pt-8 sm:grid-cols-4 sm:gap-4">
             {[
               { icon: ShieldCheck, value: "ISO 9001:2015", label: "Certified Production" },
@@ -351,9 +346,7 @@ const ProductsHero = () => {
 
         </div>
 
-        {/* =================================================
-            4. BOTTOM INFINITE TICKER
-        ================================================== */}
+      
         <div className="relative z-10 overflow-hidden border-t border-white/10 bg-[#11171D] py-3.5">
           <motion.div
             animate={

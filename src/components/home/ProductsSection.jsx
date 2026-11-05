@@ -200,7 +200,7 @@ const ProductsSection = () => {
       />
 
       {/* Main Container */}
-      <div className="relative z-10 px-4 sm:px-8 lg:px-12">
+      <div className="relative z-10 px-3 sm:px-6 lg:px-8 xl:px-10">
         {/* Header */}
         <motion.div
           variants={containerVariants}
@@ -324,9 +324,15 @@ const ProductsSection = () => {
                 slidesPerView: 2,
                 centeredSlides: false,
                 centeredSlidesBounds: false,
-                spaceBetween: 20,
+                spaceBetween: 18,
               },
               1024: {
+                slidesPerView: 3,
+                centeredSlides: false,
+                centeredSlidesBounds: false,
+                spaceBetween: 20,
+              },
+              1280: {
                 slidesPerView: 3,
                 centeredSlides: false,
                 centeredSlidesBounds: false,
@@ -338,15 +344,15 @@ const ProductsSection = () => {
             {products.map((product) => (
               <SwiperSlide
                 key={product.id}
-                className="!h-auto !w-[calc(100%_-_32px)] pb-3 sm:!w-auto"
+                className="!h-[400px] !w-[calc(100%-32px)] pb-3 sm:!w-[calc(50%-9px)] lg:!w-[calc(33.333%-13.333px)] xl:!w-[calc(33.333%-16px)]"
               >
                 <Link
                   to={product.path}
                   aria-label={`View details of ${product.name}`}
-                  className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-3.5 shadow-[0_6px_20px_rgba(6,24,46,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#B8862B]/60 hover:shadow-[0_16px_36px_rgba(6,24,46,0.1)] focus:outline-none"
+                  className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-3 lg:p-3 xl:p-3.5 shadow-[0_6px_20px_rgba(6,24,46,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#B8862B]/60 hover:shadow-[0_16px_36px_rgba(6,24,46,0.1)] focus:outline-none"
                 >
                   {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden rounded-xl bg-[#F0F2F5]">
+                  <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-xl bg-[#F0F2F5]">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -371,18 +377,18 @@ const ProductsSection = () => {
                   </div>
 
                   {/* Card Content */}
-                  <div className="flex flex-1 flex-col p-3 sm:p-4">
-                    <h3 className="text-[17px] font-bold text-[#06182E] transition-colors duration-300 group-hover:text-[#9A6B12] sm:text-[18.5px]">
+                  <div className="flex flex-1 flex-col p-2.5 sm:p-3 lg:p-3">
+                    <h3 className="text-[15.5px] font-bold leading-snug text-[#06182E] transition-colors duration-300 group-hover:text-[#9A6B12] sm:text-[16.5px] lg:text-[16px] xl:text-[17px]">
                       {product.name}
                     </h3>
 
-                    <p className="mt-2 flex-1 text-[13px] leading-[1.65] text-[#06182E]/70 sm:text-[13.5px]">
+                    <p className="mt-1.5 flex-1 text-[12px] leading-[1.6] text-[#06182E]/70 sm:text-[12.5px] lg:text-[12px] xl:text-[12.5px]">
                       {product.description}
                     </p>
 
                     {/* View Details CTA */}
-                    <div className="mt-4 flex items-center justify-between border-t border-[#06182E]/5 pt-3">
-                      <span className="inline-flex items-center gap-2 text-[13px] font-bold text-[#06182E] transition-colors duration-300 group-hover:text-[#8A6212] sm:text-[13.5px]">
+                    <div className="mt-3 flex items-center justify-between border-t border-[#06182E]/5 pt-2.5">
+                      <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[#06182E] transition-colors duration-300 group-hover:text-[#8A6212] sm:text-[12.5px]">
                         View Details
                         <ArrowRight
                           size={15}
