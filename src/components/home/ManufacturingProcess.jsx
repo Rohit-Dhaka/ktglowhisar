@@ -1,7 +1,4 @@
-import {
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Factory,
   Layers,
@@ -10,10 +7,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-
 import processBg from "../../assets/images/Hero4.png";
-
-
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -94,20 +88,22 @@ const processSteps = [
   },
 ];
 
-
+/* =========================================================
+   MANUFACTURING PROCESS COMPONENT
+========================================================= */
 
 const ManufacturingProcess = () => {
   const reduce = useReducedMotion();
 
   return (
     <section className="relative w-full overflow-hidden bg-[#06182E] py-8 sm:py-10">
-      {/* Google font for cursive typography */}
+      {/* Google font */}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-     
+      {/* Background image and overlay */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <img
           src={processBg}
@@ -115,11 +111,10 @@ const ManufacturingProcess = () => {
           className="h-full w-full object-cover object-center opacity-25"
           loading="lazy"
         />
-        
         <div className="absolute inset-0 bg-gradient-to-b from-[#06182E]/95 via-[#06182E]/88 to-[#06182E]/98 backdrop-blur-[1px]" />
       </div>
 
-      
+      {/* Ambient glow */}
       <motion.div
         aria-hidden="true"
         animate={
@@ -134,9 +129,8 @@ const ManufacturingProcess = () => {
         className="pointer-events-none absolute -right-20 top-1/4 z-0 h-[280px] w-[280px] rounded-full bg-[#E0B04A]/20 blur-[100px] lg:h-[420px] lg:w-[420px]"
       />
 
-    
-      <div className="relative z-10  px-4 sm:px-8 lg:px-12">
-     
+      <div className="relative z-10 px-4 sm:px-8 lg:px-12">
+        {/* Section Header */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -145,8 +139,10 @@ const ManufacturingProcess = () => {
           className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            {/* Top Subtitle with Gold Dash */}
-            <motion.div variants={fadeUp} className="mb-2 flex items-center gap-2.5 text-[#E0B04A]">
+            <motion.div
+              variants={fadeUp}
+              className="mb-2 flex items-center gap-2.5 text-[#E0B04A]"
+            >
               <motion.span
                 initial={{ width: 0 }}
                 whileInView={{ width: 34 }}
@@ -159,8 +155,7 @@ const ManufacturingProcess = () => {
               </p>
             </motion.div>
 
-            {/* EXPANDED HEADING WITH CURSIVE ACCENT */}
-            <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[44px] lg:text-[52px]">
+            <h2 className="text-[30px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
                   From Raw Materials
@@ -191,37 +186,40 @@ const ManufacturingProcess = () => {
 
           <motion.p
             variants={fadeUp}
-            className="max-w-md text-[13.5px] leading-[1.7] text-white/70 sm:text-[15px]"
+            className="max-w-md text-[13px] leading-[1.7] text-white/70 sm:text-[15px]"
           >
-            Every phase of production is calibrated to ensure exact grain dispersion,
-            unyielding bonding strength, and mirror-consistent finishing results.
+            Every phase of production is calibrated to ensure exact grain
+            dispersion, unyielding bonding strength, and mirror-consistent
+            finishing results.
           </motion.p>
         </motion.div>
 
-        {/* ===================================================
-            CONNECTED PROCESS PIPELINE (NO BOX CARDS)
-        =================================================== */}
+        {/* Process Timeline */}
         <div className="relative mt-6 sm:mt-10">
-          {/* Continuous Glowing Golden Horizontal Track (Desktop) */}
+          {/* Desktop horizontal track */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-[5%] right-[5%] top-[28px] hidden h-[2px] bg-gradient-to-r from-[#E0B04A]/10 via-[#E0B04A]/60 to-[#E0B04A]/10 lg:block"
           >
-            {/* Animated shimmer beam traveling down the pipeline */}
             <motion.div
-              animate={{ x: ["-100%", "200%"] }}
+              animate={reduce ? undefined : { x: ["-100%", "200%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               className="h-full w-1/3 bg-gradient-to-r from-transparent via-white to-transparent"
             />
           </div>
 
-          {/* Process Timeline Steps */}
+          {/* Mobile vertical gold timeline track */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-[27px] top-7 bottom-8 w-px bg-gradient-to-b from-[#E0B04A]/70 via-[#E0B04A]/35 to-transparent lg:hidden"
+          />
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-40px" }}
-            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
+            className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-6"
           >
             {processSteps.map((step, idx) => {
               const Icon = step.icon;
@@ -230,12 +228,11 @@ const ManufacturingProcess = () => {
                 <motion.div
                   key={step.id}
                   variants={stepItem}
-                  className="group relative flex flex-col items-start lg:items-center lg:text-center"
+                  className="group relative flex min-w-0 flex-row items-start gap-4 lg:flex-col lg:items-center lg:gap-0 lg:text-center"
                 >
-                  {/* Step Milestone Node on the Track */}
-                  <div className="relative  mb-4 flex max-sm:flex-col max-sm:gap-2 items-center justify-center">
-                    {/* Outer glowing pulsing ring */}
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E]/90 shadow-[0_0_20px_rgba(224,176,74,0.18)] backdrop-blur-md transition-all duration-300 group-hover:border-[#E0B04A] group-hover:shadow-[0_0_30px_rgba(224,176,74,0.35)]">
+                  {/* Icon milestone node */}
+                  <div className="relative z-10 flex w-14 shrink-0 flex-col items-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E]/95 transition-all duration-300 group-hover:border-[#E0B04A] group-hover:bg-[#0B2340]">
                       <motion.span
                         whileHover={reduce ? undefined : { scale: 1.15, rotate: 8 }}
                         transition={{ type: "spring", stiffness: 300, damping: 15 }}
@@ -245,28 +242,28 @@ const ManufacturingProcess = () => {
                       </motion.span>
                     </div>
 
-                    {/* Step ID Tag pinned to node */}
-                    <span className="sm:absolute -bottom-2 rounded-full border border-[#E0B04A]/30 bg-[#06182E] px-2 py-0.2 text-[9.5px] font-extrabold uppercase tracking-widest text-[#E0B04A]">
-                      Step {step.id}
+                    {/* Step number badge */}
+                    <span className="mt-2 rounded-full border border-[#E0B04A]/30 bg-[#06182E] px-2 py-1 text-[9.5px] font-extrabold uppercase tracking-widest text-[#E0B04A] lg:absolute lg:-bottom-2 lg:mt-0">
+                      {step.id}
                     </span>
                   </div>
 
-                  {/* Subtitle tag */}
-                  <span className="mt-1 text-[11px] font-bold uppercase tracking-wider text-[#E0B04A]/80">
-                    {step.subtitle}
-                  </span>
+                  {/* Text content uses the available mobile width */}
+                  <div className="min-w-0 flex-1 pb-1 lg:mt-5 lg:flex-none">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#E0B04A]/80 sm:text-[11px]">
+                      {step.subtitle}
+                    </span>
 
-                  {/* Step Title */}
-                  <h3 className="mt-1 text-[17px] font-bold text-white transition-colors duration-300 group-hover:text-[#E0B04A] sm:text-[18px]">
-                    {step.title}
-                  </h3>
+                    <h3 className="mt-1 text-[16px] font-bold leading-snug text-white transition-colors duration-300 group-hover:text-[#E0B04A] sm:text-[18px]">
+                      {step.title}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="mt-2 max-w-[270px] text-[13px] leading-[1.65] text-white/65">
-                    {step.description}
-                  </p>
+                    <p className="mt-2 max-w-none text-[12.5px] leading-[1.65] text-white/65 sm:text-[13px] lg:mx-auto lg:max-w-[270px]">
+                      {step.description}
+                    </p>
+                  </div>
 
-                  {/* Subtle directional connector for desktop */}
+                  {/* Desktop directional connector */}
                   {idx !== processSteps.length - 1 && (
                     <div className="absolute -right-3 top-5 hidden text-[#E0B04A]/40 lg:block">
                       <ArrowRight size={16} />
