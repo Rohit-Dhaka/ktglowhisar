@@ -208,16 +208,26 @@ const ManufacturingCapabilities = () => {
                     </span>
 
                     {/* Active right-side line */}
-                    <span className="ml-auto flex w-12 shrink-0 items-center justify-end">
-                      <motion.span
-                        animate={{ width: isActive ? 50 : 0 }}
-                        transition={{
-                          duration: reduce ? 0 : 0.45,
-                          ease: EASE,
-                        }}
-                        className="h-[3px] rounded-full bg-[#06182E]"
-                      />
-                    </span>
+               <span className="ml-auto flex shrink-0 items-center">
+  <motion.span
+    key={id}
+    animate={{
+      scale: isActive ? 1 : 0.9,
+      opacity: isActive ? 1 : 0.45,
+    }}
+    transition={{
+      duration: reduce ? 0 : 0.4,
+      ease: EASE,
+    }}
+    className={`flex h-12 w-12 items-center justify-center rounded-full border text-sm font-bold tracking-wider transition-colors duration-300 ${
+      isActive
+        ? "border-[#C9972B] bg-[#C9972B]/10 text-[#C9972B]"
+        : "border-[#E5E7EB] bg-transparent text-[#64748B]"
+    }`}
+  >
+    {id}
+  </motion.span>
+</span>
                   </motion.button>
                 );
               })}
