@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 
 import A from "../../assets/images/a.png";
-import B from "../../assets/images/b.png";
-import C from "../../assets/images/c.png";
+// import B from "../../assets/images/b.png";
+// import C from "../../assets/images/c.png";
 import D from "../../assets/images/d.png";
 import E from "../../assets/images/e.png";
 import F from "../../assets/images/f.png";

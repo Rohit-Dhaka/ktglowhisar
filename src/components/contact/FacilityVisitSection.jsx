@@ -428,36 +428,7 @@ const FacilityVisitSection = () => {
           </div>
         </motion.div>
 
-        {/* =================================================
-            BOTTOM CALL TO ACTION
-        ================================================= */}
-
-        <motion.div
-          initial={{ opacity: 0, y: reduce ? 0 : 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: EASE }}
-          className="mt-8 flex flex-col gap-4 rounded-2xl border border-[#B8862B]/20 bg-[#E0B04A]/10 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
-        >
-          <div>
-            <p className="text-sm font-bold text-[#06182E] sm:text-base">
-              Planning a facility visit?
-            </p>
-
-            <p className="mt-1 text-xs leading-5 text-[#06182E]/60 sm:text-sm">
-              Contact our team to discuss your requirements before visiting.
-            </p>
-          </div>
-
-          <a
-            href={`tel:${COMPANY.phone}`}
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#06182E] px-6 py-3 text-xs font-bold text-white transition-colors hover:bg-[#0D2A4A] sm:text-sm"
-          >
-            <Phone size={15} className="text-[#E0B04A]" />
-            Contact Our Team
-            <ArrowRight size={15} />
-          </a>
-        </motion.div>
+  
       </div>
     </section>
   );

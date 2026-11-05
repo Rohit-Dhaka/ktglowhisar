@@ -59,20 +59,7 @@ const capabilities = [
 const AUTO_DELAY = 4000;
 const EASE = [0.22, 1, 0.36, 1];
 
-const sectionVariants = {
-  hidden: {
-    opacity: 0,
-    y: 35,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: EASE,
-    },
-  },
-};
+
 
 const containerVariants = {
   hidden: {

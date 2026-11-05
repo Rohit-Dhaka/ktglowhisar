@@ -1,6 +1,6 @@
 import AboutSection from "../components/home/AboutSection";
 import Hero from "../components/home/Hero";
-import IndustriesWeServe from "../components/home/IndustriesWeServe";
+// import IndustriesWeServe from "../components/home/IndustriesWeServe";
 import ManufacturingProcess from "../components/home/ManufacturingProcess";
 import ProductApplications from "../components/home/ProductApplications";
 
