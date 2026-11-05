@@ -123,11 +123,35 @@ const Testimonials = () => {
               </h2>
             </div>
 
-            <p className="max-w-xl text-sm leading-7 text-[#334155] sm:text-base sm:leading-8 lg:justify-self-end">
-              Discover what customers say about our industrial abrasive and
-              polishing solutions. We focus on product quality, reliable
-              performance, and customer-oriented service.
-            </p>
+            <div className="flex flex-col items-end ">
+                <p className="max-w-xl text-sm leading-7 text-[#334155] sm:text-base sm:leading-8 lg:justify-self-end">
+                  Discover what customers say about our industrial abrasive and
+                  polishing solutions. We focus on product quality, reliable
+                  performance, and customer-oriented service.
+                </p>
+                  <div className="mt-7 flex flex-col items-center justify-between gap-5 sm:flex-row">
+                {/* ARROWS */}
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={previous}
+                    aria-label="Previous testimonials"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#06182E] transition-colors hover:bg-[#06182E] hover:text-white"
+                  >
+                    <ArrowLeft size={18} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={next}
+                    aria-label="Next testimonials"
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#06182E] text-white transition-opacity hover:opacity-80"
+                  >
+                    <ArrowRight size={18} />
+                  </button>
+                </div>
+                          </div>
+            </div>
+            
           </motion.div>
 
           {/* AUTOPLAY CAROUSEL: 3 CARDS PER SLIDE */}
@@ -210,28 +234,7 @@ const Testimonials = () => {
           </div>
 
           {/* CAROUSEL CONTROLS */}
-          <div className="mt-7 flex flex-col items-center justify-between gap-5 sm:flex-row">
-            {/* ARROWS */}
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={previous}
-                aria-label="Previous testimonials"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#06182E] transition-colors hover:bg-[#06182E] hover:text-white"
-              >
-                <ArrowLeft size={18} />
-              </button>
-
-              <button
-                type="button"
-                onClick={next}
-                aria-label="Next testimonials"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-[#06182E] text-white transition-opacity hover:opacity-80"
-              >
-                <ArrowRight size={18} />
-              </button>
-            </div>
-          </div>
+        
         </div>
       </section>
     </MotionConfig>

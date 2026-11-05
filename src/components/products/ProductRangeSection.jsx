@@ -364,7 +364,7 @@ const ProductRangeSection = () => {
   return (
     <section
       id="product-categories"
-      className="relative overflow-hidden bg-[#F5F7FA] py-14 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-[#F5F7FA] py-8 sm:py-10"
     >
       <link
         rel="stylesheet"

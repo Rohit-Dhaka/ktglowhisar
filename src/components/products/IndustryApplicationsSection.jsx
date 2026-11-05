@@ -150,7 +150,7 @@ const IndustryApplicationsSection = () => {
   const ORBIT_RADIUS = 100;
 
   return (
-    <section className="relative overflow-hidden bg-[#F5F7FA] py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#F5F7FA] py-8 sm:py-10">
       {/* =====================================================
           BACKGROUND GEARS
       ====================================================== */}
