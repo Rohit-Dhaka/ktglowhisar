@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 // Data import from productsData.js
+// Data import from productsData.js
 import { productsData } from "./productsData";
 
 const ProductDetail = () => {

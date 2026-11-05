@@ -12,6 +12,7 @@ import Flapdiscs2 from "../../assets/productimg/Flapdiscs2.png";
 import Flapdiscs3 from "../../assets/productimg/Flapdiscs3.png";
 
 // 3. Fiber Discs
+
 import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
 import Fiber2 from "../../assets/productimg/Fiber Discs2.png";
 import Fiber3 from "../../assets/productimg/Fiber Discs3.png";
