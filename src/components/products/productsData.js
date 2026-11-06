@@ -12,6 +12,10 @@ import Flapdiscs3 from "../../assets/productimg/Flapdiscs3.png";
 import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
 import Fiber2 from "../../assets/productimg/Fiber Discs2.png";
 import Fiber3 from "../../assets/productimg/Fiber Discs3.png";
+import Fiber4 from "../../assets/productimg/FiberDiscs4.png";
+import Fiber5 from "../../assets/productimg/FiberDiscs5.png";
+import Fiber6 from "../../assets/productimg/FiberDiscs6.png";
+import Fiber7 from "../../assets/productimg/FiberDiscs7.png";
 
 
 import NonWoven1 from "../../assets/productimg/Non-Woven Polishing Wheels1.png";
@@ -88,7 +92,7 @@ export const productsData = [
     name: "Fiber Discs",
     badge: "Fast Stock Removal",
     description: "Resin-bonded fiber discs for aggressive grinding and rapid surface leveling.",
-    images: [Fiber1, Fiber2, Fiber3],
+    images: [Fiber1, Fiber2, Fiber3 , Fiber4 , Fiber5 , Fiber6 , Fiber7],
     overview:
       "Constructed with heavy vulcanized fiber backing and premium electrostatically coated abrasive grains, KT Glow Fiber Discs deliver high cut-rate pressure resistance during demanding metal removal tasks.",
     features: [

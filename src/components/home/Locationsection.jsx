@@ -298,14 +298,21 @@ const LocationSection = () => {
             </div>
 
             <div className="relative min-h-[360px] w-full bg-[#E5E7EB] sm:min-h-[440px] lg:col-span-7 lg:min-h-[520px]">
-              <iframe
-                title={`${COMPANY.brand} location map`}
-                src={MAP_EMBED_URL}
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+    <iframe
+  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3190.253242431946!2d75.76720047551918!3d29.128498075397978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDA3JzQyLjYiTiA3NcKwNDYnMTEuMiJF!5e1!3m2!1sen!2sin!4v1793982505690!5m2!1sen!2sin"
+  width="600"
+  // height="450"
+  className="h-full"
+  style={{
+    border: 0,
+    width: "100%",
+    // height: "450px",
+  }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="strict-origin-when-cross-origin"
+  title="KT Glow Google Maps Location"
+/>
 
               
               <div className="pointer-events-none absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/40 bg-white/95 px-3.5 py-1.5 text-xs font-bold text-[#06182E] shadow-md backdrop-blur-md">
