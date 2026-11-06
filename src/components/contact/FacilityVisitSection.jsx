@@ -201,7 +201,21 @@ const FacilityVisitSection = () => {
           </div>
 
           <div className="relative h-[320px] w-full bg-[#E5E7EB] sm:h-[400px] lg:h-[480px]">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3190.253242431946!2d75.76720047551918!3d29.128498075397978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDA3JzQyLjYiTiA3NcKwNDYnMTEuMiJF!5e1!3m2!1sen!2sin!4v1793982505690!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe
+  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3190.253242431946!2d75.76720047551918!3d29.128498075397978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDA3JzQyLjYiTiA3NcKwNDYnMTEuMiJF!5e1!3m2!1sen!2sin!4v1793982505690!5m2!1sen!2sin"
+  width="600"
+  // height="450"
+  className="h-full"
+  style={{
+    border: 0,
+    width: "100%",
+    // height: "450px",
+  }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="strict-origin-when-cross-origin"
+  title="KT Glow Google Maps Location"
+/>
 
             <div className="pointer-events-none absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto">
               <div className="flex max-w-md items-start gap-3 rounded-2xl border border-white/60 bg-white/95 p-4 backdrop-blur-md">
