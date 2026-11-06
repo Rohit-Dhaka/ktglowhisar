@@ -339,7 +339,7 @@ const Hero = () => {
                   {reduce ? typewriterWords[0] : typedText}
                 </span>
 
-                {/* Blinking Cursor Bar */}
+                
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}
                   transition={{
@@ -396,9 +396,7 @@ const Hero = () => {
               </motion.div>
             </motion.div>
 
-            {/* =====================================================
-                4 FEATURE HIGHLIGHTS (Bade-Bade Dividers & Big Text)
-            ====================================================== */}
+        
             <motion.div
               variants={featureContainer}
               initial="hidden"
@@ -413,12 +411,12 @@ const Hero = () => {
                     whileHover={{ x: 4 }}
                     className="group flex items-center gap-4 py-3.5 sm:py-3"
                   >
-                    {/* Circular Gold Icon Badge */}
+                    
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#B8862B]/50 bg-white/80 text-[#8A6212] shadow-sm backdrop-blur-sm transition-colors duration-300 group-hover:border-[#06182E] group-hover:bg-[#06182E] group-hover:text-[#E0B04A] sm:h-13 sm:w-13">
                       <Icon size={22} strokeWidth={1.8} />
                     </div>
 
-                    {/* Text Details (Tag + Bold Title) */}
+                    
                     <div className="min-w-0">
                       <p className="text-[11px] font-bold uppercase tracking-wider text-[#8A6212] sm:text-xs">
                         {tag}
@@ -436,9 +434,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* =====================================================
-          PART 2: STATS BAR
-      ====================================================== */}
+   
       <div className="relative z-[3] w-full bg-[#718865] shadow-inner">
         <motion.div
           variants={statsContainer}

@@ -11,16 +11,14 @@ import {
   Sparkles,
 } from "lucide-react";
 
-/* Clean Inline SVG Social Icons */
 
-/* Facebook Icon */
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
   </svg>
 );
 
-/* Instagram Icon */
+
 const InstagramIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -38,21 +36,21 @@ const InstagramIcon = () => (
   </svg>
 );
 
-/* LinkedIn Icon */
+
 const LinkedinIcon = () => (
   <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.85 6.28a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z" />
   </svg>
 );
 
-/* YouTube Icon */
+
 const YoutubeIcon = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
   </svg>
 );
 
-/* Company Information */
+
 const COMPANY = {
   brand: "KT Glow",
   firm: "Thalor Manufacturer",
@@ -64,7 +62,7 @@ const COMPANY = {
   address: "Plot No. 10, Fees Market, Industrial Area, Hisar, Haryana",
 };
 
-/* WhatsApp Message */
+
 const WHATSAPP_MESSAGE =
   "Hello KT Glow, I am interested in your steel polishing and abrasive products. Please share more details.";
 
@@ -73,7 +71,7 @@ const WHATSAPP_URL = `https://wa.me/${COMPANY.phone.replace(
   ""
 )}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
-/* Social Media Channels */
+
 const socialLinks = [
   {
     name: "Facebook",
@@ -97,7 +95,7 @@ const socialLinks = [
   },
 ];
 
-/* Footer Navigation Links */
+
 const footerLinks = {
   quickLinks: [
     { name: "Home", path: "/" },
@@ -139,7 +137,7 @@ const footerLinks = {
   ],
 };
 
-/* Contact Information */
+
 const contactItems = [
   {
     icon: User,
@@ -166,7 +164,6 @@ const contactItems = [
   },
 ];
 
-/* Legal Links */
 const legalLinks = [
   {
     name: "Privacy Policy",
@@ -178,7 +175,7 @@ const legalLinks = [
   },
 ];
 
-/* Reusable Footer Link List */
+
 const FooterLinkList = ({ title, links }) => (
   <div>
     <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#E0B04A]">
@@ -202,7 +199,7 @@ const FooterLinkList = ({ title, links }) => (
   </div>
 );
 
-/* Footer Component */
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const reduce = useReducedMotion();
@@ -215,7 +212,7 @@ const Footer = () => {
           href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
         />
 
-        {/* Ambient Gold Glow & Subtle Rings */}
+        
         <motion.div
           aria-hidden="true"
           animate={
@@ -245,9 +242,9 @@ const Footer = () => {
         />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
-          {/* Responsive Footer Grid */}
+          
           <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
-            {/* Column 1: Brand Info & Social Media */}
+            
             <div className="sm:col-span-2 lg:col-span-4">
               <Link to="/" aria-label="KT Glow Home" className="inline-block">
                 <img
@@ -303,7 +300,7 @@ const Footer = () => {
                 </Link>
               </div>
 
-              {/* Social Media Links */}
+              
               <div className="mt-6">
                 <p className="mb-2.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#E0B04A]">
                   Follow &amp; Connect
@@ -335,7 +332,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Column 2: Quick Links */}
+            
             <div className="lg:col-span-2">
               <FooterLinkList
                 title="Explore"
@@ -343,7 +340,7 @@ const Footer = () => {
               />
             </div>
 
-            {/* Column 3: Products */}
+            
             <div className="lg:col-span-3">
               <FooterLinkList
                 title="Abrasives Range"
@@ -351,7 +348,7 @@ const Footer = () => {
               />
             </div>
 
-            {/* Column 4: Contact Information */}
+            
             <div className="lg:col-span-3">
               <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#E0B04A]">
                 Get In Touch
@@ -394,9 +391,9 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Sub-Footer Bar */}
+          
           <div className="flex flex-col gap-4 border-t border-white/10 py-5 sm:py-6 md:flex-row md:items-center md:justify-between">
-            {/* Copyright */}
+            
             <p className="text-xs text-white/60">
               © {currentYear}{" "}
               <span className="font-bold text-[#E0B04A]">
@@ -405,7 +402,7 @@ const Footer = () => {
               · {COMPANY.firm}. All rights reserved.
             </p>
 
-            {/* Developer Information */}
+            
             <p className="text-xs text-white/60">
               Designed &amp; Developed by{" "}
               <a
@@ -418,7 +415,7 @@ const Footer = () => {
               </a>
             </p>
 
-            {/* Legal Links & Location */}
+            
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               {legalLinks.map((link) => (
                 <Link
@@ -439,7 +436,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button - Bottom Right */}
+      
       <motion.a
         href={WHATSAPP_URL}
         target="_blank"

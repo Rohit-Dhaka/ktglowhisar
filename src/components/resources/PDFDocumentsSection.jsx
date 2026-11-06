@@ -47,9 +47,6 @@ const pdfDocuments = [
   },
 ];
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -77,7 +74,7 @@ const gridContainer = {
   show: { transition: { staggerChildren: 0.18 } },
 };
 
-/* cards "land" like sheets of paper */
+
 const cardIn = {
   hidden: { opacity: 0, y: 60, rotate: -3 },
   show: {
@@ -88,13 +85,10 @@ const cardIn = {
   },
 };
 
-/* =========================================================
-   DOWNLOAD BUTTON — shows progress, then a "done" state
-   (the file still downloads normally via the link)
-========================================================= */
+
 
 const DownloadButton = ({ file }) => {
-  const [status, setStatus] = useState("idle"); // idle | loading | done
+  const [status, setStatus] = useState("idle"); 
   const timers = useRef([]);
 
   useEffect(
@@ -167,7 +161,7 @@ const DownloadButton = ({ file }) => {
         </motion.span>
       </AnimatePresence>
 
-      {/* progress bar */}
+      
       {status === "loading" && (
         <motion.span
           aria-hidden="true"
@@ -181,9 +175,6 @@ const DownloadButton = ({ file }) => {
   );
 };
 
-/* =========================================================
-   SECTION
-========================================================= */
 
 const PDFDocumentsSection = () => {
   const reduce = useReducedMotion();
@@ -198,10 +189,8 @@ const PDFDocumentsSection = () => {
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* =====================================================
-          BACKGROUND GRAPHICS
-      ====================================================== */}
-      {/* dotted paper pattern */}
+     
+      
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(6,24,46,0.08)_1px,transparent_1px)] bg-[size:22px_22px] [mask-image:radial-gradient(ellipse_at_top,black_25%,transparent_70%)]"
@@ -232,9 +221,9 @@ const PDFDocumentsSection = () => {
       />
 
       <div className="relative px-4 sm:px-8 lg:px-12">
-        {/* =====================================================
-            SECTION HEADER
-        ====================================================== */}
+        
+            
+        
         <motion.div
           variants={headerContainer}
           initial="hidden"
@@ -242,7 +231,7 @@ const PDFDocumentsSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="mb-10 flex flex-col gap-6 sm:mb-14 lg:flex-row lg:items-end lg:justify-between"
         >
-          {/* Left Side - Tag & Heading */}
+          
           <div className="w-full lg:max-w-[50%]">
             <motion.span
               variants={fadeUp}
@@ -258,7 +247,7 @@ const PDFDocumentsSection = () => {
               Document Library
             </motion.span>
 
-            {/* Heading — gold highlighter marker is drawn behind "Documents." */}
+            
             <h2 className="mt-5 text-[34px] font-extrabold leading-[1.12] tracking-[-0.03em] text-[#06182E] sm:text-[44px] lg:text-[54px]">
               <span className="block overflow-hidden pb-1 pt-2">
                 <motion.span variants={lineReveal} className="block">
@@ -278,7 +267,7 @@ const PDFDocumentsSection = () => {
             </h2>
           </div>
 
-          {/* Right Side - Description */}
+          
           <motion.div variants={fadeUp} className="w-full lg:max-w-[45%]">
             <p className="text-sm leading-7 text-black sm:text-base sm:leading-8">
               Browse our documentation to learn more about our steel polishing
@@ -288,28 +277,9 @@ const PDFDocumentsSection = () => {
             </p>
           </motion.div>
 
-          {/* Document Count */}
-          {/* 
-          <div className="flex w-fit items-center gap-3 rounded-2xl border border-[#DCE3EC] bg-[#F5F7FA] px-5 py-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#0F2B46]">
-              <FileText size={22} />
-            </div>
-
-            <div>
-              <p className="text-2xl font-bold text-[#06182E]">
-                03
-              </p>
-              <p className="text-xs font-medium text-black">
-                Available Documents
-              </p>
-            </div>
-          </div>
-          */}
         </motion.div>
 
-        {/* =====================================================
-            PDF CARDS
-        ====================================================== */}
+
         <motion.div
           variants={gridContainer}
           initial="hidden"
@@ -325,7 +295,7 @@ const PDFDocumentsSection = () => {
               transition={{ type: "spring", stiffness: 250, damping: 18 }}
               className="group relative"
             >
-              {/* sheets of paper peeking out from behind the card */}
+              
               <span
                 aria-hidden="true"
                 className="absolute inset-x-4 top-0 z-0 h-full rounded-3xl border border-[#E0B04A]/40 bg-[#FBF3DF] transition-transform duration-500 ease-out group-hover:-translate-y-3 group-hover:-rotate-[2deg]"
@@ -336,13 +306,13 @@ const PDFDocumentsSection = () => {
               />
 
               <article className="relative z-10 flex h-full flex-col overflow-hidden rounded-3xl border border-[#DCE3EC] bg-[#F8FAFC] p-5 transition-[border-color,box-shadow] duration-300 group-hover:border-[#B8862B] group-hover:shadow-[0_22px_50px_rgba(6,24,46,0.14)] sm:p-6">
-                {/* shine sweep on hover */}
+                
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent transition-transform duration-[1000ms] ease-out group-hover:translate-x-[350%]"
                 />
 
-                {/* Card Top */}
+                
                 <div className="relative flex items-start justify-between gap-4">
                   <motion.div
                     animate={reduce ? undefined : { y: [0, -5, 0] }}
@@ -363,7 +333,7 @@ const PDFDocumentsSection = () => {
                   </span>
                 </div>
 
-                {/* Card Content */}
+                
                 <div className="relative mt-6 flex-1">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8A6212]">
                     {document.category}
@@ -378,7 +348,7 @@ const PDFDocumentsSection = () => {
                   </p>
                 </div>
 
-                {/* PDF Info */}
+                
                 <div className="relative mt-6 flex items-center justify-between border-t border-[#DCE3EC] pt-5">
                   <span className="text-xs font-medium text-[#94A3B8]">
                     {document.size}
@@ -389,9 +359,9 @@ const PDFDocumentsSection = () => {
                   </span>
                 </div>
 
-                {/* Buttons */}
+                
                 <div className="relative mt-5 grid grid-cols-2 gap-3">
-                  {/* View PDF */}
+                  
                   <motion.a
                     href={document.file}
                     target="_blank"
@@ -403,7 +373,7 @@ const PDFDocumentsSection = () => {
                     View PDF
                   </motion.a>
 
-                  {/* Download PDF (progress → done) */}
+                  
                   <DownloadButton file={document.file} />
                 </div>
               </article>

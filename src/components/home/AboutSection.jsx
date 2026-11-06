@@ -20,9 +20,7 @@ import {
 
 import ABOUT_IMAGE from "../../assets/images/all.png";
 
-/* =========================================================
-   ANIMATION VARIANTS (Identical to Hero.jsx)
-========================================================= */
+
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -45,7 +43,7 @@ const fadeUp = {
   },
 };
 
-/* Each heading line slides up from behind an overflow-hidden mask */
+
 const lineReveal = {
   hidden: { y: "115%", opacity: 0 },
   show: {
@@ -75,9 +73,7 @@ const cardItem = {
   },
 };
 
-/* =========================================================
-   DATA
-========================================================= */
+
 
 const facts = [
   { icon: Tag, label: "Brand", value: "KT Glow" },
@@ -99,15 +95,11 @@ const features = [
   },
 ];
 
-/* =========================================================
-   ABOUT SECTION COMPONENT
-========================================================= */
+
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
-  const reduce = useReducedMotion();
-
-  /* Scroll parallax & spring physics */
+  const reduce = useReducedMotion();  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -130,13 +122,13 @@ const AboutSection = () => {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-[#FBF8F2] py-8 sm:py-10"
     >
-      {/* Google font for cursive typography */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Floating Gold Glow */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -152,7 +144,7 @@ const AboutSection = () => {
         className="pointer-events-none absolute -left-20 top-1/4 z-0 h-[280px] w-[280px] rounded-full bg-[#E0B04A]/25 blur-3xl md:h-[420px] md:w-[420px]"
       />
 
-      {/* Decorative Parallax Circle */}
+      
       <motion.div
         aria-hidden="true"
         style={{
@@ -164,13 +156,11 @@ const AboutSection = () => {
         className="pointer-events-none absolute -left-[100px] top-[10px] z-0 h-[260px] w-[260px] rounded-full border border-[#B8862B]/20 md:h-[440px] md:w-[440px]"
       />
 
-      {/* Main Container */}
+      
       <div className="relative z-10 px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-14 xl:gap-16">
           
-          {/* ===================================================
-              LEFT: PARALLAX IMAGE SHOWCASE (5 Columns)
-          =================================================== */}
+      
           <div className="relative lg:col-span-5">
             <div
               aria-hidden="true"
@@ -206,7 +196,7 @@ const AboutSection = () => {
 
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06182E]/80 via-[#06182E]/10 to-transparent" />
 
-                {/* Floating Micro-Badge */}
+                
                 <motion.div
                   style={{ y: reduce ? 0 : badgeY }}
                   animate={
@@ -224,7 +214,7 @@ const AboutSection = () => {
                 </motion.div>
               </div>
 
-              {/* Bottom Caption Card */}
+              
               <div className="mt-2.5 rounded-xl bg-gradient-to-r from-[#06182E] to-[#0D2A4A] p-3.5 text-white sm:p-4">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#E0B04A]" />
@@ -240,9 +230,7 @@ const AboutSection = () => {
             </motion.div>
           </div>
 
-          {/* ===================================================
-              RIGHT: CONTENT (7 Columns)
-          =================================================== */}
+      
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -250,7 +238,7 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-50px" }}
             className="lg:col-span-7"
           >
-            {/* Top Subtitle with Gold Dash */}
+            
             <motion.div variants={fadeUp} className="mb-2.5 flex items-center gap-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -264,7 +252,7 @@ const AboutSection = () => {
               </p>
             </motion.div>
 
-            {/* Heading */}
+            
             <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-[#06182E] sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -293,7 +281,7 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            {/* Paragraphs */}
+            
             <motion.div
               variants={fadeUp}
               className="mt-3.5 space-y-2 text-[14.5px] leading-[1.75] text-[#06182E]/80 sm:text-[16px]"
@@ -310,7 +298,7 @@ const AboutSection = () => {
               </p>
             </motion.div>
 
-            {/* Facts Grid */}
+            
             <motion.div
               variants={cardContainer}
               className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2"
@@ -341,7 +329,7 @@ const AboutSection = () => {
               ))}
             </motion.div>
 
-            {/* Feature Cards */}
+            
             <motion.div
               variants={cardContainer}
               className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2"
@@ -381,7 +369,7 @@ const AboutSection = () => {
               ))}
             </motion.div>
 
-            {/* CTA Button (Full width on mobile) */}
+            
             <motion.div variants={fadeUp} className="mt-6">
               <motion.div
                 whileHover={{ y: -4, scale: 1.03 }}

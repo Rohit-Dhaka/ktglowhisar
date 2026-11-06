@@ -15,9 +15,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
+
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -49,9 +47,7 @@ const lineReveal = {
   },
 };
 
-/* =========================================================
-   CONTACT DETAILS DATA
-========================================================= */
+
 
 const contactDetails = [
   {
@@ -82,14 +78,12 @@ const initialForm = {
   message: "",
 };
 
-// Web3Forms Key (from .env or directly embedded)
+
 const WEB3FORMS_ACCESS_KEY =
   import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
   "5866f7a4-4088-4ea3-9265-f435d4fabf20";
 
-/* =========================================================
-   CONTACT SECTION COMPONENT (Connected to Web3Forms)
-========================================================= */
+
 
 const ContactSection = () => {
   const [formData, setFormData] = useState(initialForm);
@@ -164,13 +158,13 @@ const ContactSection = () => {
       id="contact"
       className="relative w-full overflow-hidden bg-[#FBF8F2] py-8 sm:py-10"
     >
-      {/* Luxury Editorial Font for Consistency */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
       />
 
-      {/* Subtle Dot Grid Texture */}
+      
       <div 
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.035]"
@@ -180,7 +174,7 @@ const ContactSection = () => {
         }}
       />
 
-      {/* Ambient Floating Gold Glow */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -195,12 +189,12 @@ const ContactSection = () => {
         className="pointer-events-none absolute -right-20 top-1/4 z-0 h-[300px] w-[300px] rounded-full bg-[#E0B04A]/25 blur-[100px] lg:h-[450px] lg:w-[450px]"
       />
 
-      {/* Main Container */}
+      
       <div className="relative z-10 px-4 sm:px-8 lg:px-12">
         
-        {/* ===================================================
-            SECTION HEADER
-        =================================================== */}
+        
+            
+        
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -209,7 +203,7 @@ const ContactSection = () => {
           className="mb-8 flex flex-col gap-4 sm:mb-10 lg:flex-row lg:items-end lg:justify-between"
         >
           <div className="w-full lg:max-w-[55%]">
-            {/* Top Subtitle with Gold Dash */}
+            
             <motion.div variants={fadeUp} className="mb-2 flex items-center gap-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -223,7 +217,7 @@ const ContactSection = () => {
               </p>
             </motion.div>
 
-            {/* EXPANDED HEADING */}
+            
             <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-[#06182E] sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -263,9 +257,7 @@ const ContactSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* ===================================================
-            MAIN CONTACT LAYOUT
-        =================================================== */}
+  
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -273,7 +265,7 @@ const ContactSection = () => {
           transition={{ duration: 0.8, ease: EASE }}
           className="grid gap-6 rounded-2xl border border-[#B8862B]/20 bg-white/90 p-4 shadow-[0_12px_35px_rgba(6,24,46,0.06)] backdrop-blur-sm sm:p-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8 lg:p-7"
         >
-          {/* LEFT: CONTACT INFORMATION (Deep Steel Navy) */}
+          
           <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#06182E] via-[#092240] to-[#0D2A4A] p-5 text-white sm:p-6 lg:p-7">
             <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[#E0B04A]/15 blur-2xl" />
 
@@ -291,7 +283,7 @@ const ContactSection = () => {
               and pan-India distributor support.
             </p>
 
-            {/* Details List */}
+            
             <div className="mt-6 space-y-3.5">
               {contactDetails.map((item) => {
                 const Icon = item.icon;
@@ -328,7 +320,7 @@ const ContactSection = () => {
               })}
             </div>
 
-            {/* Commercial Enquiries Box */}
+            
             <div className="mt-6 rounded-xl border border-[#B8862B]/30 bg-gradient-to-r from-[#B8862B]/10 to-transparent p-4">
               <h4 className="text-[13.5px] font-bold text-[#E0B04A]">
                 Commercial &amp; Bulk Enquiries
@@ -339,7 +331,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* RIGHT: CONTACT FORM (Powered by Web3Forms) */}
+          
           <div className="flex flex-col justify-center py-2 lg:pl-3">
             <div className="mb-5">
               <h3 className="text-xl font-bold text-[#06182E] sm:text-2xl">
@@ -351,7 +343,7 @@ const ContactSection = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Row 1: Name and Email */}
+              
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label
@@ -394,7 +386,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Row 2: Phone and Subject */}
+              
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label
@@ -441,7 +433,7 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Message */}
+              
               <div>
                 <label
                   htmlFor="contact-message"
@@ -461,7 +453,7 @@ const ContactSection = () => {
                 />
               </div>
 
-              {/* Status Banner */}
+              
               {status.message && (
                 <div
                   role="status"
@@ -480,7 +472,7 @@ const ContactSection = () => {
                 </div>
               )}
 
-              {/* Submit Button */}
+              
               <div className="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center sm:justify-between">
                 <motion.button
                   type="submit"

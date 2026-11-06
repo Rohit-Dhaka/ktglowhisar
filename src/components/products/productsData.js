@@ -1,45 +1,38 @@
-/* =========================================================
-   PRODUCT IMAGES IMPORTS
-========================================================= */
-// 1. Cutting & Grinding Wheels
+
 import Cutting1 from "../../assets/productimg/Cutting & Grinding Wheels1.png";
 import Cutting2 from "../../assets/productimg/Cutting & Grinding Wheels2.png";
 import Cutting3 from "../../assets/productimg/Cutting & Grinding Wheels3.png";
 
-// 2. Flap Discs (Fallback image)
+
 import Flapdiscs1 from "../../assets/productimg/FlapdiscsOne.png";
 import Flapdiscs2 from "../../assets/productimg/Flapdiscs2.png";
 import Flapdiscs3 from "../../assets/productimg/Flapdiscs3.png";
 
-// 3. Fiber Discs
 
 import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
 import Fiber2 from "../../assets/productimg/Fiber Discs2.png";
 import Fiber3 from "../../assets/productimg/Fiber Discs3.png";
 
-// 4. Non-Woven Polishing Wheels
+
 import NonWoven1 from "../../assets/productimg/Non-Woven Polishing Wheels1.png";
 import NonWoven2 from "../../assets/productimg/Non-Woven Polishing Wheels2.png";
 import NonWoven3 from "../../assets/productimg/Non-Woven Polishing Wheels3.png";
 
-// 5. Polishing & Buffing Wheels
+
 import Buffing1 from "../../assets/productimg/Polishing & Buffing Wheels1.png";
 import Buffing2 from "../../assets/productimg/Polishing & Buffing Wheels2.png";
 import Buffing3 from "../../assets/productimg/Polishing & Buffing Wheels3.png";
 
-// 6. Polishing Wax
+
 import Wax1 from "../../assets/productimg/Polishing Wax1.png";
 import Wax2 from "../../assets/productimg/Polishing Wax2.png";
 import Wax3 from "../../assets/productimg/Polishing Wax3.png";
 
-// 7. Rubber Roll (Agar aapki image file me .png extension hai toh .png laga lijiye)
+
 import Ruberroll1 from "../../assets/productimg/Ruberroll1.png";
 import Ruberroll2 from "../../assets/productimg/Ruberroll2.png";
 import Ruberroll3 from "../../assets/productimg/Ruberroll3.png";
 
-/* =========================================================
-   PRODUCTS MASTER DATA
-========================================================= */
 export const productsData = [
   {
     id: "01",

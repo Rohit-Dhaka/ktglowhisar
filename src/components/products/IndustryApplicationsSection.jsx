@@ -65,9 +65,7 @@ const industries = [
   },
 ];
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
+
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -81,7 +79,7 @@ const headerContainer = {
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 };
 
-/* letters blur-in one after another */
+
 const headingContainer = {
   hidden: {},
   show: { transition: { staggerChildren: 0.025 } },
@@ -108,7 +106,7 @@ const AnimatedText = ({ text }) =>
     </span>
   ));
 
-/* number that counts up when it scrolls into view */
+
 const CountUp = ({ to, reduce }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -131,15 +129,13 @@ const CountUp = ({ to, reduce }) => {
   return <span ref={ref}>{String(value).padStart(2, "0")}</span>;
 };
 
-/* =========================================================
-   SECTION
-========================================================= */
+
 
 const IndustryApplicationsSection = () => {
   const reduce = useReducedMotion();
   const [hovered, setHovered] = useState(null);
 
-  /* image parallax inside its frame */
+
   const imageRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: imageRef,
@@ -151,9 +147,7 @@ const IndustryApplicationsSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-[#F5F7FA] py-8 sm:py-10">
-      {/* =====================================================
-          BACKGROUND GEARS
-      ====================================================== */}
+    
       <motion.div
         aria-hidden="true"
         animate={reduce ? undefined : { rotate: 360 }}
@@ -182,9 +176,7 @@ const IndustryApplicationsSection = () => {
       />
 
       <div className="relative px-4 sm:px-8 lg:px-12">
-        {/* =====================================================
-            SECTION HEADER
-        ====================================================== */}
+  
         <motion.div
           variants={headerContainer}
           initial="hidden"
@@ -206,7 +198,7 @@ const IndustryApplicationsSection = () => {
             Industry Applications
           </motion.span>
 
-          {/* Heading — letters blur in one by one */}
+          
           <motion.h2
             variants={headingContainer}
             className="mt-5 text-[34px] font-extrabold leading-[1.12] tracking-[-0.03em] text-[#06182E] sm:text-[44px] lg:text-[54px]"
@@ -219,7 +211,7 @@ const IndustryApplicationsSection = () => {
             </span>
           </motion.h2>
 
-          {/* underline draws itself */}
+          
           <motion.div
             variants={fadeUp}
             className="relative mt-3 h-[3px] w-[110px] overflow-hidden rounded-full bg-[#06182E]/10"
@@ -243,11 +235,9 @@ const IndustryApplicationsSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* =====================================================
-            MAIN CONTENT
-        ====================================================== */}
+   
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-10">
-          {/* ---------------- Left: sticky image with orbit ---------------- */}
+          
           <motion.div
             ref={imageRef}
             initial={{ opacity: 0, x: -60 }}
@@ -265,18 +255,18 @@ const IndustryApplicationsSection = () => {
                 className="absolute inset-0 h-full w-full object-cover"
               />
 
-              {/* Overlay */}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-[#06182E]/95 via-[#06182E]/30 to-[#06182E]/10" />
 
-              {/* Orbiting industry icons */}
+              
               <div
                 aria-hidden="true"
                 className="absolute right-5 top-16 hidden h-[230px] w-[230px] sm:block lg:right-8 lg:top-20"
               >
-                {/* orbit track */}
+                
                 <div className="absolute inset-[15px] rounded-full border border-dashed border-[#E0B04A]/40" />
 
-                {/* rotating ring */}
+                
                 <motion.div
                   animate={reduce ? undefined : { rotate: 360 }}
                   transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
@@ -293,7 +283,7 @@ const IndustryApplicationsSection = () => {
                         }}
                       >
                         <div style={{ transform: `rotate(${-i * 60}deg)` }}>
-                          {/* counter-rotate so icons stay upright */}
+                          
                           <motion.div
                             animate={reduce ? undefined : { rotate: -360 }}
                             transition={{
@@ -311,13 +301,13 @@ const IndustryApplicationsSection = () => {
                   })}
                 </motion.div>
 
-                {/* centre */}
+                
                 <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-[#B8862B] to-[#F0CA6A] text-[#06182E] shadow-[0_0_30px_rgba(224,176,74,0.5)]">
                   <Factory size={24} />
                 </div>
               </div>
 
-              {/* Top Label */}
+              
               <div className="absolute left-5 top-5 sm:left-7 sm:top-7">
                 <motion.span
                   animate={reduce ? undefined : { y: [0, -5, 0] }}
@@ -329,7 +319,7 @@ const IndustryApplicationsSection = () => {
                 </motion.span>
               </div>
 
-              {/* Image Content */}
+              
               <motion.div
                 variants={headerContainer}
                 initial="hidden"
@@ -393,7 +383,7 @@ const IndustryApplicationsSection = () => {
             </div>
           </motion.div>
 
-          {/* ---------------- Right: industry list ---------------- */}
+          
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -440,7 +430,7 @@ const IndustryApplicationsSection = () => {
                     onBlur={() => setHovered(null)}
                     className="group relative flex items-start gap-4 rounded-2xl px-3 py-5 sm:gap-5 sm:px-4 sm:py-6"
                   >
-                    {/* sliding highlight shared between rows */}
+                    
                     {active && (
                       <motion.span
                         layoutId="industry-hover"
@@ -451,7 +441,7 @@ const IndustryApplicationsSection = () => {
                       </motion.span>
                     )}
 
-                    {/* Number */}
+                    
                     <span
                       className={`relative z-10 pt-0.5 font-['Dancing_Script',cursive] text-2xl font-bold leading-none transition-colors duration-300 ${
                         active ? "text-[#B8862B]" : "text-[#94A3B8]"
@@ -460,7 +450,7 @@ const IndustryApplicationsSection = () => {
                       {industry.id}
                     </span>
 
-                    {/* Icon */}
+                    
                     <div
                       className={`relative  max-sm:hidden z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${
                         active
@@ -471,7 +461,7 @@ const IndustryApplicationsSection = () => {
                       <Icon size={20} strokeWidth={1.8} />
                     </div>
 
-                    {/* Details */}
+                    
                     <div className="relative z-10 min-w-0 flex-1">
                       <h3 className="text-base font-bold text-[#06182E] sm:text-lg">
                         {industry.title}
@@ -482,7 +472,7 @@ const IndustryApplicationsSection = () => {
                       </p>
                     </div>
 
-                    {/* Arrow */}
+                    
                     <div
                       className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
                         active
@@ -504,9 +494,6 @@ const IndustryApplicationsSection = () => {
           </div>
         </div>
 
-        {/* =====================================================
-            BOTTOM CTA (animated gold border)
-        ====================================================== */}
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -514,7 +501,7 @@ const IndustryApplicationsSection = () => {
           transition={{ duration: 0.9, ease: EASE }}
           className="relative mt-10 overflow-hidden rounded-2xl bg-[#DCE3EC] p-[1.5px] sm:mt-14"
         >
-          {/* travelling gold light on the border */}
+          
           {!reduce && (
             <motion.div
               aria-hidden="true"

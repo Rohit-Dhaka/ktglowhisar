@@ -41,9 +41,6 @@ const qualityFeatures = [
   },
 ];
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -59,7 +56,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 
-/* every word slides up from behind a mask */
+
 const wordReveal = {
   hidden: { y: "115%", opacity: 0 },
   show: {
@@ -76,14 +73,11 @@ const headingWords = {
 
 const bracket = "absolute h-7 w-7 border-[#E0B04A] sm:h-9 sm:w-9";
 
-/* =========================================================
-   SECTION
-========================================================= */
 
 const ProductQualitySection = () => {
   const reduce = useReducedMotion();
 
-  /* image parallax inside its frame */
+  
   const imageWrapRef = useRef(null);
   const { scrollYProgress: imgProgress } = useScroll({
     target: imageWrapRef,
@@ -91,7 +85,7 @@ const ProductQualitySection = () => {
   });
   const imgY = useTransform(imgProgress, [0, 1], ["-7%", "7%"]);
 
-  /* timeline line that fills while you scroll */
+  
   const listRef = useRef(null);
   const { scrollYProgress: listProgress } = useScroll({
     target: listRef,
@@ -128,11 +122,9 @@ const ProductQualitySection = () => {
       />
 
       <div className="relative px-4 sm:px-8 lg:px-12">
-        {/* Main Layout */}
+        
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* =====================================================
-              LEFT: INSPECTION IMAGE
-          ====================================================== */}
+        
           <motion.div
             ref={imageWrapRef}
             initial={{ opacity: 0, x: -60 }}
@@ -150,10 +142,10 @@ const ProductQualitySection = () => {
                 className="aspect-[4/5] max-h-[650px] w-full object-cover"
               />
 
-              {/* Image Overlay */}
+              
               <div className="absolute inset-0 bg-gradient-to-t from-[#06182E]/90 via-[#06182E]/20 to-transparent" />
 
-              {/* ---------- Inspection scanner ---------- */}
+              
               {!reduce && (
                 <motion.div
                   aria-hidden="true"
@@ -165,14 +157,14 @@ const ProductQualitySection = () => {
                   }}
                   className="pointer-events-none absolute inset-x-0 z-10"
                 >
-                  {/* glow trail */}
+                  
                   <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#E0B04A]/25 to-transparent" />
-                  {/* laser line */}
+                  
                   <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#F0CA6A] to-transparent shadow-[0_0_18px_4px_rgba(240,202,106,0.55)]" />
                 </motion.div>
               )}
 
-              {/* viewfinder corner brackets */}
+              
               {[
                 "left-4 top-4 rounded-tl-lg border-l-2 border-t-2 sm:left-6 sm:top-6",
                 "right-4 top-4 rounded-tr-lg border-r-2 border-t-2 sm:right-6 sm:top-6",
@@ -194,7 +186,7 @@ const ProductQualitySection = () => {
                 />
               ))}
 
-              {/* Top Label */}
+              
               <div className="absolute left-8 top-8 z-20 sm:left-12 sm:top-12">
                 <motion.span
                   initial={{ opacity: 0, y: -15 }}
@@ -208,7 +200,7 @@ const ProductQualitySection = () => {
                 </motion.span>
               </div>
 
-              {/* Image Bottom Content */}
+              
               <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-12">
                 <motion.div
                   initial="hidden"
@@ -245,7 +237,7 @@ const ProductQualitySection = () => {
               </div>
             </div>
 
-            {/* Rotating text seal */}
+            
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -293,7 +285,7 @@ const ProductQualitySection = () => {
               </div>
             </motion.div>
 
-            {/* Floating Quality Highlight */}
+            
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -330,9 +322,7 @@ const ProductQualitySection = () => {
             </motion.div>
           </motion.div>
 
-          {/* =====================================================
-              RIGHT: TEXT + SCROLL TIMELINE
-          ====================================================== */}
+       
           <motion.div
             variants={textContainer}
             initial="hidden"
@@ -340,7 +330,7 @@ const ProductQualitySection = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="pt-5 lg:pt-0"
           >
-            {/* Section Label */}
+            
             <motion.span
               variants={fadeUp}
               className="inline-flex items-center gap-2 rounded-full border border-[#B8862B]/40 bg-[#F5F7FA] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#0F2B46] sm:text-sm"
@@ -359,7 +349,7 @@ const ProductQualitySection = () => {
               Quality & Excellence
             </motion.span>
 
-            {/* Heading — words slide up one by one */}
+            
             <motion.h2
               variants={headingWords}
               className="mt-6 text-[32px] font-extrabold leading-[1.12] tracking-[-0.03em] text-[#06182E] sm:text-[42px] lg:text-[50px]"
@@ -396,7 +386,7 @@ const ProductQualitySection = () => {
               </span>
             </motion.h2>
 
-            {/* Description */}
+            
             <motion.p
               variants={fadeUp}
               className="mt-3 text-sm leading-7 text-black sm:text-base sm:leading-8"
@@ -407,18 +397,18 @@ const ProductQualitySection = () => {
               customers and their industries.
             </motion.p>
 
-            {/* Feature timeline */}
+            
             <motion.div
               variants={fadeUp}
               ref={listRef}
               className="relative mt-9"
             >
-              {/* track */}
+              
               <span
                 aria-hidden="true"
                 className="absolute bottom-4 left-[22px] top-4 w-px bg-[#DCE3EC]"
               />
-              {/* gold fill that follows the scroll */}
+              
               <motion.span
                 aria-hidden="true"
                 style={{ scaleY: reduce ? 1 : lineScale }}
@@ -443,7 +433,7 @@ const ProductQualitySection = () => {
                       whileHover={{ x: 6 }}
                       className="group relative flex gap-4 rounded-2xl py-4 pl-0 pr-3 transition-colors duration-300 hover:bg-[#F5F7FA] sm:gap-5"
                     >
-                      {/* Node */}
+              
                       <motion.div
                         initial={{ scale: 0.6, backgroundColor: "#FFFFFF" }}
                         whileInView={{ scale: 1, backgroundColor: "#06182E" }}
@@ -459,7 +449,7 @@ const ProductQualitySection = () => {
                         <Icon size={20} strokeWidth={1.8} />
                       </motion.div>
 
-                      {/* Feature Content */}
+                      
                       <div className="flex-1">
                         <div className="flex flex-wrap items-center gap-3">
                           <h3 className="text-base font-bold text-[#06182E] sm:text-lg">
@@ -476,7 +466,7 @@ const ProductQualitySection = () => {
                         </p>
                       </div>
 
-                      {/* tick pops in */}
+                      
                       <motion.span
                         initial={{ scale: 0, rotate: -90 }}
                         whileInView={{ scale: 1, rotate: 0 }}

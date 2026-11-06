@@ -1,9 +1,7 @@
 import FeaturedProductsSection from "../components/products/FeaturedProductsSection";
 import IndustryApplicationsSection from "../components/products/IndustryApplicationsSection";
 import OurProducts from "../components/products/OurProducts";
-// import ProductContactSection from "../components/products/ProductContactSection";
 import ProductQualitySection from "../components/products/ProductQualitySection";
-// import ProductRangeSection from "../components/products/ProductRangeSection";
 import ProductsHero from "../components/products/ProductsHero";
 import SEO from "../components/SEO";
 
@@ -15,19 +13,11 @@ const Products = () => {
         description="Explore KT GLOW steel polishing products, stainless steel polishing compounds, buffing products, and industrial metal finishing solutions."
         canonicalUrl="https://yourdomain.com/products"
       />
-      
       <ProductsHero />
-<OurProducts/>
-
-      {/* <ProductRangeSection /> */}
-
+      <OurProducts />
       <FeaturedProductsSection />
-
       <ProductQualitySection />
-
       <IndustryApplicationsSection />
-
-      {/* <ProductContactSection /> */}
     </main>
   );
 };

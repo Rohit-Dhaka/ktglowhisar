@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -76,7 +75,6 @@ const AboutCTA = () => {
 
   return (
     <section className="w-full bg-[#F5F7FA] px-4 sm:px-8 lg:px-12 py-14 sm:py-20 lg:py-24">
-      {/* CTA SECTION */}
       <motion.div
         initial={reduce ? false : { opacity: 0, y: 40, scale: 0.97 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -84,13 +82,10 @@ const AboutCTA = () => {
         transition={{ duration: reduce ? 0 : 0.9, ease: EASE }}
         className="relative overflow-hidden rounded-3xl bg-[#06182E]"
       >
-        {/* Decorative Circles */}
         <motion.div
           aria-hidden="true"
           animate={
-            reduce
-              ? undefined
-              : { scale: [1, 1.06, 1], rotate: [0, 8, 0] }
+            reduce ? undefined : { scale: [1, 1.06, 1], rotate: [0, 8, 0] }
           }
           transition={{
             duration: 8,
@@ -103,9 +98,7 @@ const AboutCTA = () => {
         <motion.div
           aria-hidden="true"
           animate={
-            reduce
-              ? undefined
-              : { scale: [1, 1.08, 1], rotate: [0, -10, 0] }
+            reduce ? undefined : { scale: [1, 1.08, 1], rotate: [0, -10, 0] }
           }
           transition={{
             duration: 6,
@@ -122,7 +115,6 @@ const AboutCTA = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="relative grid grid-cols-1 items-center gap-10 px-5 py-10 sm:px-10 sm:py-14 lg:grid-cols-2 lg:gap-12 lg:px-16 lg:py-20"
         >
-          {/* LEFT CONTENT */}
           <div>
             <motion.span
               variants={fadeUp}
@@ -163,11 +155,7 @@ const AboutCTA = () => {
               your requirements.
             </motion.p>
 
-            {/* CTA BUTTONS */}
-            <motion.div
-              variants={fadeUp}
-              className="mt-8 flex flex-wrap gap-3"
-            >
+            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
               <motion.div
                 whileHover={reduce ? undefined : { y: -4, scale: 1.04 }}
                 whileTap={reduce ? undefined : { scale: 0.96 }}
@@ -212,7 +200,6 @@ const AboutCTA = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT CARD */}
           <motion.div
             variants={cardIn}
             whileHover={reduce ? undefined : { y: -6 }}
@@ -263,42 +250,41 @@ const AboutCTA = () => {
         </motion.div>
       </motion.div>
 
-      {/* FAQ SECTION */}
       <div className="mx-auto mt-16 l sm:mt-20 lg:mt-24">
-      <motion.div
-  initial={reduce ? false : { opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.2 }}
-  transition={{ duration: reduce ? 0 : 0.7, ease: EASE }}
-  className="mb-10 grid grid-cols-1 items-center gap-6 sm:mb-14 lg:grid-cols-2 lg:gap-12"
->
-  {/* LEFT CONTENT */}
-  <div>
-    <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#06182E] sm:text-sm">
-      <span className="h-[2px] w-10 rounded-full bg-[#06182E]" />
-      Frequently Asked Questions
-    </span>
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: reduce ? 0 : 0.7, ease: EASE }}
+          className="mb-10 grid grid-cols-1 items-center gap-6 sm:mb-14 lg:grid-cols-2 lg:gap-12"
+        >
+          
+          <div>
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#06182E] sm:text-sm">
+              <span className="h-[2px] w-10 rounded-full bg-[#06182E]" />
+              Frequently Asked Questions
+            </span>
 
-    <h2 className="mt-6 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-      Got Questions?
-      <span className="mt-1 block font-serif italic text-[#C9972B]">
-        We Have Answers.
-      </span>
-    </h2>
-  </div>
+            <h2 className="mt-6 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+              Got Questions?
+              <span className="mt-1 block font-serif italic text-[#C9972B]">
+                We Have Answers.
+              </span>
+            </h2>
+          </div>
 
-  {/* RIGHT CONTENT */}
-  <div>
-    <p className="max-w-2xl text-sm leading-7 text-[#334155] sm:text-base sm:leading-8 lg:text-[17px] lg:leading-10">
-      Explore answers to common questions about our industrial abrasive
-      and polishing products, manufacturing capabilities, product
-      applications, and quotation process. Our team is committed to
-      providing reliable .
-    </p>
-  </div>
-</motion.div>
+          
+          <div>
+            <p className="max-w-2xl text-sm leading-7 text-[#334155] sm:text-base sm:leading-8 lg:text-[17px] lg:leading-10">
+              Explore answers to common questions about our industrial abrasive
+              and polishing products, manufacturing capabilities, product
+              applications, and quotation process. Our team is committed to
+              providing reliable .
+            </p>
+          </div>
+        </motion.div>
 
-        {/* FAQ ACCORDION */}
+        
         <div className="space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openFaq === index;
@@ -382,7 +368,7 @@ const AboutCTA = () => {
           })}
         </div>
 
-        {/* FAQ BOTTOM CTA */}
+        
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

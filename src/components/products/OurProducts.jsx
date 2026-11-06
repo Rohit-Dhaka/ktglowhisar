@@ -277,13 +277,13 @@ const OurProducts = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#F5F6F8] py-8 sm:py-12">
-      {/* Google font */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Ambient Gold Glow & Subtle Ring */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -305,14 +305,12 @@ const OurProducts = () => {
         className="pointer-events-none absolute -right-28 top-8 z-0 h-[380px] w-[380px] rounded-full border border-[#B8862B]/15"
       />
 
-      {/* Main Container */}
+      
       <div className="relative z-10 px-4 sm:px-8 lg:px-12">
-        {/* ===================================================
-            HEADER WITH DUAL VIEW TOGGLE
-        =================================================== */}
+    
         <div className="mb-6 flex flex-col gap-5 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            {/* Top Subtitle with Gold Dash */}
+            
             <div className="mb-2 flex items-center gap-3">
               <span className="h-0.5 w-9 shrink-0 bg-[#B8862B]" />
               <p className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#8A6212] sm:text-[13px]">
@@ -334,7 +332,7 @@ const OurProducts = () => {
             </p>
           </div>
 
-          {/* View Toggle (Grid ⊞ vs Carousel ⇄) */}
+          
           <div className="flex items-center gap-2 self-start rounded-full border border-[#E5E7EB] bg-white p-1 shadow-sm sm:self-end">
             <button
               type="button"
@@ -364,9 +362,7 @@ const OurProducts = () => {
           </div>
         </div>
 
-        {/* ===================================================
-            CATEGORY FILTER PILLS (Interactive Tab Bar)
-        =================================================== */}
+     
         <div className="mb-8 flex flex-wrap items-center gap-2 border-b border-[#06182E]/10 pb-4">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat.id;
@@ -394,9 +390,7 @@ const OurProducts = () => {
           })}
         </div>
 
-        {/* ===================================================
-            VIEW 1: RESPONSIVE GRID VIEW (Clean & Distinct)
-        =================================================== */}
+     
         {viewMode === "grid" && (
           <motion.div
             layout
@@ -420,12 +414,10 @@ const OurProducts = () => {
           </motion.div>
         )}
 
-        {/* ===================================================
-            VIEW 2: SWIPER CAROUSEL VIEW (With Controls)
-        =================================================== */}
+ 
         {viewMode === "carousel" && (
           <div className="relative">
-            {/* Swiper Next / Prev Arrows */}
+            
             <div className="mb-4 flex justify-end gap-2">
               <button
                 type="button"
@@ -494,13 +486,13 @@ const OurProducts = () => {
               ))}
             </Swiper>
 
-            {/* Custom Pagination Container */}
+            
             <div className="ourproducts-pagination mt-6 flex justify-center" />
           </div>
         )}
       </div>
 
-      {/* Swiper Pagination Styling */}
+      
       <style>{`
         .ourproducts-pagination .swiper-pagination-bullet {
           width: 8px;

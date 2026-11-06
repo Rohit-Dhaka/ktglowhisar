@@ -30,9 +30,6 @@ const marqueeWords = [
   "Mirror Buffing",
 ];
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -64,15 +61,12 @@ const fadeRightVariants = {
   },
 };
 
-/* =========================================================
-   PRODUCTS HERO COMPONENT
-========================================================= */
 
 const ProductsHero = () => {
   const sectionRef = useRef(null);
   const reduce = useReducedMotion();
 
-  /* Parallax Scroll Animation */
+  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -93,13 +87,13 @@ const ProductsHero = () => {
         ref={sectionRef}
         className="relative isolate w-full overflow-hidden bg-[#151C22] text-white"
       >
-        {/* Google Cursive Font 'Great Vibes' */}
+        
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
         />
 
-        {/* Top Breadcrumb Navigation */}
+        
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -115,46 +109,40 @@ const ProductsHero = () => {
           </div>
         </motion.div>
 
-        {/* =================================================
-            1. FULL BACKGROUND IMAGE + BRAND TONED OVERLAY
-        ================================================== */}
+     
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          {/* Background Image */}
+          
           <img
             src={ProductImg}
             alt="KT Glow Industrial Workshop Background"
             className="h-full w-full object-cover object-center scale-105 filter blur-[2px]"
           />
 
-          {/* Deep Brand Dark Overlay */}
+          
           <div className="absolute inset-0 bg-[#151C22]/85 backdrop-blur-[2px]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#13191F]/95 via-[#151C22]/85 to-[#171F26]/75" />
 
-          {/* Subtle Ambient Gold Radial Glow */}
+          
           <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-[#E0B04A]/[0.08] blur-[130px]" />
           <div className="absolute -bottom-20 left-0 h-[400px] w-[400px] rounded-full bg-[#E0B04A]/[0.05] blur-[110px]" />
 
-          {/* Geometric Circles */}
+          
           <div className="absolute -right-32 top-10 h-[420px] w-[420px] rounded-full border border-white/[0.05]" />
           <div className="absolute -right-16 top-24 h-[300px] w-[300px] rounded-full border border-[#E0B04A]/10" />
         </div>
 
-        {/* =================================================
-            2. MAIN HERO CONTENT
-        ================================================== */}
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-36">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
             
-            {/* =================================================
-                LEFT CONTENT (Headings + Great Vibes Cursive)
-            ================================================== */}
+       
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
               className="relative z-10 lg:col-span-7"
             >
-              {/* Circular Icon Badge */}
+              
               <motion.div
                 variants={fadeUpVariants}
                 className="flex items-center gap-3.5"
@@ -167,7 +155,7 @@ const ProductsHero = () => {
                 </span>
               </motion.div>
 
-              {/* Main Headline with 'Great Vibes' */}
+              
               <motion.h1
                 variants={fadeUpVariants}
                 className="mt-5 text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[62px]"
@@ -178,7 +166,7 @@ const ProductsHero = () => {
                 </span>
               </motion.h1>
 
-              {/* Description */}
+              
               <motion.p
                 variants={fadeUpVariants}
                 className="mt-4 max-w-xl text-[14.5px] leading-[1.8] text-slate-300 sm:text-[16px]"
@@ -188,7 +176,7 @@ const ProductsHero = () => {
                 flawless mirror consistency.
               </motion.p>
 
-              {/* 4 Feature Points */}
+              
               <motion.div
                 variants={fadeUpVariants}
                 className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2"
@@ -208,7 +196,7 @@ const ProductsHero = () => {
                 ))}
               </motion.div>
 
-              {/* CTA Buttons (Full width on mobile) */}
+              
               <motion.div
                 variants={fadeUpVariants}
                 className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:flex-wrap"
@@ -248,7 +236,7 @@ const ProductsHero = () => {
                 
                 <div className="absolute -inset-2.5 rounded-3xl border border-[#E0B04A]/25 sm:-inset-3.5" />
 
-                {/* Main Compact Image Container */}
+                
                 <motion.div
                   style={{
                     y: reduce ? 0 : imageY,
@@ -274,7 +262,7 @@ const ProductsHero = () => {
                     </span>
                   </div>
 
-                  {/* Bottom Text Over Foreground Image */}
+                  
                   <div className="absolute bottom-4 left-4 right-4">
                     <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#E0B04A]">
                       Built for Industrial Performance

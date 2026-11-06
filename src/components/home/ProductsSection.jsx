@@ -3,56 +3,36 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-/* =========================================================
-   PRODUCT IMAGES IMPORTS
-========================================================= */
-
-// 1. Cutting & Grinding Wheels
 import Cutting1 from "../../assets/productimg/Cutting & Grinding Wheels1.png";
 import Cutting2 from "../../assets/productimg/Cutting & Grinding Wheels2.png";
 import Cutting3 from "../../assets/productimg/Cutting & Grinding Wheels3.png";
 
-// 2. Flap Discs
 import Two from "../../assets/images/2.png";
 
-// 3. Fiber Discs
 import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
 import Fiber2 from "../../assets/productimg/Fiber Discs2.png";
 import Fiber3 from "../../assets/productimg/Fiber Discs3.png";
 
-// 4. Non-Woven Polishing Wheels
 import NonWoven1 from "../../assets/productimg/Non-Woven Polishing Wheels1.png";
 import NonWoven2 from "../../assets/productimg/Non-Woven Polishing Wheels2.png";
 import NonWoven3 from "../../assets/productimg/Non-Woven Polishing Wheels3.png";
 
-// 5. Polishing & Buffing Wheels
 import Buffing1 from "../../assets/productimg/Polishing & Buffing Wheels1.png";
 import Buffing2 from "../../assets/productimg/Polishing & Buffing Wheels2.png";
 import Buffing3 from "../../assets/productimg/Polishing & Buffing Wheels3.png";
 
-// 6. Polishing Wax
 import Wax1 from "../../assets/productimg/Polishing Wax1.png";
 import Wax2 from "../../assets/productimg/Polishing Wax2.png";
 import Wax3 from "../../assets/productimg/Polishing Wax3.png";
 
-// 7. Rubber Roll
 import Ruberroll1 from "../../assets/productimg/Ruberroll1.png";
 import Ruberroll2 from "../../assets/productimg/Ruberroll2.png";
 import Ruberroll3 from "../../assets/productimg/Ruberroll3.png";
-
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -83,10 +63,6 @@ const lineReveal = {
     transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
   },
 };
-
-/* =========================================================
-   PRODUCTS DATA
-========================================================= */
 
 export const products = [
   {
@@ -161,23 +137,17 @@ export const products = [
   },
 ];
 
-/* =========================================================
-   PRODUCTS SECTION COMPONENT
-========================================================= */
-
 const ProductsSection = () => {
   const swiperRef = useRef(null);
   const reduce = useReducedMotion();
 
   return (
     <section className="relative w-full overflow-hidden bg-[#F5F6F8] py-8 sm:py-10">
-      {/* Google font */}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Ambient Gold Glow & Subtle Ring */}
       <motion.div
         aria-hidden="true"
         animate={
@@ -199,9 +169,7 @@ const ProductsSection = () => {
         className="pointer-events-none absolute -right-28 top-8 z-0 h-[380px] w-[380px] rounded-full border border-[#B8862B]/15"
       />
 
-      {/* Main Container */}
       <div className="relative z-10 px-3 sm:px-6 lg:px-8 xl:px-10">
-        {/* Header */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -259,7 +227,6 @@ const ProductsSection = () => {
             </motion.p>
           </div>
 
-          {/* Navigation Controls */}
           <motion.div
             variants={fadeUp}
             className="flex items-center gap-2.5 self-start sm:self-end"
@@ -290,7 +257,6 @@ const ProductsSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Swiper Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -351,7 +317,7 @@ const ProductsSection = () => {
                   aria-label={`View details of ${product.name}`}
                   className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white p-3 lg:p-3 xl:p-3.5 shadow-[0_6px_20px_rgba(6,24,46,0.05)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#B8862B]/60 hover:shadow-[0_16px_36px_rgba(6,24,46,0.1)] focus:outline-none"
                 >
-                  {/* Image Container */}
+                  
                   <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-xl bg-[#F0F2F5]">
                     <img
                       src={product.image}
@@ -364,19 +330,19 @@ const ProductsSection = () => {
 
                     <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#06182E]/35 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                    {/* Product Number */}
+                    
                     <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full border border-white/40 bg-white/90 px-2.5 py-0.5 text-[10.5px] font-extrabold tracking-wider text-[#06182E] shadow-sm backdrop-blur-md">
                       <span>{product.id}</span>
                     </div>
 
-                    {/* Specialty Badge */}
+                    
                     <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-[#B8862B]/30 bg-[#06182E]/90 px-2.5 py-0.5 text-[10.5px] font-bold text-[#E0B04A] shadow-sm backdrop-blur-md">
                       <Sparkles size={11} />
                       <span>{product.badge}</span>
                     </div>
                   </div>
 
-                  {/* Card Content */}
+                  
                   <div className="flex flex-1 flex-col p-2.5 sm:p-3 lg:p-3">
                     <h3 className="text-[15.5px] font-bold leading-snug text-[#06182E] transition-colors duration-300 group-hover:text-[#9A6B12] sm:text-[16.5px] lg:text-[16px] xl:text-[17px]">
                       {product.name}
@@ -386,7 +352,7 @@ const ProductsSection = () => {
                       {product.description}
                     </p>
 
-                    {/* View Details CTA */}
+                    
                     <div className="mt-3 flex items-center justify-between border-t border-[#06182E]/5 pt-2.5">
                       <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[#06182E] transition-colors duration-300 group-hover:text-[#8A6212] sm:text-[12.5px]">
                         View Details
@@ -407,11 +373,11 @@ const ProductsSection = () => {
           </Swiper>
         </motion.div>
 
-        {/* Custom Pagination */}
+        
         <div className="products-pagination mt-6 flex justify-center" />
       </div>
 
-      {/* Swiper Pagination Styles */}
+      
       <style>{`
         .products-pagination .swiper-pagination-bullet {
           width: 8px;

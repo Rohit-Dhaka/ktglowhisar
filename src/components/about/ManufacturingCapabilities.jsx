@@ -59,8 +59,6 @@ const capabilities = [
 const AUTO_DELAY = 4000;
 const EASE = [0.22, 1, 0.36, 1];
 
-
-
 const containerVariants = {
   hidden: {
     opacity: 0,
@@ -93,7 +91,7 @@ const ManufacturingCapabilities = () => {
   const [active, setActive] = useState(0);
   const reduce = useReducedMotion();
 
-  // Automatically cycle through all capabilities, then repeat infinitely.
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setActive((current) => (current + 1) % capabilities.length);
@@ -109,7 +107,7 @@ const ManufacturingCapabilities = () => {
     <MotionConfig reducedMotion="user">
       <section className="w-full overflow-hidden bg-[#F8FAFC] py-8 sm:py-10">
         <div className="mx-auto w-full px-4 sm:px-8 lg:px-12">
-          {/* SECTION INTRO */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -140,15 +138,15 @@ const ManufacturingCapabilities = () => {
               <p className="text-sm leading-7 text-[#1F2937] sm:text-base sm:leading-8 lg:text-[17px]">
                 Our manufacturing capabilities combine technical expertise,
                 quality-focused processes, and flexible solutions to support
-                diverse industrial requirements. With a strong focus on precision,
-                consistency, and performance, we aim to deliver reliable steel
-                polishing and abrasive solutions that meet the evolving needs of
-                our customers and industrial applications.
+                diverse industrial requirements. With a strong focus on
+                precision, consistency, and performance, we aim to deliver
+                reliable steel polishing and abrasive solutions that meet the
+                evolving needs of our customers and industrial applications.
               </p>
             </motion.div>
           </motion.div>
 
-          {/* CAPABILITIES SELECTOR AND DETAIL PANEL */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -156,7 +154,7 @@ const ManufacturingCapabilities = () => {
             viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10"
           >
-            {/* SELECTOR */}
+            
             <motion.div
               variants={itemVariants}
               role="tablist"
@@ -194,33 +192,33 @@ const ManufacturingCapabilities = () => {
                       {title}
                     </span>
 
-                    {/* Active right-side line */}
-               <span className="ml-auto flex shrink-0 items-center">
-  <motion.span
-    key={id}
-    animate={{
-      scale: isActive ? 1 : 0.9,
-      opacity: isActive ? 1 : 0.45,
-    }}
-    transition={{
-      duration: reduce ? 0 : 0.4,
-      ease: EASE,
-    }}
-    className={`flex h-12 w-12 items-center justify-center rounded-full border text-sm font-bold tracking-wider transition-colors duration-300 ${
-      isActive
-        ? "border-[#C9972B] bg-[#C9972B]/10 text-[#C9972B]"
-        : "border-[#E5E7EB] bg-transparent text-[#64748B]"
-    }`}
-  >
-    {id}
-  </motion.span>
-</span>
+                    
+                    <span className="ml-auto flex shrink-0 items-center">
+                      <motion.span
+                        key={id}
+                        animate={{
+                          scale: isActive ? 1 : 0.9,
+                          opacity: isActive ? 1 : 0.45,
+                        }}
+                        transition={{
+                          duration: reduce ? 0 : 0.4,
+                          ease: EASE,
+                        }}
+                        className={`flex h-12 w-12 items-center justify-center rounded-full border text-sm font-bold tracking-wider transition-colors duration-300 ${
+                          isActive
+                            ? "border-[#C9972B] bg-[#C9972B]/10 text-[#C9972B]"
+                            : "border-[#E5E7EB] bg-transparent text-[#64748B]"
+                        }`}
+                      >
+                        {id}
+                      </motion.span>
+                    </span>
                   </motion.button>
                 );
               })}
             </motion.div>
 
-            {/* DETAIL PANEL */}
+            
             <motion.div
               variants={itemVariants}
               id="capability-panel"
@@ -261,7 +259,7 @@ const ManufacturingCapabilities = () => {
                 </p>
               </motion.div>
 
-              {/* PROGRESS INDICATORS */}
+              
               <div
                 className="relative mt-8 flex items-center gap-1.5"
                 aria-label={`Capability ${active + 1} of ${capabilities.length}`}
@@ -283,7 +281,7 @@ const ManufacturingCapabilities = () => {
             </motion.div>
           </motion.div>
 
-          {/* BOTTOM CTA */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"

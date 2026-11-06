@@ -74,7 +74,7 @@ const Testimonials = () => {
 
   const reduce = useReducedMotion();
 
-  // Responsive Items Per Slide
+  
   useEffect(() => {
     const updateItemsPerSlide = () => {
       if (window.innerWidth >= 1024) {
@@ -95,7 +95,7 @@ const Testimonials = () => {
     };
   }, []);
 
-  // Generate Responsive Slides
+  
   const testimonialSlides = Array.from(
     { length: Math.ceil(testimonials.length / itemsPerSlide) },
     (_, slideIndex) =>
@@ -107,7 +107,7 @@ const Testimonials = () => {
 
   const slideCount = testimonialSlides.length;
 
-  // Keep Active Slide Valid After Resize
+  
   useEffect(() => {
     setActiveSlide((current) => Math.min(current, slideCount - 1));
   }, [slideCount]);
@@ -120,7 +120,7 @@ const Testimonials = () => {
     setActiveSlide((current) => (current - 1 + slideCount) % slideCount);
   };
 
-  // Autoplay
+  
   useEffect(() => {
     if (reduce || slideCount <= 1) return undefined;
 
@@ -135,7 +135,7 @@ const Testimonials = () => {
     <MotionConfig reducedMotion="user">
       <section className="w-full overflow-hidden bg-white px-4 py-8 sm:px-8 sm:py-10 lg:px-12">
         <div className="mx-auto">
-          {/* SECTION HEADER */}
+          
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ const Testimonials = () => {
                 performance, and customer-oriented service.
               </p>
 
-              {/* ARROWS */}
+              
               <div className="mt-5 flex items-center gap-3">
                 <button
                   type="button"
@@ -190,7 +190,7 @@ const Testimonials = () => {
             </div>
           </motion.div>
 
-          {/* RESPONSIVE AUTOPLAY CAROUSEL */}
+          
           <div className="mt-8 sm:mt-14">
             <div className="overflow-hidden">
               <AnimatePresence mode="wait">
@@ -221,7 +221,7 @@ const Testimonials = () => {
                       }}
                       className="flex min-h-[300px] flex-col rounded-2xl border border-[#E2E8F0] bg-white p-4 sm:min-h-[350px] sm:p-6 lg:p-7"
                     >
-                      {/* CARD TOP */}
+                      
                       <div className="flex items-start justify-between">
                         <div className="flex items-center gap-1">
                           {Array.from({ length: item.rating }).map(
@@ -244,12 +244,12 @@ const Testimonials = () => {
                         />
                       </div>
 
-                      {/* REVIEW */}
+                      
                       <p className="mt-5 flex-1 text-sm leading-7 text-[#334155] sm:mt-6 sm:text-base sm:leading-8">
                         “{item.review}”
                       </p>
 
-                      {/* CUSTOMER INFO */}
+                      
                       <div className="mt-6 border-t border-[#E2E8F0] pt-4 sm:mt-7 sm:pt-5">
                         <div className="flex items-center gap-3">
                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#06182E] text-xs font-bold text-white sm:h-11 sm:w-11">

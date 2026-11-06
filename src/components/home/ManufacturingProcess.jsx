@@ -49,9 +49,7 @@ const stepItem = {
   },
 };
 
-/* =========================================================
-   PROCESS STEPS DATA
-========================================================= */
+
 
 const processSteps = [
   {
@@ -88,22 +86,20 @@ const processSteps = [
   },
 ];
 
-/* =========================================================
-   MANUFACTURING PROCESS COMPONENT
-========================================================= */
+
 
 const ManufacturingProcess = () => {
   const reduce = useReducedMotion();
 
   return (
     <section className="relative w-full overflow-hidden bg-[#06182E] py-8 sm:py-10">
-      {/* Google font */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Background image and overlay */}
+      
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <img
           src={processBg}
@@ -114,7 +110,7 @@ const ManufacturingProcess = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#06182E]/95 via-[#06182E]/88 to-[#06182E]/98 backdrop-blur-[1px]" />
       </div>
 
-      {/* Ambient glow */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -130,7 +126,7 @@ const ManufacturingProcess = () => {
       />
 
       <div className="relative z-10 px-4 sm:px-8 lg:px-12">
-        {/* Section Header */}
+        
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -194,9 +190,9 @@ const ManufacturingProcess = () => {
           </motion.p>
         </motion.div>
 
-        {/* Process Timeline */}
+        
         <div className="relative mt-6 sm:mt-10">
-          {/* Desktop horizontal track */}
+          
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-[5%] right-[5%] top-[28px] hidden h-[2px] bg-gradient-to-r from-[#E0B04A]/10 via-[#E0B04A]/60 to-[#E0B04A]/10 lg:block"
@@ -208,7 +204,7 @@ const ManufacturingProcess = () => {
             />
           </div>
 
-          {/* Mobile vertical gold timeline track */}
+          
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-[27px] top-7 bottom-8 w-px bg-gradient-to-b from-[#E0B04A]/70 via-[#E0B04A]/35 to-transparent lg:hidden"
@@ -230,7 +226,7 @@ const ManufacturingProcess = () => {
                   variants={stepItem}
                   className="group relative flex min-w-0 flex-row items-start gap-4 lg:flex-col lg:items-center lg:gap-0 lg:text-center"
                 >
-                  {/* Icon milestone node */}
+                  
                   <div className="relative z-10 flex w-14 shrink-0 flex-col items-center">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E]/95 transition-all duration-300 group-hover:border-[#E0B04A] group-hover:bg-[#0B2340]">
                       <motion.span
@@ -242,13 +238,13 @@ const ManufacturingProcess = () => {
                       </motion.span>
                     </div>
 
-                    {/* Step number badge */}
+                    
                     <span className="mt-2 rounded-full border border-[#E0B04A]/30 bg-[#06182E] px-2 py-1 text-[9.5px] font-extrabold uppercase tracking-widest text-[#E0B04A] lg:absolute lg:-bottom-2 lg:mt-0">
                       {step.id}
                     </span>
                   </div>
 
-                  {/* Text content uses the available mobile width */}
+                  
                   <div className="min-w-0 flex-1 pb-1 lg:mt-5 lg:flex-none">
                     <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#E0B04A]/80 sm:text-[11px]">
                       {step.subtitle}
@@ -263,7 +259,7 @@ const ManufacturingProcess = () => {
                     </p>
                   </div>
 
-                  {/* Desktop directional connector */}
+                  
                   {idx !== processSteps.length - 1 && (
                     <div className="absolute -right-3 top-5 hidden text-[#E0B04A]/40 lg:block">
                       <ArrowRight size={16} />

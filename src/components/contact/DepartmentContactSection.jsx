@@ -65,7 +65,7 @@ const DepartmentContactSection = () => {
   return (
     <section className="overflow-hidden bg-[#F5F7FA] py-8 sm:py-10">
       <div className=" px-4 sm:px-8 lg:px-12">
-        {/* Top Header */}
+        
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -73,7 +73,7 @@ const DepartmentContactSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2 lg:items-end"
         >
-          {/* Left Side - Tag & Heading */}
+          
           <div>
             <motion.span
               variants={fadeUp}
@@ -98,7 +98,7 @@ const DepartmentContactSection = () => {
             </motion.h2>
           </div>
 
-          {/* Right Side - Description */}
+          
           <motion.div variants={fadeUp} className="lg:max-w-xl lg:justify-self-end">
             <p className="text-sm leading-7 text-[#334155] sm:text-base sm:leading-8">
               Have a requirement or a new opportunity? We are just one message
@@ -109,7 +109,7 @@ const DepartmentContactSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Department Selector */}
+        
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -132,7 +132,7 @@ const DepartmentContactSection = () => {
                 )}`}
                 className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-[#DCE3EC] bg-white p-4 transition-all duration-300 hover:border-[#E0B04A] hover:shadow-[0_18px_40px_-18px_rgba(6,24,46,0.35)] sm:p-5"
               >
-                {/* Gold accent line */}
+                
                 <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-[#D49A2A] to-[#F0C968] transition-transform duration-500 group-hover:scale-x-100" />
 
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F1F5F9] text-[#06182E] transition-colors duration-300 group-hover:bg-[#06182E] group-hover:text-[#E0B04A]">
@@ -163,7 +163,7 @@ const DepartmentContactSection = () => {
           })}
         </motion.div>
 
-        {/* Main Contact Banner */}
+        
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ const DepartmentContactSection = () => {
           transition={{ duration: 0.8, ease: EASE }}
           className="relative mt-6 overflow-hidden rounded-3xl bg-[#06182E] p-6 sm:p-8 lg:p-10"
         >
-          {/* Gold glow */}
+         
           <motion.div
             aria-hidden="true"
             animate={reduce ? undefined : { opacity: [0.3, 0.55, 0.3], scale: [1, 1.1, 1] }}
@@ -179,14 +179,14 @@ const DepartmentContactSection = () => {
             className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-[#E0B04A]/20 blur-3xl"
           />
 
-          {/* Decorative Lines */}
+     
           <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 opacity-10">
             <div className="absolute right-10 top-0 h-full w-px bg-white" />
             <div className="absolute right-20 top-0 h-full w-px bg-white" />
             <div className="absolute right-32 top-0 h-full w-px bg-white" />
           </div>
 
-          {/* Decorative rings */}
+        
           <motion.div
             aria-hidden="true"
             animate={reduce ? undefined : { rotate: 360 }}

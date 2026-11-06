@@ -124,7 +124,7 @@ const AboutHero = () => {
             animate="visible"
             className="min-w-0"
           >
-            {/* Circular Icon Badge + Tag (Side-by-side like ProductsHero) */}
+            
             <motion.div
               variants={fadeUpVariants}
               className="mb-5 flex items-center gap-3.5"
@@ -152,12 +152,11 @@ const AboutHero = () => {
               variants={fadeUpVariants}
               className="mt-6 max-w-2xl text-sm leading-7 text-white/85 sm:mt-7 sm:text-base sm:leading-8"
             >
-              We are committed to providing reliable industrial abrasive
-              and polishing solutions through quality manufacturing,
-              advanced technology, and customer-focused service.
+              We are committed to providing reliable industrial abrasive and
+              polishing solutions through quality manufacturing, advanced
+              technology, and customer-focused service.
             </motion.p>
 
-            {/* Buttons section with full-width on mobile */}
             <motion.div
               variants={fadeUpVariants}
               className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap"

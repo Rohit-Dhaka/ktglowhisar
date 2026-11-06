@@ -107,7 +107,7 @@ const ResourcesCTASection = () => {
 
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
           <div className="grid min-h-[420px] grid-cols-1 lg:grid-cols-2">
-            {/* LEFT: INDUSTRIAL IMAGE */}
+            
             <motion.div
               key={`image-${activeReview}`}
               initial={reduceMotion ? false : { opacity: 0, scale: 1.025 }}
@@ -132,7 +132,7 @@ const ResourcesCTASection = () => {
               </div>
             </motion.div>
 
-            {/* RIGHT: ONE REVIEW AT A TIME */}
+            
             <motion.article
               key={`review-${activeReview}`}
               initial={reduceMotion ? false : { opacity: 0, x: 22 }}

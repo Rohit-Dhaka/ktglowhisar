@@ -13,9 +13,6 @@ import {
   Sparkles,
 } from "lucide-react";
 
-/* =========================================================
-   ANIMATION VARIANTS (Fonts & Motion Unchanged)
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -47,9 +44,7 @@ const lineReveal = {
   },
 };
 
-/* =========================================================
-   COMPANY & MAP DATA
-========================================================= */
+
 
 const COMPANY = {
   brand: "KT Glow",
@@ -93,22 +88,20 @@ const products = [
   "Polishing Wax",
 ];
 
-/* =========================================================
-   LOCATION SECTION COMPONENT
-========================================================= */
+
 
 const LocationSection = () => {
   const reduce = useReducedMotion();
 
   return (
     <section className="relative w-full overflow-hidden bg-[#ededed] py-8 sm:py-10">
-      {/* Google font for cursive typography */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Subtle Dot Grid Texture */}
+      
       <div 
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 opacity-[0.035]"
@@ -118,7 +111,7 @@ const LocationSection = () => {
         }}
       />
 
-      {/* Ambient Floating Gold Glow */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -133,11 +126,9 @@ const LocationSection = () => {
         className="pointer-events-none absolute -left-20 top-1/3 z-0 h-[300px] w-[300px] rounded-full bg-[#E0B04A]/25 blur-[100px] lg:h-[450px] lg:w-[450px]"
       />
 
-      {/* Main Container */}
+      
       <div className="relative z-10  px-4 sm:px-8 lg:px-12">
-        {/* ===================================================
-            SECTION HEADER (Font & Styling Unchanged)
-        =================================================== */}
+  
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -197,9 +188,6 @@ const LocationSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* ===================================================
-            👇 NEW UI FORMAT: UNIFIED INTEGRATED MASTER CONSOLE
-        =================================================== */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -209,12 +197,10 @@ const LocationSection = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-12">
             
-            {/* ===============================================
-                LEFT: STEEL DASHBOARD CONSOLE (5 Columns)
-            =============================================== */}
+       
             <div className="flex flex-col justify-between bg-gradient-to-br from-[#06182E] via-[#092240] to-[#0D2A4A] p-6 text-white sm:p-8 lg:col-span-5">
               <div>
-                {/* Header Badge */}
+                
                 <div className="flex items-center justify-between border-b border-white/10 pb-4">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#E0B04A]">
@@ -231,7 +217,7 @@ const LocationSection = () => {
                   </span>
                 </div>
 
-                {/* Info List with Horizontal Pill Cards */}
+                
                 <div className="mt-5 space-y-3">
                   {infoItems.map(({ icon: Icon, label, value, href }) => (
                     <motion.div
@@ -265,7 +251,7 @@ const LocationSection = () => {
                   ))}
                 </div>
 
-                {/* Available Products Quick Tags */}
+                
                 <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.02] p-3.5">
                   <p className="text-[10.5px] font-bold uppercase tracking-wider text-white/70">
                     Samples on Display
@@ -283,7 +269,7 @@ const LocationSection = () => {
                 </div>
               </div>
 
-              {/* Action Buttons at the Bottom */}
+              
               <div className="mt-6 grid grid-cols-2 gap-2.5 border-t border-white/10 pt-5">
                 <motion.a
                   href={DIRECTIONS_URL}
@@ -311,9 +297,6 @@ const LocationSection = () => {
               </div>
             </div>
 
-            {/* ===============================================
-                RIGHT: FULL-BLEED PANORAMIC MAP (7 Columns)
-            =============================================== */}
             <div className="relative min-h-[360px] w-full bg-[#E5E7EB] sm:min-h-[440px] lg:col-span-7 lg:min-h-[520px]">
               <iframe
                 title={`${COMPANY.brand} location map`}
@@ -324,7 +307,7 @@ const LocationSection = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               />
 
-              {/* Floating Map Pin Badge */}
+              
               <div className="pointer-events-none absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/40 bg-white/95 px-3.5 py-1.5 text-xs font-bold text-[#06182E] shadow-md backdrop-blur-md">
                 <MapPin size={15} className="text-[#9A6B12]" />
                 <span>
@@ -332,7 +315,7 @@ const LocationSection = () => {
                 </span>
               </div>
 
-              {/* Bottom Quick Navigation Pill */}
+              
               <div className="absolute bottom-4 right-4 z-10 hidden sm:block">
                 <a
                   href={DIRECTIONS_URL}

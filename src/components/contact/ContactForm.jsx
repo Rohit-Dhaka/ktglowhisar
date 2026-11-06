@@ -12,7 +12,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// Same Clean 5 Fields as ContactSection
+
 const initialForm = {
   name: "",
   email: "",
@@ -30,7 +30,7 @@ const subjectOptions = [
   "Other Query",
 ];
 
-// Web3Forms Key
+
 const WEB3FORMS_ACCESS_KEY =
   import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ||
   "5866f7a4-4088-4ea3-9265-f435d4fabf20";
@@ -127,7 +127,7 @@ const ContactForm = () => {
       />
 
       <div className="relative mx-auto px-4 sm:px-8 lg:px-12">
-        {/* Top Header */}
+        
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -135,7 +135,7 @@ const ContactForm = () => {
           variants={fadeUp}
           className="mb-12 grid grid-cols-1 items-center gap-6 sm:mb-16 lg:grid-cols-2 lg:gap-16"
         >
-          {/* Left Content */}
+          
           <div>
             <div className="mb-5 flex items-center gap-3">
               <span className="h-0.5 w-10 rounded-full bg-[#E0B04A]" />
@@ -153,7 +153,7 @@ const ContactForm = () => {
             </h2>
           </div>
 
-          {/* Right Content */}
+      
           <div className="lg:justify-self-end lg:max-w-2xl">
             <p className="text-sm leading-7 text-slate-400 sm:text-base sm:leading-8 lg:text-lg">
               Tell us about your industrial requirements, product specifications,
@@ -164,7 +164,7 @@ const ContactForm = () => {
           </div>
         </motion.div>
 
-        {/* Form Container */}
+  
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -177,7 +177,7 @@ const ContactForm = () => {
           }}
           className="grid overflow-hidden rounded-2xl border border-white/10 lg:grid-cols-12"
         >
-          {/* Left Support Column */}
+      
           <motion.div
             variants={fadeUp}
             className="relative flex flex-col justify-between bg-[#0B2340] p-6 sm:p-8 lg:col-span-4 lg:p-10"
@@ -250,12 +250,12 @@ const ContactForm = () => {
             </div>
           </motion.div>
 
-          {/* Right: The Form Area */}
+          
           <motion.div
             variants={fadeUp}
             className="bg-[#06182E] p-5 sm:p-8 lg:col-span-8 lg:p-10"
           >
-            {/* Status Alert Banner */}
+            
             {status.message && (
               <div
                 role="status"
@@ -282,7 +282,7 @@ const ContactForm = () => {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Row 1: Full Name & Email */}
+              
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className={labelClass}>
@@ -319,7 +319,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Row 2: Phone Number & Subject */}
+              
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="phone" className={labelClass}>
@@ -359,7 +359,7 @@ const ContactForm = () => {
                 </div>
               </div>
 
-              {/* Row 3: Message & Specifications */}
+              
               <div>
                 <label htmlFor="message" className={labelClass}>
                   Message &amp; Specifications <span className="text-[#E0B04A]">*</span>
@@ -376,7 +376,7 @@ const ContactForm = () => {
                 />
               </div>
 
-              {/* Submit Row */}
+              
               <div className="flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="max-w-xs text-xs leading-5 text-slate-500">
                   Fields marked with * are required. Your enquiry will be sent directly to our team.

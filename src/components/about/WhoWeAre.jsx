@@ -169,13 +169,10 @@ const WhoWeAre = () => {
   return (
     <section className="w-full overflow-hidden bg-white py-8 sm:py-12">
       <div className="px-4 sm:px-8 lg:px-12">
-        
-        {/* ===================================================
-            TOP HEADER WITH HIGHLIGHTED TYPOGRAPHY
-        =================================================== */}
+   
         <div className="mb-10 flex flex-col gap-6 sm:mb-12 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
           
-          {/* Left Column: Heading */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -183,7 +180,7 @@ const WhoWeAre = () => {
             viewport={viewport}
             className="w-full lg:max-w-[52%]"
           >
-            {/* Subtitle Pill */}
+            
             <motion.span
               variants={fadeUpVariants}
               className="inline-flex items-center gap-2 rounded-full border border-[#DCE3EC] bg-[#FAF8F5] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#8A6212]"
@@ -192,7 +189,7 @@ const WhoWeAre = () => {
               Who We Are
             </motion.span>
 
-            {/* Main Headline */}
+      
             <motion.h2
               variants={fadeUpVariants}
               className="mt-4 text-3xl font-extrabold leading-[1.15] tracking-tight text-[#06182E] sm:text-4xl md:text-5xl"
@@ -204,7 +201,7 @@ const WhoWeAre = () => {
             </motion.h2>
           </motion.div>
 
-          {/* Right Column: Highlighted Paragraph */}
+          
           <motion.div
             variants={fadeRightVariants}
             initial="hidden"
@@ -226,12 +223,10 @@ const WhoWeAre = () => {
 
         </div>
 
-        {/* ===================================================
-            TWO COLUMN BODY CONTENT
-        =================================================== */}
+     
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
 
-          {/* LEFT COLUMN: IMAGE + 3 FEATURE CARDS */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -239,7 +234,7 @@ const WhoWeAre = () => {
             viewport={viewport}
             className="flex min-w-0 flex-col"
           >
-            {/* Main Image Frame */}
+            
             <motion.div
               variants={imageVariants}
               className="relative min-h-[420px] flex-1  rounded-3xl border border-[#DCE3EC] shadow-sm sm:min-h-[320px] lg:min-h-[270px]"
@@ -253,7 +248,7 @@ const WhoWeAre = () => {
                 className="absolute inset-0 h-full w-full object-fit "
               />
 
-              {/* Floating Overlay Badge with Highlighted Text */}
+              
               <motion.div
                 variants={fadeUpVariants}
                 className="absolute max-sm:-bottom-10  left-4 right-4 rounded-2xl border border-white/20 bg-[#06182E]/90 p-4 backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-5"
@@ -278,7 +273,7 @@ const WhoWeAre = () => {
               </motion.div>
             </motion.div>
 
-            {/* 3 Highlighted Micro-Feature Cards */}
+            
             <motion.div
               variants={containerVariants}
               className="sm:mt-4 mt-14 grid grid-cols-3 gap-3"
@@ -309,7 +304,7 @@ const WhoWeAre = () => {
               })}
             </motion.div>
 
-            {/* Bottom Guarantee Banner */}
+            
             <motion.div
               variants={fadeUpVariants}
               whileHover={hoverLift}
@@ -323,7 +318,7 @@ const WhoWeAre = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT COLUMN: EXPERTISE & HIGHLIGHTS */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -331,7 +326,7 @@ const WhoWeAre = () => {
             viewport={viewport}
             className="flex min-w-0 flex-col rounded-3xl border border-[#DCE3EC] bg-[#FBF8F2] p-5 sm:p-7 lg:p-8"
           >
-            {/* Top Expertise Tag */}
+            
             <motion.span
               variants={fadeUpVariants}
               className="inline-flex w-fit items-center gap-2 rounded-full border border-[#DCE3EC] bg-white px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-[#8A6212]"
@@ -340,7 +335,7 @@ const WhoWeAre = () => {
               Our Core Expertise
             </motion.span>
 
-            {/* Sub-Headline with Gold Accent */}
+            
             <motion.h3
               variants={fadeUpVariants}
               className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-[#06182E] sm:text-3xl"
@@ -351,7 +346,7 @@ const WhoWeAre = () => {
               </span>
             </motion.h3>
 
-            {/* Paragraph 1 */}
+            
             <motion.p
               variants={fadeUpVariants}
               className="mt-4 text-[13.5px] leading-relaxed text-[#06182E]/80 sm:text-[14.5px]"
@@ -363,7 +358,7 @@ const WhoWeAre = () => {
               <strong className="font-bold text-[#8A6212]">mirror-clear results</strong> across diverse stainless alloys.
             </motion.p>
 
-            {/* Paragraph 2 */}
+            
             <motion.p
               variants={fadeUpVariants}
               className="mt-3 text-[13.5px] leading-relaxed text-[#06182E]/80 sm:text-[14.5px]"
@@ -374,7 +369,7 @@ const WhoWeAre = () => {
               <span className="font-bold text-[#8A6212]">extended wheel life</span>.
             </motion.p>
 
-            {/* 3 Company Highlights Cards with Keyword Highlighting */}
+            
             <motion.div
               variants={containerVariants}
               className="mt-6 space-y-3.5"
@@ -389,12 +384,12 @@ const WhoWeAre = () => {
                     whileHover={hoverLift}
                     className="group flex items-start gap-3.5 rounded-2xl border border-[#DCE3EC] bg-white p-3.5 sm:p-4 shadow-sm transition-all duration-300 hover:border-[#B8862B]/50 hover:shadow-md"
                   >
-                    {/* Icon Box */}
+                    
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#06182E] text-white transition-colors duration-300 group-hover:bg-[#B8862B]">
                       <Icon size={20} strokeWidth={1.8} />
                     </div>
 
-                    {/* Text Details */}
+                    
                     <div className="min-w-0">
                       <h4 className="text-[14.5px] font-bold text-[#06182E] transition-colors group-hover:text-[#8A6212] sm:text-base">
                         {item.title}
@@ -409,7 +404,7 @@ const WhoWeAre = () => {
               })}
             </motion.div>
 
-            {/* Bottom Action CTA Buttons */}
+            
             <motion.div
               variants={fadeUpVariants}
               className="mt-6 pt-5 border-t border-[#E5E7EB]"

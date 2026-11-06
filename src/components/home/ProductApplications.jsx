@@ -27,9 +27,6 @@ import D from '../../assets/images/Rust&ScaleRemoval.png'
 import E from '../../assets/images/WeldSeamFinishing.png'
 import F from '../../assets/images/Buffing&FinalGloss.png'
 
-/* =========================================================
-   ANIMATION VARIANTS
-========================================================= */
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -71,12 +68,7 @@ const cardItem = {
   },
 };
 
-/* =========================================================
-   APPLICATIONS DATA
 
-   NOTE: overview, benefits, recommended and suitableFor below are
-   placeholder copy. Replace them with your real product information.
-========================================================= */
 
 const applications = [
   {
@@ -208,9 +200,7 @@ const applications = [
   },
 ];
 
-/* =========================================================
-   APPLICATION MODAL
-========================================================= */
+
 
 const ApplicationModal = ({ application, onClose, reduce }) => {
   const closeRef = useRef(null);
@@ -228,14 +218,14 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      {/* Backdrop */}
+      
       <div
         className="absolute inset-0 bg-[#06182E]/80 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Panel */}
+      
       <motion.div
         role="dialog"
         aria-modal="true"
@@ -246,7 +236,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
         transition={{ duration: 0.4, ease: EASE }}
         className="relative z-10 flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-t-3xl bg-white shadow-[0_30px_80px_rgba(6,24,46,0.45)] sm:rounded-3xl md:flex-row"
       >
-        {/* Close button */}
+        
         <button
           ref={closeRef}
           type="button"
@@ -257,7 +247,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
           <X size={18} />
         </button>
 
-        {/* Image side */}
+        
         <div className="relative h-52 shrink-0 overflow-hidden bg-[#E2E8F0] sm:h-64 md:h-auto md:w-[42%]">
           <img
             src={application.image}
@@ -275,7 +265,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
           </div>
         </div>
 
-        {/* Details side */}
+        
         <div className="flex-1 overflow-y-auto p-6 sm:p-8">
           <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8A6212]">
             Application Details
@@ -296,7 +286,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
             {application.overview}
           </p>
 
-          {/* Benefits */}
+          
           <div className="mt-6">
             <h4 className="text-sm font-bold uppercase tracking-[0.12em] text-[#06182E]">
               Key Benefits
@@ -320,7 +310,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
             </ul>
           </div>
 
-          {/* Recommended products */}
+          
           <div className="mt-6">
             <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#06182E]">
               <Package size={15} className="text-[#B8862B]" />
@@ -338,7 +328,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
             </div>
           </div>
 
-          {/* Suitable for */}
+          
           <div className="mt-6">
             <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-[#06182E]">
               <Hammer size={15} className="text-[#B8862B]" />
@@ -356,7 +346,7 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
             </div>
           </div>
 
-          {/* Actions */}
+          
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <motion.a
               href={`/contact?application=${encodeURIComponent(application.title)}`}
@@ -386,15 +376,12 @@ const ApplicationModal = ({ application, onClose, reduce }) => {
   );
 };
 
-/* =========================================================
-   PRODUCT APPLICATIONS COMPONENT
-========================================================= */
 
 const ProductApplications = () => {
   const reduce = useReducedMotion();
   const [selected, setSelected] = useState(null);
 
-  /* lock body scroll + close on Escape while modal is open */
+  
   useEffect(() => {
     if (!selected) return undefined;
 
@@ -414,13 +401,13 @@ const ProductApplications = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#F5F6F8] py-8 sm:py-10">
-      {/* Google font for cursive typography */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* Ambient Floating Glow & Orbital Ring */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -442,11 +429,9 @@ const ProductApplications = () => {
         className="pointer-events-none absolute -left-28 top-6 z-0 h-[360px] w-[360px] rounded-full border border-[#B8862B]/15"
       />
 
-      {/* Main Container */}
+      
       <div className="relative z-10  px-4 sm:px-8 lg:px-12">
-        {/* ===================================================
-            SECTION HEADER
-        =================================================== */}
+  
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -455,7 +440,7 @@ const ProductApplications = () => {
           className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between"
         >
           <div>
-            {/* Top Subtitle with Gold Dash */}
+            
             <motion.div variants={fadeUp} className="mb-2 flex items-center gap-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -469,7 +454,7 @@ const ProductApplications = () => {
               </p>
             </motion.div>
 
-            {/* EXPANDED HEADING WITH CURSIVE ACCENT */}
+            
             <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-[#06182E] sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -508,9 +493,6 @@ const ProductApplications = () => {
           </motion.p>
         </motion.div>
 
-        {/* ===================================================
-            APPLICATIONS GRID (6 Cards)
-        =================================================== */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -540,7 +522,7 @@ const ProductApplications = () => {
                 }}
                 className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-[0_6px_20px_rgba(6,24,46,0.04)] transition-all duration-300 hover:border-[#B8862B]/60 hover:shadow-[0_16px_36px_rgba(6,24,46,0.1)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E0B04A] focus-visible:ring-offset-2"
               >
-                {/* Image Container with Badges */}
+                
                 <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-[#06182E]/5">
                   <img
                     src={application.image}
@@ -549,10 +531,10 @@ const ProductApplications = () => {
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
 
-                  {/* Gradient overlay */}
+                  
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06182E]/55 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
 
-                  {/* Hover "View details" hint */}
+                  
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#06182E]/35 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <span className="inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#06182E]">
                       <Eye size={15} className="text-[#B8862B]" />
@@ -560,18 +542,18 @@ const ProductApplications = () => {
                     </span>
                   </div>
 
-                  {/* Top-Left: Frosted Icon Badge */}
+                  
                   <div className="absolute left-3.5 top-3.5 flex h-9 w-9 items-center justify-center rounded-xl border border-white/30 bg-white/90 text-[#06182E] shadow-sm backdrop-blur-md transition-colors duration-300 group-hover:bg-[#06182E] group-hover:text-[#E0B04A]">
                     <Icon size={18} strokeWidth={1.8} />
                   </div>
 
-                  {/* Top-Right: Number ID Tag */}
+                  
                   <div className="absolute right-3.5 top-3.5 rounded-md border border-white/20 bg-[#06182E]/85 px-2.5 py-0.5 text-[11px] font-extrabold tracking-widest text-[#E0B04A] shadow-sm backdrop-blur-md">
                     {application.id}
                   </div>
                 </div>
 
-                {/* Content Area */}
+                
                 <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
                   <div>
                     <div className="flex items-center justify-between gap-3">
@@ -591,7 +573,7 @@ const ProductApplications = () => {
                     </p>
                   </div>
 
-                  {/* Bottom Accent Line */}
+                  
                   <div className="mt-4 h-[2px] w-8 rounded-full bg-[#E5E7EB] transition-all duration-300 group-hover:w-14 group-hover:bg-[linear-gradient(90deg,#9A6B12,#E0B04A)]" />
                 </div>
               </motion.div>
@@ -600,9 +582,7 @@ const ProductApplications = () => {
         </motion.div>
       </div>
 
-      {/* ===================================================
-          APPLICATION DETAILS MODAL
-      =================================================== */}
+
       <AnimatePresence>
         {selected && (
           <ApplicationModal

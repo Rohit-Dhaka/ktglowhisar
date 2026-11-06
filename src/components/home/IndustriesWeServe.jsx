@@ -57,9 +57,7 @@ const cardItem = {
   },
 };
 
-/* =========================================================
-   INDUSTRIES DATA
-========================================================= */
+
 
 const industries = [
   {
@@ -106,24 +104,21 @@ const industries = [
   },
 ];
 
-/* =========================================================
-   INDUSTRIES WE SERVE COMPONENT
-========================================================= */
 
 const IndustriesWeServe = () => {
   const reduce = useReducedMotion();
 
   return (
     <section className="relative w-full overflow-hidden bg-[#F5F6F8] py-8 sm:py-10">
-      {/* Google font for cursive typography */}
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
       />
 
-      {/* =====================================================
-          BACKGROUND IMAGE + LUXURY FROSTED OVERLAY
-      ====================================================== */}
+      
+          
+      
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <img
           src={bgImage}
@@ -131,11 +126,11 @@ const IndustriesWeServe = () => {
           className="h-full w-full object-cover object-center opacity-15"
           loading="lazy"
         />
-        {/* Soft gradient wash preserving sharp text contrast */}
+        
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F6F8]/95 via-[#F5F6F8]/85 to-[#F5F6F8]/98 backdrop-blur-[2px]" />
       </div>
 
-      {/* Ambient Floating Glow Orb */}
+      
       <motion.div
         aria-hidden="true"
         animate={
@@ -150,13 +145,13 @@ const IndustriesWeServe = () => {
         className="pointer-events-none absolute -left-20 top-1/3 z-0 h-[300px] w-[300px] rounded-full bg-[#E0B04A]/20 blur-[100px] lg:h-[450px] lg:w-[450px]"
       />
 
-      {/* =====================================================
-          MAIN CONTAINER
-      ====================================================== */}
+      
+          
+      
       <div className="relative z-10  px-4 sm:px-8 lg:px-12">
-        {/* ===================================================
-            SECTION HEADER
-        =================================================== */}
+        
+            
+        
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -165,7 +160,7 @@ const IndustriesWeServe = () => {
           className="mb-8 grid grid-cols-1 gap-5 lg:mb-10 lg:grid-cols-[1fr_0.68fr] lg:items-end"
         >
           <div>
-            {/* Top Subtitle with Gold Dash */}
+            
             <motion.div variants={fadeUp} className="mb-2 flex items-center gap-3">
               <motion.span
                 initial={{ width: 0 }}
@@ -179,7 +174,7 @@ const IndustriesWeServe = () => {
               </p>
             </motion.div>
 
-            {/* EXPANDED MAIN HEADING WITH CURSIVE HIGHLIGHT */}
+            
             <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-tight text-[#06182E] sm:text-[44px] lg:text-[52px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -218,9 +213,7 @@ const IndustriesWeServe = () => {
           </motion.p>
         </motion.div>
 
-        {/* ===================================================
-            INDUSTRY CARDS GRID
-        =================================================== */}
+       
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -240,7 +233,7 @@ const IndustriesWeServe = () => {
                 className="group relative flex flex-col justify-between rounded-2xl border border-[#E5E7EB] bg-white/90 p-4 shadow-[0_6px_20px_rgba(6,24,46,0.04)] backdrop-blur-md transition-all duration-300 hover:border-[#B8862B]/50 hover:bg-white hover:shadow-[0_14px_34px_rgba(6,24,46,0.09)] sm:p-5"
               >
                 <div>
-                  {/* Card Header: Icon Box + ID Badge */}
+                  
                   <div className="mb-4 flex items-center justify-between">
                     <motion.div
                       whileHover={{ scale: 1.12, rotate: 6 }}
@@ -255,7 +248,7 @@ const IndustriesWeServe = () => {
                     </span>
                   </div>
 
-                  {/* Card Content & Hover Arrow */}
+                  
                   <div className="flex items-start justify-between gap-2.5">
                     <div>
                       <h3 className="text-[16.5px] font-bold text-[#06182E] transition-colors duration-300 group-hover:text-[#9A6B12] sm:text-[17.5px]">
@@ -275,7 +268,7 @@ const IndustriesWeServe = () => {
                   </div>
                 </div>
 
-                {/* Animated Bottom Accent Line */}
+                
                 <div className="mt-4 h-[2px] w-8 rounded-full bg-[#E5E7EB] transition-all duration-400 group-hover:w-16 group-hover:bg-[linear-gradient(90deg,#9A6B12,#E0B04A)]" />
               </motion.div>
             );

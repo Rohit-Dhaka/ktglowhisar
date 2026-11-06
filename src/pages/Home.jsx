@@ -1,9 +1,8 @@
 import AboutSection from "../components/home/AboutSection";
 import Hero from "../components/home/Hero";
-// import IndustriesWeServe from "../components/home/IndustriesWeServe";
+
 import ManufacturingProcess from "../components/home/ManufacturingProcess";
 import ProductApplications from "../components/home/ProductApplications";
-
 import ProductsSection from "../components/home/ProductsSection";
 import SEO from "../components/SEO";
 import WhyChooseUs from "../components/home/WhyChooseUs";
@@ -23,8 +22,7 @@ const Home = () => {
       <Hero />
       <AboutSection />
       <WhyChooseUs />
-      <ProductsSection />
-      {/* <IndustriesWeServe /> */}
+      <ProductsSection />      
       <ManufacturingProcess />
       <ProductApplications />
       <Testimonials/>

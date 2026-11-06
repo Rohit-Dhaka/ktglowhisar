@@ -13,7 +13,6 @@ import ContactImg from "../../assets/images/contactHero.png";
 
 const EASE = [0.22, 1, 0.36, 1];
 
-
 const CONTACT = {
   phone: "+919728303738",
   phoneDisplay: "+91 97283 03738",
@@ -66,8 +65,6 @@ const ContactHero = () => {
 
   return (
     <section className="relative isolate flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-[#06182E]">
-      
-      
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -83,15 +80,15 @@ const ContactHero = () => {
         </div>
       </motion.div>
 
-      
       <motion.div
         aria-hidden="true"
-        animate={reduce ? undefined : { opacity: [0.3, 0.55, 0.3], scale: [1, 1.1, 1] }}
+        animate={
+          reduce ? undefined : { opacity: [0.3, 0.55, 0.3], scale: [1, 1.1, 1] }
+        }
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-[#E0B04A]/20 blur-3xl"
       />
 
-      
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-4 -bottom-6 select-none whitespace-nowrap text-center font-serif text-[18vw] font-bold leading-none text-transparent lg:inset-x-10 lg:-bottom-12 lg:text-[18vw]"
@@ -100,18 +97,14 @@ const ContactHero = () => {
         CONTACT
       </span>
 
-      
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
-          
-          
           <motion.div
             variants={container}
             initial="hidden"
             animate="visible"
             className="lg:col-span-7"
           >
-            
             <motion.div
               variants={fadeUp}
               className="mb-5 flex items-center gap-3.5"
@@ -125,7 +118,6 @@ const ContactHero = () => {
               </span>
             </motion.div>
 
-            
             <h1 className="text-3xl font-extrabold leading-[1.14] tracking-tight text-white sm:text-5xl md:text-5xl lg:text-[54px] xl:text-[58px]">
               <span className="block overflow-hidden pb-1">
                 <motion.span variants={lineReveal} className="block">
@@ -142,7 +134,6 @@ const ContactHero = () => {
               </span>
             </h1>
 
-            
             <motion.p
               variants={fadeUp}
               className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base sm:leading-7"
@@ -152,7 +143,6 @@ const ContactHero = () => {
               product enquiries and technical support to business opportunities.
             </motion.p>
 
-            
             <motion.div
               variants={fadeUp}
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
@@ -188,9 +178,7 @@ const ContactHero = () => {
             </motion.div>
           </motion.div>
 
-          
           <div className="relative mx-auto w-full max-w-[340px] sm:max-w-sm lg:col-span-5 lg:max-w-md">
-            
             <motion.div
               aria-hidden="true"
               initial={{ opacity: 0, scale: reduce ? 1 : 0.94 }}
@@ -199,9 +187,10 @@ const ContactHero = () => {
               className="absolute -inset-3 rounded-t-[999px] rounded-b-[2rem] border border-dashed border-[#E0B04A]/40"
             />
 
-            
             <motion.div
-              initial={{ clipPath: reduce ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)" }}
+              initial={{
+                clipPath: reduce ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)",
+              }}
               animate={{ clipPath: "inset(0% 0 0 0)" }}
               transition={{ duration: 1.2, delay: 0.25, ease: EASE }}
               className="relative h-[400px] overflow-hidden rounded-t-[999px] rounded-b-[2rem] border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] sm:h-[500px]"
@@ -217,48 +206,50 @@ const ContactHero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#06182E]/70 via-transparent to-[#06182E]/10" />
             </motion.div>
 
-            
-       <motion.div
-  initial={{ opacity: 0, scale: 0.6 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.7, delay: 0.9, ease: EASE }}
-  className="absolute -right-1 top-6 sm:-right-8 sm:top-10"
->
-  <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E] sm:h-28 sm:w-28">
-    <motion.svg
-      viewBox="0 0 200 200"
-      aria-hidden="true"
-      animate={reduce ? undefined : { rotate: 360 }}
-      transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-      className="absolute inset-0 h-full w-full"
-    >
-      <defs>
-        <path
-          id="contact-badge-circle"
-          d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
-        />
-      </defs>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.9, ease: EASE }}
+              className="absolute -right-1 top-6 sm:-right-8 sm:top-10"
+            >
+              <div className="relative flex h-20 w-20 items-center justify-center rounded-full border border-[#E0B04A]/40 bg-[#06182E] sm:h-28 sm:w-28">
+                <motion.svg
+                  viewBox="0 0 200 200"
+                  aria-hidden="true"
+                  animate={reduce ? undefined : { rotate: 360 }}
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="absolute inset-0 h-full w-full"
+                >
+                  <defs>
+                    <path
+                      id="contact-badge-circle"
+                      d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"
+                    />
+                  </defs>
 
-      <text
-        fill="#E0B04A"
-        fontSize="17"
-        fontWeight="700"
-        letterSpacing="4"
-      >
-        <textPath href="#contact-badge-circle">
-          GET IN TOUCH • KT GLOW • GET IN TOUCH •
-        </textPath>
-      </text>
-    </motion.svg>
+                  <text
+                    fill="#E0B04A"
+                    fontSize="17"
+                    fontWeight="700"
+                    letterSpacing="4"
+                  >
+                    <textPath href="#contact-badge-circle">
+                      GET IN TOUCH • KT GLOW • GET IN TOUCH •
+                    </textPath>
+                  </text>
+                </motion.svg>
 
-    <ArrowUpRight
-      size={20}
-      className="text-[#E0B04A] sm:h-[26px] sm:w-[26px]"
-    />
-  </div>
-</motion.div>
+                <ArrowUpRight
+                  size={20}
+                  className="text-[#E0B04A] sm:h-[26px] sm:w-[26px]"
+                />
+              </div>
+            </motion.div>
 
-            
             <motion.a
               href={`tel:${CONTACT.phone}`}
               initial={{ opacity: 0, y: reduce ? 0 : 30 }}
@@ -268,7 +259,11 @@ const ContactHero = () => {
             >
               <motion.div
                 animate={reduce ? undefined : { y: [0, -8, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="flex items-center gap-3 rounded-2xl border border-white/15 bg-[#06182E]/80 px-4 py-3 shadow-2xl backdrop-blur-md transition-colors hover:border-[#E0B04A]/60"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-[#D49A2A] to-[#F0C968] text-[#06182E]">
@@ -287,7 +282,6 @@ const ContactHero = () => {
           </div>
         </div>
 
-        
         <motion.div
           initial={{ opacity: 0, y: reduce ? 0 : 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -316,7 +310,6 @@ const ContactHero = () => {
         </motion.div>
       </div>
 
-      
       <div className="absolute bottom-0 left-0 h-px w-full bg-white/15" />
     </section>
   );
