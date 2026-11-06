@@ -5,7 +5,7 @@ const COMPANY = {
   firm: "Thalor Manufacturer",
   phone: "+919728303738",
   email: "vikash61289@gmail.com",
-  address: "Plot No. 10, Fees Market, Industrial Area, Hisar, Haryana",
+  address: "Industrial area Jindal Pul Fees Market Hisar",
 };
 
 const LAST_UPDATED = "3 November 2026";
