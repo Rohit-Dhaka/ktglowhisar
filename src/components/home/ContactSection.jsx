@@ -65,7 +65,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Plant & Office Location",
-    value: "Plot No. 10, Fees Market, Industrial Area, Hisar, Haryana",
+    value: "Industrial area Jindal Pul, Fees Market, Hisar",
     href: "https://www.google.com/maps/search/?api=1&query=Plot+No+10+Fees+Market+Industrial+Area+Hisar+Haryana",
   },
 ];

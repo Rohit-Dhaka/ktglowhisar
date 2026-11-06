@@ -22,7 +22,7 @@ const CONTACT = {
   phone: "+919728303738",
   phoneDisplay: "+91 97283 03738",
   email: "vikash61289@gmail.com",
-  location: "Industrial Area, Hisar, Haryana",
+  location: "Industrial area Jindal Pul, Fees Market, Hisar",
   firm: "Thalor Manufacturer",
 };
 

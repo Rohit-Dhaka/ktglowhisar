@@ -53,11 +53,11 @@ const COMPANY = {
   phone: "+919728303738",
   phoneDisplay: "+91 97283 03738",
   email: "vikash61289@gmail.com",
-  address: "Industrial area Jindal Pul Fees Market Hisar",
+  address: "Industrial area Jindal Pul, Fees Market, Hisar",
 };
 
 const MAP_QUERY = encodeURIComponent(
-  "Plot No 10, Fees Market, Industrial Area, Hisar, Haryana"
+  "Industrial area Jindal Pul, Fees Market, Hisar"
 );
 
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&output=embed`;
@@ -318,7 +318,7 @@ const LocationSection = () => {
               <div className="pointer-events-none absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/40 bg-white/95 px-3.5 py-1.5 text-xs font-bold text-[#06182E] shadow-md backdrop-blur-md">
                 <MapPin size={15} className="text-[#9A6B12]" />
                 <span>
-                  Industrial area Jindal Pul Fees Market Hisar
+                  Industrial area Jindal Pul, Fees Market, Hisar
                 </span>
               </div>
 

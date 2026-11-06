@@ -43,11 +43,11 @@ const COMPANY = {
   phone: "+919728303738",
   phoneDisplay: "+91 97283 03738",
   email: "vikash61289@gmail.com",
-  address: "Industrial area Jindal Pul Fees Market Hisar",
+  address: "Industrial area Jindal Pul, Fees Market, Hisar",
 };
 
 const MAP_QUERY = encodeURIComponent(
-  "Plot No 10, Fees Market, Industrial Area, Hisar, Haryana",
+  "Industrial area Jindal Pul, Fees Market, Hisar",
 );
 
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${MAP_QUERY}&output=embed`;
