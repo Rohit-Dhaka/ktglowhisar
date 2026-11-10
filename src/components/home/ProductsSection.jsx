@@ -14,9 +14,9 @@ import Cutting3 from "../../assets/productimg/Cutting & Grinding Wheels3.png";
 
 import Two from "../../assets/images/2.png";
 
-import Fiber1 from "../../assets/productimg/Fiber Discs1.png";
-import Fiber2 from "../../assets/productimg/Fiber Discs2.png";
-import Fiber3 from "../../assets/productimg/Fiber Discs3.png";
+import Fiber1 from "../../assets/productimg/FiberDiscs1.png";
+import Fiber2 from "../../assets/productimg/FiberDiscs2.png";
+import Fiber3 from "../../assets/productimg/FiberDiscs3.png";
 
 import NonWoven1 from "../../assets/productimg/Non-Woven Polishing Wheels1.png";
 import NonWoven2 from "../../assets/productimg/Non-Woven Polishing Wheels2.png";
