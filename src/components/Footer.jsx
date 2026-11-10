@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Logo from "../assets/images/Logo.png";
@@ -11,13 +10,11 @@ import {
   Sparkles,
 } from "lucide-react";
 
-
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
   </svg>
 );
-
 
 const InstagramIcon = () => (
   <svg
@@ -36,13 +33,11 @@ const InstagramIcon = () => (
   </svg>
 );
 
-
 const LinkedinIcon = () => (
   <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.85 6.28a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z" />
   </svg>
 );
-
 
 const YoutubeIcon = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -50,6 +45,16 @@ const YoutubeIcon = () => (
   </svg>
 );
 
+const WhatsAppIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    className="h-6 w-6 sm:h-7 sm:w-7"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.46 0 .1 5.36.1 11.95c0 2.1.55 4.15 1.6 5.95L0 24l6.27-1.64a11.9 11.9 0 0 0 5.78 1.48h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.19-1.24-6.19-3.49-8.41ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.72.97.99-3.63-.24-.37a9.87 9.87 0 0 1-1.52-5.23c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.12 1.03 6.99 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.41c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.52s1.08 2.92 1.23 3.12c.15.2 2.12 3.23 5.13 4.53.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z" />
+  </svg>
+);
 
 const COMPANY = {
   brand: "KT Glow",
@@ -62,7 +67,6 @@ const COMPANY = {
   address: "Industrial area Jindal Pul, Fees Market, Hisar",
 };
 
-
 const WHATSAPP_MESSAGE =
   "Hello KT Glow, I am interested in your steel polishing and abrasive products. Please share more details.";
 
@@ -70,7 +74,6 @@ const WHATSAPP_URL = `https://wa.me/${COMPANY.phone.replace(
   "+",
   ""
 )}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-
 
 const socialLinks = [
   {
@@ -94,7 +97,6 @@ const socialLinks = [
     href: "https://www.youtube.com",
   },
 ];
-
 
 const footerLinks = {
   quickLinks: [
@@ -137,7 +139,6 @@ const footerLinks = {
   ],
 };
 
-
 const contactItems = [
   {
     icon: User,
@@ -175,7 +176,6 @@ const legalLinks = [
   },
 ];
 
-
 const FooterLinkList = ({ title, links }) => (
   <div>
     <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#E0B04A]">
@@ -199,6 +199,56 @@ const FooterLinkList = ({ title, links }) => (
   </div>
 );
 
+/* Floating WhatsApp button: pure CSS animation (works even with reduce-motion on) */
+const WhatsAppFloat = () => (
+  <>
+    <style>{`
+      @keyframes kt-wa-ripple {
+        0%   { transform: scale(1);   opacity: 0.55; }
+        100% { transform: scale(2.2); opacity: 0; }
+      }
+      @keyframes kt-wa-jump {
+        0%   { transform: translateY(0)     scale(1); }
+        12%  { transform: translateY(-16px) scale(1.12); }
+        24%  { transform: translateY(0)     scale(1); }
+        34%  { transform: translateY(-9px)  scale(1.07); }
+        44%  { transform: translateY(0)     scale(1); }
+        100% { transform: translateY(0)     scale(1); }
+      }
+      .kt-wa-ripple {
+        opacity: 0;
+        animation: kt-wa-ripple 2.7s ease-out infinite backwards;
+      }
+      .kt-wa-jump {
+        animation: kt-wa-jump 3.2s ease-out infinite;
+      }
+    `}</style>
+
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with KT Glow on WhatsApp"
+      title="Chat with us on WhatsApp"
+      className="fixed bottom-5 right-5 z-[9999] flex h-12 w-12 items-center justify-center transition-transform duration-200 hover:scale-110 active:scale-95 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
+    >
+      {/* Bubbling ripple rings */}
+      {[0, 0.9, 1.8].map((delay) => (
+        <span
+          key={delay}
+          aria-hidden="true"
+          className="kt-wa-ripple pointer-events-none absolute inset-0 rounded-full bg-[#25D366]"
+          style={{ animationDelay: `${delay}s` }}
+        />
+      ))}
+
+      {/* Button body: scale + double jump */}
+      <span className="kt-wa-jump relative flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.45)] transition-colors duration-300 hover:bg-[#20BA5A]">
+        <WhatsAppIcon />
+      </span>
+    </a>
+  </>
+);
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -212,7 +262,6 @@ const Footer = () => {
           href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
         />
 
-        
         <motion.div
           aria-hidden="true"
           animate={
@@ -242,9 +291,7 @@ const Footer = () => {
         />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
-          
           <div className="grid grid-cols-1 gap-10 py-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-12 lg:gap-8 lg:py-14">
-            
             <div className="sm:col-span-2 lg:col-span-4">
               <Link to="/" aria-label="KT Glow Home" className="inline-block">
                 <img
@@ -300,7 +347,6 @@ const Footer = () => {
                 </Link>
               </div>
 
-              
               <div className="mt-6">
                 <p className="mb-2.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#E0B04A]">
                   Follow &amp; Connect
@@ -332,7 +378,6 @@ const Footer = () => {
               </div>
             </div>
 
-            
             <div className="lg:col-span-2">
               <FooterLinkList
                 title="Explore"
@@ -340,7 +385,6 @@ const Footer = () => {
               />
             </div>
 
-            
             <div className="lg:col-span-3">
               <FooterLinkList
                 title="Abrasives Range"
@@ -348,7 +392,6 @@ const Footer = () => {
               />
             </div>
 
-            
             <div className="lg:col-span-3">
               <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#E0B04A]">
                 Get In Touch
@@ -391,9 +434,7 @@ const Footer = () => {
             </div>
           </div>
 
-          
           <div className="flex flex-col gap-4 border-t border-white/10 py-5 sm:py-6 md:flex-row md:items-center md:justify-between">
-            
             <p className="text-xs text-white/60">
               © {currentYear}{" "}
               <span className="font-bold text-[#E0B04A]">
@@ -402,7 +443,6 @@ const Footer = () => {
               · {COMPANY.firm}. All rights reserved.
             </p>
 
-            
             <p className="text-xs text-white/60">
               Designed &amp; Developed by{" "}
               <a
@@ -415,7 +455,6 @@ const Footer = () => {
               </a>
             </p>
 
-            
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               {legalLinks.map((link) => (
                 <Link
@@ -436,29 +475,8 @@ const Footer = () => {
         </div>
       </footer>
 
-      
-      <motion.a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with KT Glow on WhatsApp"
-        title="Chat with us on WhatsApp"
-        initial={{ opacity: 0, scale: 0.7 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        whileHover={reduce ? undefined : { scale: 1.08 }}
-        whileTap={reduce ? undefined : { scale: 0.95 }}
-        className="fixed bottom-5 right-5 z-[9999] flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#25D366] text-white transition-colors duration-300 hover:bg-[#20BA5A] sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6 sm:h-7 sm:w-7"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.46 0 .1 5.36.1 11.95c0 2.1.55 4.15 1.6 5.95L0 24l6.27-1.64a11.9 11.9 0 0 0 5.78 1.48h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.19-1.24-6.19-3.49-8.41ZM12.05 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.72.97.99-3.63-.24-.37a9.87 9.87 0 0 1-1.52-5.23c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.12 1.03 6.99 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.41c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.52s1.08 2.92 1.23 3.12c.15.2 2.12 3.23 5.13 4.53.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z" />
-        </svg>
-      </motion.a>
+      {/* Floating WhatsApp button (outside footer so overflow-hidden never clips it) */}
+      <WhatsAppFloat />
     </>
   );
 };

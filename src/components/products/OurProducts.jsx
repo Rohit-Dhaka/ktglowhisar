@@ -37,8 +37,6 @@ import Fiber3 from "../../assets/productimg/FiberDiscs3.png";
 import NonWoven1 from "../../assets/productimg/Non-Woven Polishing Wheels1.png";
 import NonWoven2 from "../../assets/productimg/Non-Woven Polishing Wheels2.png";
 import NonWoven3 from "../../assets/productimg/Non-Woven Polishing Wheels3.png";
-
-
 import Buffing1 from "../../assets/productimg/Polishing & Buffing Wheels1.png";
 import Buffing2 from "../../assets/productimg/Polishing & Buffing Wheels2.png";
 import Buffing3 from "../../assets/productimg/Polishing & Buffing Wheels3.png";
